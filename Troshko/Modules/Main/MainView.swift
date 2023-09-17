@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainView: View {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(.white)
+    }
     var body: some View {
         TabView {
             ExpensesView()

@@ -1,3 +1,22 @@
-// MARK: - GENERAL
+// MARK: - General
 "EXPENSES.TITLE" = "Expenses";
 "CATEGORIES.TITLE" = "Categories";
+
+// MARK: - WORDING
+"WORDING_CANCEL" = "Cancel";
+"WORDING_ADD" = "Add";
+"WORDING_EDIT" = "Add";
+"WORDING_DELETE" = "Delete";
+
+// MARK: - Add expense
+"ADD_EXPENSE" = "Add Expense";
+"ADD_EXPENSE.TITLE" = "Title";
+"ADD_EXPENSE.TITLE.PLACEHOLDER" = "Bracelet";
+
+
+"ADD_EXPENSE.DESCRIPTION" = "Description";
+"ADD_EXPENSE.DESCRIPTION.PLACEHOLDER" = "Bought for Amila's birthday";
+
+"ADD_EXPENSE.PRICE" = "Price";
+
+"ADD_EXPENSE.DATE" = "Date";
