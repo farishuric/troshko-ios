@@ -11,8 +11,8 @@ struct CategoriesView: View {
     var body: some View {
         VStack {
             NavigationView {
-                Text("Hello Categories")
-                    .navigationTitle("Categories")
+                Text("Hello \("CATEGORIES.TITLE".localized)")
+                    .navigationTitle("EXPENSES.TITLE".localized)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Image(systemName: "plus")

@@ -12,11 +12,11 @@ struct MainView: View {
         TabView {
             ExpensesView()
                 .tabItem {
-                    Label("Expenses", systemImage: "creditcard")
+                    Label("EXPENSES.TITLE".localized, systemImage: "creditcard")
                 }
             CategoriesView()
                 .tabItem {
-                    Label("Categories", systemImage: "archivebox.fill")
+                    Label("CATEGORIES.TITLE".localized, systemImage: "archivebox.fill")
                 }
         }
         

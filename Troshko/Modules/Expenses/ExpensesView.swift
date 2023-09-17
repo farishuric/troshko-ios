@@ -11,8 +11,8 @@ struct ExpensesView: View {
     var body: some View {
         VStack {
             NavigationView {
-                Text("Hello Expenses")
-                    .navigationTitle("Expenses")
+                Text("Hello \("EXPENSES.TITLE".localized)")
+                    .navigationTitle("EXPENSES.TITLE".localized)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Label("", systemImage: "plus")
