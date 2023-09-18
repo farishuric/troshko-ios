@@ -17,7 +17,34 @@ struct ExpensesView: View {
     @State private var isPresentingAddExpenses: Bool = false
     
     let testModels: [TestModel] = [
+        TestModel(
+            title: "iPhone 13 Pro",
+            desc: "The latest iPhone model with advanced features.",
+            price: "999.99"
+        ),
+        TestModel(
+            title: "MacBook Air",
+            desc: "A lightweight and powerful laptop for everyday use.",
+            price: "1,199.00"
+        ),
+        TestModel(
+            title: "Sony 65-Inch 4K Ultra HD Smart LED TV",
+            desc: "A high-quality 4K TV with smart features.",
+            price: "1,299.99"
+        ),
+        TestModel(
+            title: "Bose QuietComfort 35 II Wireless Headphones",
+            desc: "Noise-canceling headphones for immersive audio experience.",
+            price: "299.00"
+        ),
+        TestModel(
+            title: "Dyson V11 Animal Cordless Vacuum Cleaner",
+            desc: "A powerful cordless vacuum for pet owners.",
+            price: "599.99"
+        ),
+        // Add more dummy data as needed
     ]
+
     
     var body: some View {
         VStack {

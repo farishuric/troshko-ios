@@ -8,25 +8,21 @@
 import SwiftUI
 
 struct AddExpensesView: View {
+    @ObservedObject private var addExpensesVM = AddExpensesViewModel()
     @Binding var isPresented: Bool
-    
-    @State private var title = ""
-    @State private var description = ""
-    @State private var price: CGFloat = 0.0
-    @State private var selectedDate = Date()
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("ADD_EXPENSE.TITLE.PLACEHOLDER".localized, text: $title)
+                    TextField("ADD_EXPENSE.TITLE.PLACEHOLDER".localized, text: $addExpensesVM.title)
                         .submitLabel(.next)
                 } header: {
                     Text("ADD_EXPENSE.TITLE".localized)
                 }
 
                 Section {
-                    TextField("ADD_EXPENSE.DESCRIPTION.PLACEHOLDER".localized, text: $description)
+                    TextField("ADD_EXPENSE.DESCRIPTION.PLACEHOLDER".localized, text: $addExpensesVM.description)
                         .submitLabel(.next)
                 } header: {
                     Text("ADD_EXPENSE.DESCRIPTION".localized)
@@ -35,7 +31,7 @@ struct AddExpensesView: View {
                 Section {
                     HStack(spacing: 4) {
                         Text("\(Locale.current.currencySymbol ?? "")")
-                        TextField("", value: $price, format: .currency(code: Locale.current.identifier))
+                        TextField("", value: $addExpensesVM.price, format: .currency(code: Locale.current.identifier))
                             .keyboardType(.decimalPad)
                     }
                 } header: {
@@ -43,7 +39,7 @@ struct AddExpensesView: View {
                 }
                 
                 Section {
-                    DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                    DatePicker("", selection: $addExpensesVM.selectedDate, displayedComponents: .date)
                         .datePickerStyle(.graphical)
                 } header: {
                     Text("ADD_EXPENSE.DATE".localized)
