@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct TroshkoApp: App {
+    // CoreData
+    private var coreDataManager: CoreDataManager = CoreDataManager()
+
     var body: some Scene {
         WindowGroup {
             MainView()

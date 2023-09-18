@@ -5,8 +5,9 @@
 // MARK: - WORDING
 "WORDING_CANCEL" = "Cancel";
 "WORDING_ADD" = "Add";
-"WORDING_EDIT" = "Add";
+"WORDING_EDIT" = "Edit";
 "WORDING_DELETE" = "Delete";
+"WORDING_UNKNOWN" = "Delete";
 
 // MARK: - Add expense
 "ADD_EXPENSE" = "Add Expense";
@@ -20,3 +21,9 @@
 "ADD_EXPENSE.PRICE" = "Price";
 
 "ADD_EXPENSE.DATE" = "Date";
+
+// MARK: - Categories
+"CATEGORIES.NO_DATA" = "No categories found";
+"CATEGORIES.ENTER.TITLE" = "New Category";
+"CATEGORIES.ENTER.MESSAGE" = "Enter a name for your new category";
+"CATEGORIES.PLACEHOLDER" = "Shopping";

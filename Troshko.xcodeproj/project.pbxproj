@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		AF11CA1E2AB7B67800BB21C9 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */; };
+		AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */; };
+		AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */; };
+		AF11CA2E2AB8567400BB21C9 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA2C2AB8567400BB21C9 /* Category+CoreDataClass.swift */; };
+		AF11CA2F2AB8567400BB21C9 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA2D2AB8567400BB21C9 /* Category+CoreDataProperties.swift */; };
+		AFC958312AB8BB48000D6C0B /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */; };
+		AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */; };
+		AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */; };
 		AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */; };
 		AFFECE552AB79098003FE8B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE542AB79098003FE8B9 /* Assets.xcassets */; };
 		AFFECE582AB79098003FE8B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE572AB79098003FE8B9 /* Preview Assets.xcassets */; };
@@ -16,13 +23,18 @@
 		AFFECE6E2AB792D1003FE8B9 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE6D2AB792D1003FE8B9 /* CategoriesView.swift */; };
 		AFFECE752AB79A97003FE8B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE772AB79A97003FE8B9 /* Localizable.strings */; };
 		AFFECE7A2AB79AA4003FE8B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE7C2AB79AA4003FE8B9 /* Localizable.strings */; };
-		AFFECE7F2AB79AEC003FE8B9 /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */; };
 		AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */; };
 		AFFECE862AB7A575003FE8B9 /* AddExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TroshkoData.xcdatamodel; sourceTree = "<group>"; };
+		AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		AF11CA2C2AB8567400BB21C9 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		AF11CA2D2AB8567400BB21C9 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
+		AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesViewModel.swift; sourceTree = "<group>"; };
 		AFFECE4D2AB79097003FE8B9 /* Troshko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Troshko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroshkoApp.swift; sourceTree = "<group>"; };
 		AFFECE542AB79098003FE8B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +75,49 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		AF11CA1F2AB83DD300BB21C9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				AFC958552AB8D459000D6C0B /* New Group */,
+				AF11CA232AB8400000BB21C9 /* Expenses */,
+				AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */,
+				AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		AF11CA232AB8400000BB21C9 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				AF11CA2C2AB8567400BB21C9 /* Category+CoreDataClass.swift */,
+				AF11CA2D2AB8567400BB21C9 /* Category+CoreDataProperties.swift */,
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		AFC9582F2AB8BB38000D6C0B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AFC958522AB8D33F000D6C0B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AFC958552AB8D459000D6C0B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		AFFECE442AB79097003FE8B9 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +137,7 @@
 		AFFECE4F2AB79097003FE8B9 /* Troshko */ = {
 			isa = PBXGroup;
 			children = (
+				AF11CA1F2AB83DD300BB21C9 /* CoreData */,
 				AFFECE642AB79110003FE8B9 /* Resources */,
 				AFFECE632AB7910D003FE8B9 /* Common */,
 				AFFECE5E2AB790F0003FE8B9 /* Modules */,
@@ -124,6 +180,7 @@
 		AFFECE612AB790F8003FE8B9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				AFC9582F2AB8BB38000D6C0B /* ViewModel */,
 				AFFECE6D2AB792D1003FE8B9 /* CategoriesView.swift */,
 			);
 			path = Categories;
@@ -189,6 +246,7 @@
 		AFFECE842AB7A568003FE8B9 /* Add expenses */ = {
 			isa = PBXGroup;
 			children = (
+				AFC958522AB8D33F000D6C0B /* ViewModel */,
 				AF11CA172AB7B0F800BB21C9 /* Models */,
 				AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */,
 			);
@@ -268,14 +326,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */,
+				AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */,
+				AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */,
+				AF11CA2F2AB8567400BB21C9 /* Category+CoreDataProperties.swift in Sources */,
+				AF11CA2E2AB8567400BB21C9 /* Category+CoreDataClass.swift in Sources */,
 				AFFECE6A2AB7926D003FE8B9 /* MainView.swift in Sources */,
 				AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */,
 				AFFECE6E2AB792D1003FE8B9 /* CategoriesView.swift in Sources */,
 				AFFECE6C2AB792BB003FE8B9 /* ExpensesView.swift in Sources */,
-				AFFECE7F2AB79AEC003FE8B9 /* String + Extensions.swift in Sources */,
+				AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */,
 				AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */,
 				AF11CA1E2AB7B67800BB21C9 /* BadgeView.swift in Sources */,
-				AFFECE7F2AB79AEC003FE8B9 /* String + Extensions.swift in Sources */,
+				AFC958312AB8BB48000D6C0B /* CategoriesViewModel.swift in Sources */,
 				AFFECE862AB7A575003FE8B9 /* AddExpensesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +559,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */,
+			);
+			currentVersion = AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */;
+			path = TroshkoData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AFFECE452AB79097003FE8B9 /* Project object */;
 }
