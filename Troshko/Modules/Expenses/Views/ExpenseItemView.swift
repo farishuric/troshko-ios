@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct ExpenseItemView: View {
-    var viewModel: TestModel
+    var viewModel: Expense
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(viewModel.title)
+                
+                Text(viewModel.title ?? "WORDING_UNKOWN".localized)
                     .font(.system(.title3))
-                Text(viewModel.desc)
+                
+                Text(viewModel.desc ?? "WORDING_UNKOWN".localized)
                     .font(.system(.caption))
                     .foregroundColor(.secondary)
                 
@@ -24,8 +27,12 @@ struct ExpenseItemView: View {
             Spacer()
             
             VStack {
-                Text("\(viewModel.price)\(Locale.current.currencySymbol ?? "")")
+                Text("\(viewModel.price.toString(decimal: 2))\(Locale.current.currencySymbol ?? "")")
                     .font(.system(.title2))
+                
+                Text("\(viewModel.date?.format(with: .shortDateTime) ?? "14.11.2023")")
+                    .font(.system(.caption))
+                    .foregroundColor(.secondary)
             }
         }
     }
@@ -33,7 +40,6 @@ struct ExpenseItemView: View {
 
 struct ExpenseItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseItemView(viewModel: .init(title: "Test", desc: "Testing", price: "24"))
-            .previewLayout(.sizeThatFits)
+        ExpenseItemView(viewModel: Expense(context: .init(concurrencyType: .mainQueueConcurrencyType)))
     }
 }

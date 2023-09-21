@@ -46,7 +46,9 @@ class CategoriesViewModel: ObservableObject {
         do {
             try viewContext.save()
             if let index = categories.firstIndex(where: { $0 == category }) {
-                categories.remove(at: index)
+                DispatchQueue.main.async {
+                    self.categories.remove(at: index)
+                }
             }
         } catch {
             print("Error deleting")

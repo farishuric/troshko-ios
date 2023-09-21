@@ -19,7 +19,22 @@ struct MainView: View {
                     Label("CATEGORIES.TITLE".localized, systemImage: "archivebox.fill")
                 }
         }
+        .onAppear {
+            whereIsMySQLite()
+        }
     }
+    
+    func whereIsMySQLite() {
+            let path = FileManager
+                .default
+                .urls(for: .applicationSupportDirectory, in: .userDomainMask)
+                .last?
+                .absoluteString
+                .replacingOccurrences(of: "file://", with: "")
+                .removingPercentEncoding
+
+            print(path ?? "Not found")
+        }
 }
 
 struct MainView_Previews: PreviewProvider {
