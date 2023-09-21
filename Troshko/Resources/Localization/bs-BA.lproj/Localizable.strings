@@ -1,3 +1,28 @@
-// MARK: - GENERAL
+// MARK: - General
 "EXPENSES.TITLE" = "Troškovi";
 "CATEGORIES.TITLE" = "Kategorije";
+
+// MARK: - WORDING
+"WORDING_CANCEL" = "Odustani";
+"WORDING_ADD" = "Dodaj";
+"WORDING_EDIT" = "Uredi";
+"WORDING_DELETE" = "Izbriši";
+"WORDING_UNKNOWN" = "Nepoznato";
+
+// MARK: - Add expense
+"ADD_EXPENSE" = "Dodaj Trošak";
+"ADD_EXPENSE.TITLE" = "Naslov";
+"ADD_EXPENSE.TITLE.PLACEHOLDER" = "Narukvica";
+
+"ADD_EXPENSE.DESCRIPTION" = "Opis";
+"ADD_EXPENSE.DESCRIPTION.PLACEHOLDER" = "Kupljeno za rođendan Amile";
+
+"ADD_EXPENSE.PRICE" = "Cijena";
+
+"ADD_EXPENSE.DATE" = "Datum";
+
+// MARK: - Categories
+"CATEGORIES.NO_DATA" = "Nema pronađenih kategorija";
+"CATEGORIES.ENTER.TITLE" = "Nova Kategorija";
+"CATEGORIES.ENTER.MESSAGE" = "Unesite naziv za vašu novu kategoriju";
+"CATEGORIES.PLACEHOLDER" = "Šoping";

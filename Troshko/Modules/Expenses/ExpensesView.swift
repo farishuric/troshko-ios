@@ -14,93 +14,86 @@ struct TestModel: Hashable {
 }
 
 struct ExpensesView: View {
-    @State private var isPresentingAddExpenses: Bool = false
-    
-    let testModels: [TestModel] = [
-        TestModel(
-            title: "iPhone 13 Pro",
-            desc: "The latest iPhone model with advanced features.",
-            price: "999.99"
-        ),
-        TestModel(
-            title: "MacBook Air",
-            desc: "A lightweight and powerful laptop for everyday use.",
-            price: "1,199.00"
-        ),
-        TestModel(
-            title: "Sony 65-Inch 4K Ultra HD Smart LED TV",
-            desc: "A high-quality 4K TV with smart features.",
-            price: "1,299.99"
-        ),
-        TestModel(
-            title: "Bose QuietComfort 35 II Wireless Headphones",
-            desc: "Noise-canceling headphones for immersive audio experience.",
-            price: "299.00"
-        ),
-        TestModel(
-            title: "Dyson V11 Animal Cordless Vacuum Cleaner",
-            desc: "A powerful cordless vacuum for pet owners.",
-            price: "599.99"
-        ),
-        // Add more dummy data as needed
-    ]
-
+    @ObservedObject var expensesVM = ExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
     
     var body: some View {
         VStack {
             NavigationView {
                 VStack {
-                    List(testModels, id: \.self) {
-                        ExpenseItemView(viewModel: $0)
-                            .swipeActions(edge: .trailing) {
-                                Button("WORDING_DELETE".localized) {
-                                    print("Awesome!")
+                    List {
+                        ForEach(expensesVM.groupedExpenses) { group in
+                            Section {
+                                ForEach(group.expenses, id: \.self) { expense in
+                                    ExpenseItemView(viewModel: expense)
+//                                        .swipeActions(edge: .trailing) {
+//                                            Button("WORDING_DELETE".localized) {
+//                                                expensesVM.delete(expense: expense) {
+//                                                    expensesVM.fetchExpenses()
+//                                                }
+//                                            }
+//                                            .tint(.red)
+//                                        }
+                                    
+                                        .swipeActions(edge: .leading) {
+                                            Button("WORDING_EDIT".localized) {
+                                                print("Awesome!")
+                                            }
+                                            .tint(.blue)
+                                        }
                                 }
-                                .tint(.red)
-                            }
-                        
-                            .swipeActions(edge: .leading) {
-                                Button("WORDING_EDIT".localized) {
-                                    print("Awesome!")
+                                .onDelete { indexSet in
+                                    for index in indexSet {
+                                        expensesVM.deleteFromGroup(at: index, in: group)
+                                    }
                                 }
-                                .tint(.blue)
+                            } header: {
+                                Text(group.formattedDate)
                             }
+                            
+                        }
                     }
                     .overlay {
-                        if testModels.isEmpty {
+                        if expensesVM.expenses.isEmpty {
                             VStack {
                                 Image(systemName: "exclamationmark.triangle")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 80, height: 80)
                                     .foregroundColor(.blue)
-                                    
+                                
                                 Text("No expenses found")
                             }
                         }
                     }
-                    
                 }
                 .navigationTitle("EXPENSES.TITLE".localized)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            isPresentingAddExpenses.toggle()
+                            expensesVM.isPresentingAddExpenses.toggle()
                         } label: {
                             Label("", systemImage: "plus")
                         }
-
+                        
                     }
                 }
             }
         }
-        .sheet(isPresented: $isPresentingAddExpenses) {
-            isPresentingAddExpenses = false
+        .sheet(isPresented: $expensesVM.isPresentingAddExpenses) {
+            expensesVM.isPresentingAddExpenses = false
         } content: {
-            AddExpensesView(isPresented: $isPresentingAddExpenses)
+            AddExpensesView(isPresented: $expensesVM.isPresentingAddExpenses)
+                .onDisappear {
+                    withAnimation {
+                        expensesVM.fetchExpenses()
+                    }
+                }
         }
-
-        
+        .onAppear {
+            withAnimation {
+                expensesVM.fetchExpenses()
+            }
+        }
     }
 }
 

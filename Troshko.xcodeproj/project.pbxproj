@@ -10,8 +10,13 @@
 		AF11CA1E2AB7B67800BB21C9 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */; };
 		AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */; };
 		AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */; };
-		AF11CA2E2AB8567400BB21C9 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA2C2AB8567400BB21C9 /* Category+CoreDataClass.swift */; };
-		AF11CA2F2AB8567400BB21C9 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA2D2AB8567400BB21C9 /* Category+CoreDataProperties.swift */; };
+		AFB988142AB8D9240068EC3B /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB988102AB8D9240068EC3B /* Expense+CoreDataClass.swift */; };
+		AFB988152AB8D9240068EC3B /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB988112AB8D9240068EC3B /* Expense+CoreDataProperties.swift */; };
+		AFB988162AB8D9240068EC3B /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB988122AB8D9240068EC3B /* Category+CoreDataClass.swift */; };
+		AFB988172AB8D9240068EC3B /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB988132AB8D9240068EC3B /* Category+CoreDataProperties.swift */; };
+		AFB9881D2AB8DB2A0068EC3B /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */; };
+		AFB9881F2AB8E3220068EC3B /* Float + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB9881E2AB8E3220068EC3B /* Float + Extensions.swift */; };
+		AFC239EF2ABCA24900384EE7 /* Date + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */; };
 		AFC958312AB8BB48000D6C0B /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */; };
 		AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */; };
 		AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */; };
@@ -31,8 +36,13 @@
 		AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TroshkoData.xcdatamodel; sourceTree = "<group>"; };
 		AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		AF11CA2C2AB8567400BB21C9 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		AF11CA2D2AB8567400BB21C9 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		AFB988102AB8D9240068EC3B /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AFB988112AB8D9240068EC3B /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AFB988122AB8D9240068EC3B /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AFB988132AB8D9240068EC3B /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
+		AFB9881E2AB8E3220068EC3B /* Float + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float + Extensions.swift"; sourceTree = "<group>"; };
+		AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
 		AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesViewModel.swift; sourceTree = "<group>"; };
 		AFFECE4D2AB79097003FE8B9 /* Troshko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Troshko.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,21 +88,38 @@
 		AF11CA1F2AB83DD300BB21C9 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				AFC958552AB8D459000D6C0B /* New Group */,
-				AF11CA232AB8400000BB21C9 /* Expenses */,
+				AFB9881A2AB8D9410068EC3B /* Expenses */,
+				AFB988192AB8D93E0068EC3B /* Categories */,
 				AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */,
 				AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		AF11CA232AB8400000BB21C9 /* Expenses */ = {
+		AFB988192AB8D93E0068EC3B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				AF11CA2C2AB8567400BB21C9 /* Category+CoreDataClass.swift */,
-				AF11CA2D2AB8567400BB21C9 /* Category+CoreDataProperties.swift */,
+				AFB988122AB8D9240068EC3B /* Category+CoreDataClass.swift */,
+				AFB988132AB8D9240068EC3B /* Category+CoreDataProperties.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		AFB9881A2AB8D9410068EC3B /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				AFB988102AB8D9240068EC3B /* Expense+CoreDataClass.swift */,
+				AFB988112AB8D9240068EC3B /* Expense+CoreDataProperties.swift */,
 			);
 			path = Expenses;
+			sourceTree = "<group>";
+		};
+		AFB9881B2AB8DB1D0068EC3B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AFC9582F2AB8BB38000D6C0B /* ViewModel */ = {
@@ -109,13 +136,6 @@
 				AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AFC958552AB8D459000D6C0B /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		AFFECE442AB79097003FE8B9 = {
@@ -170,6 +190,7 @@
 		AFFECE5F2AB790F2003FE8B9 /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
+				AFB9881B2AB8DB1D0068EC3B /* ViewModel */,
 				AFFECE842AB7A568003FE8B9 /* Add expenses */,
 				AFFECE802AB7A29A003FE8B9 /* Views */,
 				AFFECE6B2AB792BB003FE8B9 /* ExpensesView.swift */,
@@ -231,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */,
+				AFB9881E2AB8E3220068EC3B /* Float + Extensions.swift */,
+				AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -329,17 +352,22 @@
 				AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */,
 				AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */,
 				AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */,
-				AF11CA2F2AB8567400BB21C9 /* Category+CoreDataProperties.swift in Sources */,
-				AF11CA2E2AB8567400BB21C9 /* Category+CoreDataClass.swift in Sources */,
 				AFFECE6A2AB7926D003FE8B9 /* MainView.swift in Sources */,
 				AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */,
 				AFFECE6E2AB792D1003FE8B9 /* CategoriesView.swift in Sources */,
 				AFFECE6C2AB792BB003FE8B9 /* ExpensesView.swift in Sources */,
 				AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */,
 				AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */,
+				AFC239EF2ABCA24900384EE7 /* Date + Extensions.swift in Sources */,
 				AF11CA1E2AB7B67800BB21C9 /* BadgeView.swift in Sources */,
+				AFB988142AB8D9240068EC3B /* Expense+CoreDataClass.swift in Sources */,
+				AFB9881D2AB8DB2A0068EC3B /* ExpensesViewModel.swift in Sources */,
 				AFC958312AB8BB48000D6C0B /* CategoriesViewModel.swift in Sources */,
+				AFB988152AB8D9240068EC3B /* Expense+CoreDataProperties.swift in Sources */,
+				AFB9881F2AB8E3220068EC3B /* Float + Extensions.swift in Sources */,
+				AFB988162AB8D9240068EC3B /* Category+CoreDataClass.swift in Sources */,
 				AFFECE862AB7A575003FE8B9 /* AddExpensesView.swift in Sources */,
+				AFB988172AB8D9240068EC3B /* Category+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

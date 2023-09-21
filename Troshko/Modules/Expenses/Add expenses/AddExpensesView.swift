@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddExpensesView: View {
-    @ObservedObject private var addExpensesVM = AddExpensesViewModel()
+    @ObservedObject private var addExpensesVM = AddExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
     @Binding var isPresented: Bool
     
     var body: some View {
@@ -31,8 +31,7 @@ struct AddExpensesView: View {
                 Section {
                     HStack(spacing: 4) {
                         Text("\(Locale.current.currencySymbol ?? "")")
-                        TextField("", value: $addExpensesVM.price, format: .currency(code: Locale.current.identifier))
-                            .keyboardType(.decimalPad)
+                        TextField("0.0", text: $addExpensesVM.price)
                     }
                 } header: {
                     Text("ADD_EXPENSE.PRICE".localized)
@@ -57,8 +56,11 @@ struct AddExpensesView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("WORDING_ADD".localized) {
-                        // Handle saving data here
+                        addExpensesVM.saveExpense {
+                            isPresented = false
+                        }
                     }
+                    .disabled(addExpensesVM.isAddDisabled)
                 }
             }
         }
@@ -68,6 +70,6 @@ struct AddExpensesView: View {
 
 struct AddExpensesView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        AddExpensesView(isPresented: .constant(true))
     }
 }
