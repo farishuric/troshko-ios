@@ -2,14 +2,22 @@
 "EXPENSES.TITLE" = "Expenses";
 "CATEGORIES.TITLE" = "Categories";
 
-// MARK: - WORDING
+// MARK: - Wording
 "WORDING_CANCEL" = "Cancel";
 "WORDING_ADD" = "Add";
 "WORDING_EDIT" = "Edit";
 "WORDING_DELETE" = "Delete";
-"WORDING_UNKNOWN" = "Delete";
+"WORDING_UNKNOWN" = "Unknown";
 "WORDING_YES" = "Yes";
 "WORDING_NO" = "No";
+"WORDING_NONE" = "None";
+
+// MARK: - Calendar
+"CALENDAR_TODAY" = "Today";
+"CALENDAR_THIS_MONTH" = "This month";
+
+// MARK: - Expenses
+"EXPENSES.NO_EXPENSES" = "No expenses found";
 
 // MARK: - Add expense
 "ADD_EXPENSE" = "Add Expense";
@@ -24,6 +32,10 @@
 
 "ADD_EXPENSE.DATE" = "Date";
 
+"ADD_EXPENSE.CATEGORY" = "Category";
+"ADD_EXPENSE.CATEGORY_PLACEHOLDER" = "Select an option";
+
+
 // MARK: - Categories
 "CATEGORIES.NO_DATA" = "No categories found";
 "CATEGORIES.ENTER.TITLE" = "New Category";
@@ -31,4 +43,4 @@
 "CATEGORIES.PLACEHOLDER" = "Shopping";
 
 "CATEGORIES.DELETION.TITLE" = "Delete Category?";
-"CATEGORIES.DELETION.MESSAGE" = "This action will delete the category and all items associated with it. This action can't be undone.";
+"CATEGORIES.DELETION.MESSAGE" = "This action will delete the category and all expenses associated with it. This action can't be undone.";

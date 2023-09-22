@@ -2,27 +2,43 @@
 "EXPENSES.TITLE" = "Troškovi";
 "CATEGORIES.TITLE" = "Kategorije";
 
-// MARK: - WORDING
-"WORDING_CANCEL" = "Odustani";
+// MARK: - Wording
+"WORDING_CANCEL" = "Otkaži";
 "WORDING_ADD" = "Dodaj";
 "WORDING_EDIT" = "Uredi";
 "WORDING_DELETE" = "Izbriši";
 "WORDING_UNKNOWN" = "Nepoznato";
+"WORDING_YES" = "Da";
+"WORDING_NO" = "Ne";
+"WORDING_NONE" = "Nijedno";
+
+// MARK: - Calendar
+"CALENDAR_TODAY" = "Danas";
+"CALENDAR_THIS_MONTH" = "Ovaj mjesec";
+
+// MARK: - Expenses
+"EXPENSES.NO_EXPENSES" = "Nema pronađenih troškova";
 
 // MARK: - Add expense
 "ADD_EXPENSE" = "Dodaj Trošak";
-"ADD_EXPENSE.TITLE" = "Naslov";
+"ADD_EXPENSE.TITLE" = "Naziv";
 "ADD_EXPENSE.TITLE.PLACEHOLDER" = "Narukvica";
 
 "ADD_EXPENSE.DESCRIPTION" = "Opis";
-"ADD_EXPENSE.DESCRIPTION.PLACEHOLDER" = "Kupljeno za rođendan Amile";
+"ADD_EXPENSE.DESCRIPTION.PLACEHOLDER" = "Kupljeno za Amilin rođendan";
 
 "ADD_EXPENSE.PRICE" = "Cijena";
 
 "ADD_EXPENSE.DATE" = "Datum";
 
+"ADD_EXPENSE.CATEGORY" = "Kategorija";
+"ADD_EXPENSE.CATEGORY_PLACEHOLDER" = "Izaberite opciju";
+
 // MARK: - Categories
 "CATEGORIES.NO_DATA" = "Nema pronađenih kategorija";
 "CATEGORIES.ENTER.TITLE" = "Nova Kategorija";
-"CATEGORIES.ENTER.MESSAGE" = "Unesite naziv za vašu novu kategoriju";
-"CATEGORIES.PLACEHOLDER" = "Šoping";
+"CATEGORIES.ENTER.MESSAGE" = "Unesite naziv nove kategorije";
+"CATEGORIES.PLACEHOLDER" = "Kupovina";
+
+"CATEGORIES.DELETION.TITLE" = "Izbrisati Kategoriju?";
+"CATEGORIES.DELETION.MESSAGE" = "Ova radnja će izbrisati kategoriju i sve povezane troškove. Ova radnja ne može biti poništena.";

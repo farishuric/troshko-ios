@@ -52,7 +52,7 @@ struct ExpensesView: View {
                                     .frame(width: 80, height: 80)
                                     .foregroundColor(.blue)
                                 
-                                Text("No expenses found")
+                                Text("EXPENSES.NO_EXPENSES".localized)
                             }
                         }
                     }
