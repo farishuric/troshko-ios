@@ -42,7 +42,7 @@ struct CategoriesView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 80, height: 80)
                                     .foregroundColor(.blue)
-                                    
+                                
                                 Text("CATEGORIES.NO_DATA".localized)
                             }
                         }
@@ -75,26 +75,22 @@ struct CategoriesView: View {
                         }
                     }
                     .keyboardShortcut(.defaultAction)
-
+                    
                     Button("WORDING_CANCEL".localized, role: .cancel) {
                         categoriesVM.categoryToDelete = nil
                     }
                 } message: {
                     Text("CATEGORIES.DELETION.MESSAGE".localized)
                 }
-                
-                .alert("CATEGORIES.ENTER.TITLE".localized, isPresented: $categoriesVM.isShowingAlert) {
-                    TextField("CATEGORIES.PLACEHOLDER".localized, text: $categoriesVM.categoryName)
-                    Button("WORDING_ADD".localized) {
-                        withAnimation {
-                            categoriesVM.saveCategory()
-                            categoriesVM.fetchCategories()
-                        }
+            }
+            .sheet(isPresented: $categoriesVM.isShowingAlert) {
+                categoriesVM.isShowingAlert = false
+            } content: {
+                AddCategoriesView()
+                .environmentObject(categoriesVM)
+                    .onDisappear {
+                        categoriesVM.fetchCategories()
                     }
-                } message: {
-                    Text("CATEGORIES.ENTER.MESSAGE".localized)
-                }
-                
             }
         }
     }

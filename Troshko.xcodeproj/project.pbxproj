@@ -30,6 +30,7 @@
 		AFFECE7A2AB79AA4003FE8B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE7C2AB79AA4003FE8B9 /* Localizable.strings */; };
 		AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */; };
 		AFFECE862AB7A575003FE8B9 /* AddExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */; };
+		E140C8EC2ABDA0740076950C /* AddCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemView.swift; sourceTree = "<group>"; };
 		AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesView.swift; sourceTree = "<group>"; };
+		E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 		AFFECE612AB790F8003FE8B9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				E140C8EA2ABDA03A0076950C /* AddCategories */,
 				AFC9582F2AB8BB38000D6C0B /* ViewModel */,
 				AFFECE6D2AB792D1003FE8B9 /* CategoriesView.swift */,
 			);
@@ -274,6 +277,14 @@
 				AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */,
 			);
 			path = "Add expenses";
+			sourceTree = "<group>";
+		};
+		E140C8EA2ABDA03A0076950C /* AddCategories */ = {
+			isa = PBXGroup;
+			children = (
+				E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */,
+			);
+			path = AddCategories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +364,7 @@
 				AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */,
 				AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */,
 				AFFECE6A2AB7926D003FE8B9 /* MainView.swift in Sources */,
+				E140C8EC2ABDA0740076950C /* AddCategoriesView.swift in Sources */,
 				AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */,
 				AFFECE6E2AB792D1003FE8B9 /* CategoriesView.swift in Sources */,
 				AFFECE6C2AB792BB003FE8B9 /* ExpensesView.swift in Sources */,
