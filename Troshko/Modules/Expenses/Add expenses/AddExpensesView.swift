@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct AddExpensesView: View {
-    @ObservedObject private var addExpensesVM = AddExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
-    @Binding var isPresented: Bool
+    @EnvironmentObject var expensesVM: ExpensesViewModel
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("ADD_EXPENSE.TITLE.PLACEHOLDER".localized, text: $addExpensesVM.title)
+                    TextField("ADD_EXPENSE.TITLE.PLACEHOLDER".localized, text: $expensesVM.title)
                         .submitLabel(.next)
                 } header: {
                     Text("ADD_EXPENSE.TITLE".localized)
                 }
 
                 Section {
-                    TextField("ADD_EXPENSE.DESCRIPTION.PLACEHOLDER".localized, text: $addExpensesVM.description)
+                    TextField("ADD_EXPENSE.DESCRIPTION.PLACEHOLDER".localized, text: $expensesVM.description)
                         .submitLabel(.next)
                 } header: {
                     Text("ADD_EXPENSE.DESCRIPTION".localized)
@@ -31,14 +30,14 @@ struct AddExpensesView: View {
                 Section {
                     HStack(spacing: 4) {
                         Text("\(Locale.current.currencySymbol ?? "")")
-                        TextField("0.0", text: $addExpensesVM.price)
+                        TextField("0.0", text: $expensesVM.price)
                     }
                 } header: {
                     Text("ADD_EXPENSE.PRICE".localized)
                 }
                 
                 Section {
-                    DatePicker("", selection: $addExpensesVM.selectedDate, displayedComponents: .date)
+                    DatePicker("", selection: $expensesVM.selectedDate, displayedComponents: .date)
                         .datePickerStyle(.graphical)
                 } header: {
                     Text("ADD_EXPENSE.DATE".localized)
@@ -50,17 +49,17 @@ struct AddExpensesView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("WORDING_CANCEL".localized) {
-                        isPresented = false
+                        expensesVM.isPresentingAddExpenses = false
                     }
                     .tint(.red)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("WORDING_ADD".localized) {
-                        addExpensesVM.saveExpense {
-                            isPresented = false
+                        expensesVM.saveExpense {
+                            expensesVM.isPresentingAddExpenses = false
                         }
                     }
-                    .disabled(addExpensesVM.isAddDisabled)
+                    .disabled(expensesVM.isAddDisabled)
                 }
             }
         }
@@ -70,6 +69,6 @@ struct AddExpensesView: View {
 
 struct AddExpensesView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpensesView(isPresented: .constant(true))
+        MainView()
     }
 }
