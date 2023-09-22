@@ -6,9 +6,7 @@
 //
 
 import Foundation
-
 import CoreData
-import Foundation
 
 /// Main data manager to handle the todo items
 class CoreDataManager: NSObject, ObservableObject {

@@ -8,9 +8,6 @@
 import Foundation
 import CoreData
 
-import Foundation
-import CoreData
-
 class ExpensesViewModel: ObservableObject {
     
     @Published var selectedCategory = 0
@@ -103,8 +100,7 @@ class ExpensesViewModel: ObservableObject {
         let group = groupedExpenses.firstIndex {
             $0 == group
         }
-        
-        
+           
         if let group {
             let expense = groupedExpenses[group].expenses[index]
             delete(expense: expense) {
@@ -117,7 +113,6 @@ class ExpensesViewModel: ObservableObject {
             }
         }   
     }
-    
     
     @Published var title = ""
     @Published var description = ""

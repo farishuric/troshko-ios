@@ -43,7 +43,7 @@ struct AddCategoriesView: View {
             }) {
                 Text("WORDING_CANCEL".localized)
             })
-        }.onAppear() {
+        }.onAppear {
             isFocused = true
         }
     }
