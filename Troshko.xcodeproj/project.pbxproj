@@ -10,6 +10,7 @@
 		AF11CA1E2AB7B67800BB21C9 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */; };
 		AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */; };
 		AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */; };
+		AFA8001E2ABE139C00A7BEE2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = AFA8001D2ABE139C00A7BEE2 /* .swiftlint.yml */; };
 		AFB988162AB8D9240068EC3B /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB988122AB8D9240068EC3B /* Category+CoreDataClass.swift */; };
 		AFB988172AB8D9240068EC3B /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB988132AB8D9240068EC3B /* Category+CoreDataProperties.swift */; };
 		AFB9881D2AB8DB2A0068EC3B /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */; };
@@ -31,12 +32,15 @@
 		AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */; };
 		AFFECE862AB7A575003FE8B9 /* AddExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */; };
 		E140C8EC2ABDA0740076950C /* AddCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */; };
+		E7E2F31E6ABFB3193A358BF4 /* Pods_Troshko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4000A381937E3B328C0CB1F /* Pods_Troshko.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7BD37CF395FAC6B3ACDCC455 /* Pods-Troshko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Troshko.release.xcconfig"; path = "Target Support Files/Pods-Troshko/Pods-Troshko.release.xcconfig"; sourceTree = "<group>"; };
 		AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TroshkoData.xcdatamodel; sourceTree = "<group>"; };
 		AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		AFA8001D2ABE139C00A7BEE2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AFB988122AB8D9240068EC3B /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
 		AFB988132AB8D9240068EC3B /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemView.swift; sourceTree = "<group>"; };
 		AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesView.swift; sourceTree = "<group>"; };
+		C4000A381937E3B328C0CB1F /* Pods_Troshko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Troshko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D520E7BBAF92109EF00259D5 /* Pods-Troshko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Troshko.debug.xcconfig"; path = "Target Support Files/Pods-Troshko/Pods-Troshko.debug.xcconfig"; sourceTree = "<group>"; };
 		E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,12 +72,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7E2F31E6ABFB3193A358BF4 /* Pods_Troshko.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FA9A80A6AC6268AFAC5EC4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4000A381937E3B328C0CB1F /* Pods_Troshko.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32805FD70BE5E9550AFA2551 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D520E7BBAF92109EF00259D5 /* Pods-Troshko.debug.xcconfig */,
+				7BD37CF395FAC6B3ACDCC455 /* Pods-Troshko.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AF11CA172AB7B0F800BB21C9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +120,14 @@
 				AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		AFA8001C2ABE138D00A7BEE2 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8001D2ABE139C00A7BEE2 /* .swiftlint.yml */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		AFB988192AB8D93E0068EC3B /* Categories */ = {
@@ -145,6 +177,8 @@
 			children = (
 				AFFECE4F2AB79097003FE8B9 /* Troshko */,
 				AFFECE4E2AB79097003FE8B9 /* Products */,
+				32805FD70BE5E9550AFA2551 /* Pods */,
+				2FA9A80A6AC6268AFAC5EC4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,6 +193,7 @@
 		AFFECE4F2AB79097003FE8B9 /* Troshko */ = {
 			isa = PBXGroup;
 			children = (
+				AFA8001C2ABE138D00A7BEE2 /* Config */,
 				AF11CA1F2AB83DD300BB21C9 /* CoreData */,
 				AFFECE642AB79110003FE8B9 /* Resources */,
 				AFFECE632AB7910D003FE8B9 /* Common */,
@@ -294,9 +329,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFFECE5B2AB79098003FE8B9 /* Build configuration list for PBXNativeTarget "Troshko" */;
 			buildPhases = (
+				D10542C9449CB1EAF80C7663 /* [CP] Check Pods Manifest.lock */,
 				AFFECE492AB79097003FE8B9 /* Sources */,
 				AFFECE4A2AB79097003FE8B9 /* Frameworks */,
 				AFFECE4B2AB79097003FE8B9 /* Resources */,
+				AFA8001B2ABE12F900A7BEE2 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -346,6 +383,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA8001E2ABE139C00A7BEE2 /* .swiftlint.yml in Resources */,
 				AFFECE582AB79098003FE8B9 /* Preview Assets.xcassets in Resources */,
 				AFFECE7A2AB79AA4003FE8B9 /* Localizable.strings in Resources */,
 				AFFECE752AB79A97003FE8B9 /* Localizable.strings in Resources */,
@@ -354,6 +392,50 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AFA8001B2ABE12F900A7BEE2 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"${SRCROOT}/Troshko/Config/.swiftlint.yml\"\necho ${SRCROOT}\n";
+		};
+		D10542C9449CB1EAF80C7663 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Troshko-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AFFECE492AB79097003FE8B9 /* Sources */ = {
@@ -521,6 +603,7 @@
 		};
 		AFFECE5C2AB79098003FE8B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D520E7BBAF92109EF00259D5 /* Pods-Troshko.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -550,6 +633,7 @@
 		};
 		AFFECE5D2AB79098003FE8B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BD37CF395FAC6B3ACDCC455 /* Pods-Troshko.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
