@@ -22,9 +22,8 @@ struct CategoriesView: View {
                             Text(category.name ?? "WORDING_UNKNOWN".localized)
                                 .swipeActions {
                                     Button {
-                                        withAnimation {
-                                            categoriesVM.delete(category: category)
-                                        }
+                                        categoriesVM.categoryToDelete = category
+                                        categoriesVM.isShowingDeletionAlert = true
                                     } label: {
                                         Text("WORDING_DELETE".localized)
                                     }
@@ -61,6 +60,29 @@ struct CategoriesView: View {
                         }
                     }
                 }
+                .confirmationDialog(
+                    "CATEGORIES.DELETION.TITLE".localized,
+                    isPresented: $categoriesVM.isShowingDeletionAlert,
+                    titleVisibility: .visible
+                ) {
+                    Button("WORDING_YES".localized, role: .destructive) {
+                        if let category = categoriesVM.categoryToDelete {
+                            withAnimation {
+                                categoriesVM.delete(category: category) {
+                                    expensesVM.fetchCategories()
+                                }
+                            }
+                        }
+                    }
+                    .keyboardShortcut(.defaultAction)
+
+                    Button("WORDING_NO".localized, role: .cancel) {
+                        categoriesVM.categoryToDelete = nil
+                    }
+                } message: {
+                    Text("CATEGORIES.DELETION.MESSAGE".localized)
+                }
+                
                 .alert("CATEGORIES.ENTER.TITLE".localized, isPresented: $categoriesVM.isShowingAlert) {
                     TextField("CATEGORIES.PLACEHOLDER".localized, text: $categoriesVM.categoryName)
                     Button("WORDING_ADD".localized) {
@@ -69,10 +91,10 @@ struct CategoriesView: View {
                             categoriesVM.fetchCategories()
                         }
                     }
-                    .disabled(categoriesVM.isAddDisabled)
                 } message: {
                     Text("CATEGORIES.ENTER.MESSAGE".localized)
                 }
+                
             }
         }
     }

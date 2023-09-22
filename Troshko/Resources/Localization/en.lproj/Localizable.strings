@@ -8,6 +8,8 @@
 "WORDING_EDIT" = "Edit";
 "WORDING_DELETE" = "Delete";
 "WORDING_UNKNOWN" = "Delete";
+"WORDING_YES" = "Yes";
+"WORDING_NO" = "No";
 
 // MARK: - Add expense
 "ADD_EXPENSE" = "Add Expense";
@@ -27,3 +29,6 @@
 "CATEGORIES.ENTER.TITLE" = "New Category";
 "CATEGORIES.ENTER.MESSAGE" = "Enter a name for your new category";
 "CATEGORIES.PLACEHOLDER" = "Shopping";
+
+"CATEGORIES.DELETION.TITLE" = "Delete Category?";
+"CATEGORIES.DELETION.MESSAGE" = "This action will delete the category and all items associated with it. This action can't be undone.";

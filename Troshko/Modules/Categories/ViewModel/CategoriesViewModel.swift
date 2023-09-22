@@ -14,6 +14,10 @@ class CategoriesViewModel: ObservableObject {
     
     @Published var categories: [Category] = []
     
+    @Published var isShowingDeletionAlert: Bool = false
+    
+    var categoryToDelete: Category?
+    
     var isAddDisabled: Bool {
         return categoryName.isEmpty
     }
@@ -45,10 +49,22 @@ class CategoriesViewModel: ObservableObject {
         categoryName = ""
     }
     
-    func delete(category: Category) {
-        viewContext.delete(category)
+    func delete(category: Category, completion: @escaping () -> Void) {
+        // Fetch all expenses associated with the category
+        let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "category == %@", category)
+        
         do {
+            let categoryExpenses = try viewContext.fetch(fetchRequest)
+            
+            for expense in categoryExpenses {
+                viewContext.delete(expense)
+            }
+
+            viewContext.delete(category)
+            
             try viewContext.save()
+
             if let index = categories.firstIndex(where: { $0 == category }) {
                 DispatchQueue.main.async {
                     self.categories.remove(at: index)
@@ -58,4 +74,5 @@ class CategoriesViewModel: ObservableObject {
             print("Error deleting")
         }
     }
+
 }
