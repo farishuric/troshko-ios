@@ -11,6 +11,8 @@ struct CategoriesView: View {
     // MARK: - View properties
     @ObservedObject private var categoriesVM = CategoriesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
     
+    @EnvironmentObject var expensesVM: ExpensesViewModel
+    
     var body: some View {
         VStack {
             NavigationView {
@@ -28,6 +30,9 @@ struct CategoriesView: View {
                                     }
                                     .tint(.red)
                                 }
+                        }
+                        .onChange(of: categoriesVM.categories) {
+                            expensesVM.categories = $0
                         }
                     }
                     .overlay {
@@ -54,20 +59,17 @@ struct CategoriesView: View {
                                 .renderingMode(.template)
                                 .foregroundColor(.blue)
                         }
-
                     }
                 }
                 .alert("CATEGORIES.ENTER.TITLE".localized, isPresented: $categoriesVM.isShowingAlert) {
                     TextField("CATEGORIES.PLACEHOLDER".localized, text: $categoriesVM.categoryName)
-                    Button {
+                    Button("WORDING_ADD".localized) {
                         withAnimation {
                             categoriesVM.saveCategory()
                             categoriesVM.fetchCategories()
                         }
-                    } label: {
-                        Text("WORDING_ADD".localized)
                     }
-
+                    .disabled(categoriesVM.isAddDisabled)
                 } message: {
                     Text("CATEGORIES.ENTER.MESSAGE".localized)
                 }

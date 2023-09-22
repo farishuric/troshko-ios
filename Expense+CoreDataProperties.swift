@@ -2,7 +2,7 @@
 //  Expense+CoreDataProperties.swift
 //  Troshko
 //
-//  Created by Faris Hurić on 18. 9. 2023..
+//  Created by Faris Hurić on 22. 9. 2023..
 //
 //
 
@@ -16,10 +16,11 @@ extension Expense {
         return NSFetchRequest<Expense>(entityName: "Expense")
     }
 
+    @NSManaged public var date: Date?
     @NSManaged public var desc: String?
     @NSManaged public var price: Float
     @NSManaged public var title: String?
-    @NSManaged public var date: Date?
+    @NSManaged public var category: Category?
 
 }
 

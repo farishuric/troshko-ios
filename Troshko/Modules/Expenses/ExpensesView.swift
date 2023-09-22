@@ -14,8 +14,7 @@ struct TestModel: Hashable {
 }
 
 struct ExpensesView: View {
-    @StateObject var expensesVM = ExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
-    
+    @EnvironmentObject var expensesVM: ExpensesViewModel
     var body: some View {
         VStack {
             NavigationView {
