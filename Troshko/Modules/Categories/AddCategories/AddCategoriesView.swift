@@ -27,7 +27,7 @@ struct AddCategoriesView: View {
                 Section(footer: Button(action: {
                     addCategoryVM.saveCategory()
                 }) {
-                    Text("WORDING_SAVE".localized)
+                    Text("WORDING_ADD".localized)
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(addCategoryVM.isAddDisabled ? Color.gray : Color.blue)

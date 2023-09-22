@@ -42,3 +42,7 @@
 
 "CATEGORIES.DELETION.TITLE" = "Izbrisati Kategoriju?";
 "CATEGORIES.DELETION.MESSAGE" = "Ova radnja će izbrisati kategoriju i sve povezane troškove. Ova radnja ne može biti poništena.";
+"CATEGORIES.ADD.CATEGORY" = "Dodaj Kategoriju";
+"CATEGORIES.DESCRIPTION" = "Dodajte kategorije troškova radi bolje organizacije i praćenja. Kategorizirajte svaki trošak kako biste dobili uvid u svoje navike trošenja i unaprijedili financijsko upravljanje.";
+"CATEGORIES.INFORMATION" = "Informacije o Kategoriji";
+"CATEGORIES.NAME" = "Ime Kategorije";

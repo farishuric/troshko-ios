@@ -75,9 +75,9 @@ class ExpensesViewModel: ObservableObject {
                 let expenseYear = Calendar.current.component(.year, from: expenseDate)
 
                 if Calendar.current.isDate(expenseDate, inSameDayAs: currentDate) {
-                    groupedExpense = GroupedExpenses(date: expenseDate, expenses: [], formattedDate: "Today")
+                    groupedExpense = GroupedExpenses(date: expenseDate, expenses: [], formattedDate: "CALENDAR_TODAY".localized)
                 } else if currentMonth == expenseMonth && currentYear == expenseYear {
-                    groupedExpense = GroupedExpenses(date: expenseDate, expenses: [], formattedDate: "This Month")
+                    groupedExpense = GroupedExpenses(date: expenseDate, expenses: [], formattedDate: "CALENDAR_THIS_MONTH".localized)
                 } else {
                     let formattedDate = dateFormatter.string(from: expenseDate)
                     groupedExpense = GroupedExpenses(date: expenseDate, expenses: [], formattedDate: formattedDate)
