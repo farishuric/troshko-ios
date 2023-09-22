@@ -18,6 +18,15 @@ class ExpensesViewModel: ObservableObject {
     
     @Published var groupedExpenses: [GroupedExpenses] = []
     
+    var editingExpense: Expense? {
+        didSet {
+            title = editingExpense?.title ?? ""
+            description = editingExpense?.desc ?? ""
+            price = "\(editingExpense?.price ?? 0.0)"
+            selectedDate = editingExpense?.date ?? Date()
+        }
+    }
+    
     private let viewContext: NSManagedObjectContext
     
     init(viewContext: NSManagedObjectContext) {
@@ -103,6 +112,30 @@ class ExpensesViewModel: ObservableObject {
                 }
             }
         }   
+    }
+    
+    
+    @Published var title = ""
+    @Published var description = ""
+    @Published var price: String = ""
+    @Published var selectedDate = Date()
+    
+    var isAddDisabled: Bool {
+        return title.isEmpty || description.isEmpty || price.isEmpty
+    }
+    
+    func saveExpense(completion: @escaping () -> Void) {
+        let newExpense = Expense(context: viewContext)
+        newExpense.title = title
+        newExpense.desc = description
+        newExpense.price = price.toFloat() ?? 0.0
+        newExpense.date = selectedDate
+        do {
+            try viewContext.save()
+            completion()
+        } catch {
+            print("Error saving expense")
+        }
     }
 }
 

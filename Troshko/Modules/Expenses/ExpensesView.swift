@@ -14,7 +14,7 @@ struct TestModel: Hashable {
 }
 
 struct ExpensesView: View {
-    @ObservedObject var expensesVM = ExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
+    @StateObject var expensesVM = ExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
     
     var body: some View {
         VStack {
@@ -25,18 +25,10 @@ struct ExpensesView: View {
                             Section {
                                 ForEach(group.expenses, id: \.self) { expense in
                                     ExpenseItemView(viewModel: expense)
-//                                        .swipeActions(edge: .trailing) {
-//                                            Button("WORDING_DELETE".localized) {
-//                                                expensesVM.delete(expense: expense) {
-//                                                    expensesVM.fetchExpenses()
-//                                                }
-//                                            }
-//                                            .tint(.red)
-//                                        }
-                                    
                                         .swipeActions(edge: .leading) {
                                             Button("WORDING_EDIT".localized) {
-                                                print("Awesome!")
+                                                expensesVM.editingExpense = expense
+                                                expensesVM.isPresentingAddExpenses = true
                                             }
                                             .tint(.blue)
                                         }
@@ -53,7 +45,7 @@ struct ExpensesView: View {
                         }
                     }
                     .overlay {
-                        if expensesVM.expenses.isEmpty {
+                        if expensesVM.expenses.isEmpty || expensesVM.groupedExpenses.isEmpty {
                             VStack {
                                 Image(systemName: "exclamationmark.triangle")
                                     .resizable()
@@ -82,11 +74,11 @@ struct ExpensesView: View {
         .sheet(isPresented: $expensesVM.isPresentingAddExpenses) {
             expensesVM.isPresentingAddExpenses = false
         } content: {
-            AddExpensesView(isPresented: $expensesVM.isPresentingAddExpenses)
+            AddExpensesView()
+                .environmentObject(expensesVM)
                 .onDisappear {
-                    withAnimation {
-                        expensesVM.fetchExpenses()
-                    }
+                    expensesVM.fetchExpenses()
+                    expensesVM.editingExpense = nil    
                 }
         }
         .onAppear {
