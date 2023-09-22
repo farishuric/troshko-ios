@@ -11,6 +11,7 @@
 "WORDING_YES" = "Yes";
 "WORDING_NO" = "No";
 "WORDING_NONE" = "None";
+"WORDING_SAVE" = "Save";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Today";
@@ -44,3 +45,7 @@
 
 "CATEGORIES.DELETION.TITLE" = "Delete Category?";
 "CATEGORIES.DELETION.MESSAGE" = "This action will delete the category and all expenses associated with it. This action can't be undone.";
+"CATEGORIES.ADD.CATEGORY" = "Add Category";
+"CATEGORIES.DESCRIPTION" = "Add categories to expenses for better organization and tracking. Categorize each expense to gain insight into your spending habits and improve financial management.";
+"CATEGORIES.INFORMATION" = "Category Information";
+"CATEGORIES.NAME" = "Category Name";
