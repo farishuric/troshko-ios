@@ -44,9 +44,9 @@ struct AddExpensesView: View {
                 }
                 
                 Section {
-                    Picker("Select an option", selection: $expensesVM.selectedCategory) {
+                    Picker("ADD_EXPENSE.CATEGORY_PLACEHOLDER".localized, selection: $expensesVM.selectedCategory) {
                         if expensesVM.categories.isEmpty {
-                            Text("None")
+                            Text("WORDING_NONE".localized)
                                 .tag(0)
                         } else {
                             ForEach(expensesVM.categories, id: \.self) { category in
@@ -57,7 +57,7 @@ struct AddExpensesView: View {
                     }
                     .pickerStyle(.navigationLink)
                 } header: {
-                    Text("Category")
+                    Text("ADD_EXPENSE.CATEGORY".localized)
                 }
 
             }

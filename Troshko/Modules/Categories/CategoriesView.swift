@@ -65,7 +65,7 @@ struct CategoriesView: View {
                     isPresented: $categoriesVM.isShowingDeletionAlert,
                     titleVisibility: .visible
                 ) {
-                    Button("WORDING_YES".localized, role: .destructive) {
+                    Button("WORDING_DELETE".localized, role: .destructive) {
                         if let category = categoriesVM.categoryToDelete {
                             withAnimation {
                                 categoriesVM.delete(category: category) {
@@ -76,7 +76,7 @@ struct CategoriesView: View {
                     }
                     .keyboardShortcut(.defaultAction)
 
-                    Button("WORDING_NO".localized, role: .cancel) {
+                    Button("WORDING_CANCEL".localized, role: .cancel) {
                         categoriesVM.categoryToDelete = nil
                     }
                 } message: {
