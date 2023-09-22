@@ -21,7 +21,7 @@ struct ExpenseItemView: View {
                     .font(.system(.caption))
                     .foregroundColor(.secondary)
                 
-                BadgeView(text: "Category")
+                BadgeView(text: viewModel.category?.name ?? "WORDING_UNKNOWN".localized)
             }
             
             Spacer()

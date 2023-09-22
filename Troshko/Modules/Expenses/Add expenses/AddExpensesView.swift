@@ -42,6 +42,23 @@ struct AddExpensesView: View {
                 } header: {
                     Text("ADD_EXPENSE.DATE".localized)
                 }
+                
+                Section {
+                    Picker("Select an option", selection: $expensesVM.selectedCategory) {
+                        if expensesVM.categories.isEmpty {
+                            Text("None")
+                                .tag(0)
+                        } else {
+                            ForEach(expensesVM.categories, id: \.self) { category in
+                                Text(category.name ?? "")
+                                    .tag(expensesVM.categories.firstIndex(where: { $0 == category }) ?? 0)
+                            }
+                        }
+                    }
+                    .pickerStyle(.navigationLink)
+                } header: {
+                    Text("Category")
+                }
 
             }
             .navigationBarTitle("ADD_EXPENSE".localized)
@@ -69,6 +86,7 @@ struct AddExpensesView: View {
 
 struct AddExpensesView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        AddExpensesView()
+            .environmentObject(ExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext))
     }
 }

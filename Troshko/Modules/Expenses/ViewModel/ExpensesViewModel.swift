@@ -13,6 +13,9 @@ import CoreData
 
 class ExpensesViewModel: ObservableObject {
     
+    @Published var selectedCategory = 0
+    @Published var categories: [Category] = []
+    
     @Published var expenses: [Expense] = []
     @Published var isPresentingAddExpenses: Bool = false
     
@@ -31,6 +34,7 @@ class ExpensesViewModel: ObservableObject {
     
     init(viewContext: NSManagedObjectContext) {
         self.viewContext = viewContext
+        fetchCategories()
     }
     
     func fetchExpenses() {
@@ -130,11 +134,25 @@ class ExpensesViewModel: ObservableObject {
         newExpense.desc = description
         newExpense.price = price.toFloat() ?? 0.0
         newExpense.date = selectedDate
+        if !categories.isEmpty {
+            newExpense.category = categories[selectedCategory]
+        }
         do {
             try viewContext.save()
             completion()
         } catch {
             print("Error saving expense")
+        }
+    }
+    
+    func fetchCategories() {
+        let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
+
+        do {
+            categories = try viewContext.fetch(fetchRequest)
+        } catch {
+            print("Fetch failed")
         }
     }
 }

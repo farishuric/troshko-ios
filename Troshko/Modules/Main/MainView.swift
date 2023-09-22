@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var expensesVM = ExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
+    
     var body: some View {
         TabView {
             ExpensesView()
+                .environmentObject(expensesVM)
                 .tabItem {
                     Label("EXPENSES.TITLE".localized, systemImage: "creditcard")
                 }
             CategoriesView()
+                .environmentObject(expensesVM)
                 .tabItem {
                     Label("CATEGORIES.TITLE".localized, systemImage: "archivebox.fill")
                 }

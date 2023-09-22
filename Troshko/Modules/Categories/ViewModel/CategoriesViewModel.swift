@@ -14,6 +14,10 @@ class CategoriesViewModel: ObservableObject {
     
     @Published var categories: [Category] = []
     
+    var isAddDisabled: Bool {
+        return categoryName.isEmpty
+    }
+    
     private let viewContext: NSManagedObjectContext
     
     init(viewContext: NSManagedObjectContext) {
