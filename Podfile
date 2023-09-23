@@ -7,4 +7,5 @@ target 'Troshko' do
 
   # Pods for Troshko
   pod 'SwiftLint'
+  pod 'DGCharts'
 end

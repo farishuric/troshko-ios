@@ -11,16 +11,19 @@
 		AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */; };
 		AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */; };
 		AFA8001E2ABE139C00A7BEE2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = AFA8001D2ABE139C00A7BEE2 /* .swiftlint.yml */; };
-		AFB988162AB8D9240068EC3B /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB988122AB8D9240068EC3B /* Category+CoreDataClass.swift */; };
-		AFB988172AB8D9240068EC3B /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB988132AB8D9240068EC3B /* Category+CoreDataProperties.swift */; };
+		AFA8005A2ABF983100A7BEE2 /* MonthlyOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA800592ABF983100A7BEE2 /* MonthlyOverviewView.swift */; };
+		AFA8005D2ABF9AF600A7BEE2 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8005C2ABF9AF600A7BEE2 /* PieChartView.swift */; };
+		AFA800612ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA800602ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift */; };
+		AFA8006C2ABFA92F00A7BEE2 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8006A2ABFA92F00A7BEE2 /* Expense+CoreDataClass.swift */; };
+		AFA8006D2ABFA92F00A7BEE2 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8006B2ABFA92F00A7BEE2 /* Expense+CoreDataProperties.swift */; };
+		AFA800702ABFA93E00A7BEE2 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8006E2ABFA93E00A7BEE2 /* Category+CoreDataClass.swift */; };
+		AFA800712ABFA93E00A7BEE2 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8006F2ABFA93E00A7BEE2 /* Category+CoreDataProperties.swift */; };
 		AFB9881D2AB8DB2A0068EC3B /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */; };
 		AFB9881F2AB8E3220068EC3B /* Float + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB9881E2AB8E3220068EC3B /* Float + Extensions.swift */; };
 		AFC239EF2ABCA24900384EE7 /* Date + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */; };
 		AFC958312AB8BB48000D6C0B /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */; };
 		AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */; };
 		AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */; };
-		AFFAD6C02ABD12F100887B5D /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFAD6BE2ABD12F100887B5D /* Expense+CoreDataClass.swift */; };
-		AFFAD6C12ABD12F100887B5D /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFAD6BF2ABD12F100887B5D /* Expense+CoreDataProperties.swift */; };
 		AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */; };
 		AFFECE552AB79098003FE8B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE542AB79098003FE8B9 /* Assets.xcassets */; };
 		AFFECE582AB79098003FE8B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE572AB79098003FE8B9 /* Preview Assets.xcassets */; };
@@ -41,15 +44,18 @@
 		AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TroshkoData.xcdatamodel; sourceTree = "<group>"; };
 		AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AFA8001D2ABE139C00A7BEE2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		AFB988122AB8D9240068EC3B /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
-		AFB988132AB8D9240068EC3B /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AFA800592ABF983100A7BEE2 /* MonthlyOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewView.swift; sourceTree = "<group>"; };
+		AFA8005C2ABF9AF600A7BEE2 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		AFA800602ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewViewModel.swift; sourceTree = "<group>"; };
+		AFA8006A2ABFA92F00A7BEE2 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		AFA8006B2ABFA92F00A7BEE2 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		AFA8006E2ABFA93E00A7BEE2 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		AFA8006F2ABFA93E00A7BEE2 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
 		AFB9881E2AB8E3220068EC3B /* Float + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float + Extensions.swift"; sourceTree = "<group>"; };
 		AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
 		AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesViewModel.swift; sourceTree = "<group>"; };
-		AFFAD6BE2ABD12F100887B5D /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		AFFAD6BF2ABD12F100887B5D /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		AFFECE4D2AB79097003FE8B9 /* Troshko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Troshko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroshkoApp.swift; sourceTree = "<group>"; };
 		AFFECE542AB79098003FE8B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,11 +136,37 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		AFA800562ABF980500A7BEE2 /* MonthlyOverview */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8005F2ABFA44000A7BEE2 /* ViewModel */,
+				AFA8005B2ABF9A9C00A7BEE2 /* Views */,
+				AFA800592ABF983100A7BEE2 /* MonthlyOverviewView.swift */,
+			);
+			path = MonthlyOverview;
+			sourceTree = "<group>";
+		};
+		AFA8005B2ABF9A9C00A7BEE2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8005C2ABF9AF600A7BEE2 /* PieChartView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AFA8005F2ABFA44000A7BEE2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AFA800602ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AFB988192AB8D93E0068EC3B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				AFB988122AB8D9240068EC3B /* Category+CoreDataClass.swift */,
-				AFB988132AB8D9240068EC3B /* Category+CoreDataProperties.swift */,
+				AFA8006E2ABFA93E00A7BEE2 /* Category+CoreDataClass.swift */,
+				AFA8006F2ABFA93E00A7BEE2 /* Category+CoreDataProperties.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -142,8 +174,8 @@
 		AFB9881A2AB8D9410068EC3B /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
-				AFFAD6BE2ABD12F100887B5D /* Expense+CoreDataClass.swift */,
-				AFFAD6BF2ABD12F100887B5D /* Expense+CoreDataProperties.swift */,
+				AFA8006A2ABFA92F00A7BEE2 /* Expense+CoreDataClass.swift */,
+				AFA8006B2ABFA92F00A7BEE2 /* Expense+CoreDataProperties.swift */,
 			);
 			path = Expenses;
 			sourceTree = "<group>";
@@ -216,6 +248,7 @@
 		AFFECE5E2AB790F0003FE8B9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AFA800562ABF980500A7BEE2 /* MonthlyOverview */,
 				AFFECE662AB791EA003FE8B9 /* Main */,
 				AFFECE622AB79100003FE8B9 /* Chart */,
 				AFFECE612AB790F8003FE8B9 /* Categories */,
@@ -334,6 +367,7 @@
 				AFFECE4A2AB79097003FE8B9 /* Frameworks */,
 				AFFECE4B2AB79097003FE8B9 /* Resources */,
 				AFA8001B2ABE12F900A7BEE2 /* SwiftLint */,
+				FB5A39CAB7EAB049FB81E7C0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -435,6 +469,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FB5A39CAB7EAB049FB81E7C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Troshko/Pods-Troshko-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Troshko/Pods-Troshko-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Troshko/Pods-Troshko-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -444,24 +495,27 @@
 			files = (
 				AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */,
 				AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */,
+				AFA8006C2ABFA92F00A7BEE2 /* Expense+CoreDataClass.swift in Sources */,
 				AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */,
 				AFFECE6A2AB7926D003FE8B9 /* MainView.swift in Sources */,
+				AFA8006D2ABFA92F00A7BEE2 /* Expense+CoreDataProperties.swift in Sources */,
+				AFA8005D2ABF9AF600A7BEE2 /* PieChartView.swift in Sources */,
 				E140C8EC2ABDA0740076950C /* AddCategoriesView.swift in Sources */,
 				AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */,
 				AFFECE6E2AB792D1003FE8B9 /* CategoriesView.swift in Sources */,
 				AFFECE6C2AB792BB003FE8B9 /* ExpensesView.swift in Sources */,
+				AFA800612ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift in Sources */,
 				AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */,
+				AFA800702ABFA93E00A7BEE2 /* Category+CoreDataClass.swift in Sources */,
 				AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */,
+				AFA8005A2ABF983100A7BEE2 /* MonthlyOverviewView.swift in Sources */,
 				AFC239EF2ABCA24900384EE7 /* Date + Extensions.swift in Sources */,
-				AFFAD6C12ABD12F100887B5D /* Expense+CoreDataProperties.swift in Sources */,
-				AFFAD6C02ABD12F100887B5D /* Expense+CoreDataClass.swift in Sources */,
 				AF11CA1E2AB7B67800BB21C9 /* BadgeView.swift in Sources */,
 				AFB9881D2AB8DB2A0068EC3B /* ExpensesViewModel.swift in Sources */,
 				AFC958312AB8BB48000D6C0B /* CategoriesViewModel.swift in Sources */,
 				AFB9881F2AB8E3220068EC3B /* Float + Extensions.swift in Sources */,
-				AFB988162AB8D9240068EC3B /* Category+CoreDataClass.swift in Sources */,
 				AFFECE862AB7A575003FE8B9 /* AddExpensesView.swift in Sources */,
-				AFB988172AB8D9240068EC3B /* Category+CoreDataProperties.swift in Sources */,
+				AFA800712ABFA93E00A7BEE2 /* Category+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
