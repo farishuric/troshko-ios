@@ -1,16 +1,22 @@
 PODS:
+  - DGCharts (5.0.0):
+    - DGCharts/Core (= 5.0.0)
+  - DGCharts/Core (5.0.0)
   - SwiftLint (0.51.0)
 
 DEPENDENCIES:
+  - DGCharts
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - DGCharts
     - SwiftLint
 
 SPEC CHECKSUMS:
+  DGCharts: 6e0cf2644e8f81ad13f04caa8bc18502870a1c54
   SwiftLint: 1b7561918a19e23bfed960e40759086e70f4dba5
 
-PODFILE CHECKSUM: a16fd5d557a373e86e00bb590c67a074d24b236f
+PODFILE CHECKSUM: 64b33feb6bcb961095628ff85b55c0c63edd632d
 
 COCOAPODS: 1.11.3

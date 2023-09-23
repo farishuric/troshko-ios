@@ -2,7 +2,7 @@
 //  Expense+CoreDataClass.swift
 //  Troshko
 //
-//  Created by Faris Hurić on 22. 9. 2023..
+//  Created by Faris Hurić on 24. 9. 2023..
 //
 //
 

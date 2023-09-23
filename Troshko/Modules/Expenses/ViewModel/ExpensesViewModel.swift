@@ -124,6 +124,7 @@ class ExpensesViewModel: ObservableObject {
     }
     
     func saveExpense(completion: @escaping () -> Void) {
+//        let category = categories[selectedCategory]
         let newExpense = Expense(context: viewContext)
         newExpense.title = title
         newExpense.desc = description
@@ -132,6 +133,8 @@ class ExpensesViewModel: ObservableObject {
         if !categories.isEmpty {
             newExpense.category = categories[selectedCategory]
         }
+        
+//        category.addToExpenses(newExpense)
         do {
             try viewContext.save()
             completion()

@@ -22,6 +22,10 @@ struct MainView: View {
                 .tabItem {
                     Label("CATEGORIES.TITLE".localized, systemImage: "archivebox.fill")
                 }
+            MonthlyOverviewView()
+                .tabItem {
+                    Label("MONTHLY_OVERVIEW.TITLE".localized, systemImage: "chart.pie")
+                }
         }
     }
 }

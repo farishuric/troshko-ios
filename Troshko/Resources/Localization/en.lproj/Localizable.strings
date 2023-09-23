@@ -1,6 +1,7 @@
 // MARK: - General
 "EXPENSES.TITLE" = "Expenses";
 "CATEGORIES.TITLE" = "Categories";
+"MONTHLY_OVERVIEW.TITLE" = "Overview";
 
 // MARK: - Wording
 "WORDING_CANCEL" = "Cancel";
