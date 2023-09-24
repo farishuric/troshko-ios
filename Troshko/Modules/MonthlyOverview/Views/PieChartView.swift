@@ -21,7 +21,7 @@ struct PieChart: UIViewRepresentable {
     func makeUIView(context: Context) -> PieChartView {
         pieChart.delegate = context.coordinator
         pieChart.noDataText = "No Data"
-                        
+    
         pieChart.legend.enabled = false
         pieChart.drawEntryLabelsEnabled = true
     
@@ -38,9 +38,13 @@ struct PieChart: UIViewRepresentable {
     
     func updateUIView(_ uiView: PieChartView, context: Context) {
         let dataSet = PieChartDataSet(entries: viewModel.entries)
-        dataSet.label = "Kategorije"
+        dataSet.label = ""
         dataSet.colors = ChartColorTemplates.vordiplom()
         dataSet.drawIconsEnabled = false
+        
+        dataSet.sliceSpace = 3
+        
+        dataSet.valueFormatter = AxisFormatter()
         
         dataSet.valueColors = [.black]
         
@@ -53,8 +57,9 @@ struct PieChart: UIViewRepresentable {
         legend.font = .systemFont(ofSize: 14)
         
         uiView.data = PieChartData(dataSet: dataSet)
-        
         uiView.notifyDataSetChanged()
+        
+        uiView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
     class Coordinator: NSObject, ChartViewDelegate {
@@ -63,5 +68,15 @@ struct PieChart: UIViewRepresentable {
         init(parent: PieChart) {
             self.parent = parent
         }
+    }
+    
+    func test() {
+        print("test")
+    }
+}
+
+class AxisFormatter: ValueFormatter {
+    func stringForValue(_ value: Double, entry: DGCharts.ChartDataEntry, dataSetIndex: Int, viewPortHandler: DGCharts.ViewPortHandler?) -> String {
+        return "\(value)\(Locale.current.currencySymbol ?? "")"
     }
 }
