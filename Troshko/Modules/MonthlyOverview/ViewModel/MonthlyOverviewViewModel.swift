@@ -89,7 +89,9 @@ extension MonthlyOverviewViewModel {
                         currentTotalPrice += expense.price
                     }
                 }
-                models.append(MonthlyOverviewModel(categoryName: category.name ?? "WORDING_UNKNOWN".localized, totalExpenses: currentTotalPrice))
+                if currentTotalPrice > 0 {
+                    models.append(MonthlyOverviewModel(categoryName: category.name ?? "WORDING_UNKNOWN".localized, totalExpenses: currentTotalPrice))
+                }
                 currentTotalPrice = 0
             }
             self.models = models
