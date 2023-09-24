@@ -14,6 +14,7 @@
 		AFA2FA382AC06F53002A802B /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA372AC06F53002A802B /* Month.swift */; };
 		AFA2FA3B2AC06F76002A802B /* MonthlyOverviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA3A2AC06F76002A802B /* MonthlyOverviewModel.swift */; };
 		AFA2FA3E2AC0713F002A802B /* GroupedExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */; };
+		AFA2FA452AC0A700002A802B /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA442AC0A700002A802B /* EmptyStateView.swift */; };
 		AFA8001E2ABE139C00A7BEE2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = AFA8001D2ABE139C00A7BEE2 /* .swiftlint.yml */; };
 		AFA8005A2ABF983100A7BEE2 /* MonthlyOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA800592ABF983100A7BEE2 /* MonthlyOverviewView.swift */; };
 		AFA8005D2ABF9AF600A7BEE2 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8005C2ABF9AF600A7BEE2 /* PieChartView.swift */; };
@@ -51,6 +52,7 @@
 		AFA2FA372AC06F53002A802B /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		AFA2FA3A2AC06F76002A802B /* MonthlyOverviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewModel.swift; sourceTree = "<group>"; };
 		AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedExpenses.swift; sourceTree = "<group>"; };
+		AFA2FA442AC0A700002A802B /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		AFA8001D2ABE139C00A7BEE2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AFA800592ABF983100A7BEE2 /* MonthlyOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewView.swift; sourceTree = "<group>"; };
 		AFA8005C2ABF9AF600A7BEE2 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */,
+				AFA2FA442AC0A700002A802B /* EmptyStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				AF207AE92AC06BBE00CF5009 /* MonthYearPickerView.swift in Sources */,
 				AFA2FA3B2AC06F76002A802B /* MonthlyOverviewModel.swift in Sources */,
 				AFA800612ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift in Sources */,
+				AFA2FA452AC0A700002A802B /* EmptyStateView.swift in Sources */,
 				AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */,
 				AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */,
 				AFA8005A2ABF983100A7BEE2 /* MonthlyOverviewView.swift in Sources */,

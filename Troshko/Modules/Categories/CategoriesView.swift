@@ -36,15 +36,7 @@ struct CategoriesView: View {
                     }
                     .overlay {
                         if categoriesVM.categories.isEmpty {
-                            VStack {
-                                Image(systemName: "exclamationmark.triangle")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 80, height: 80)
-                                    .foregroundColor(.blue)
-                                
-                                Text("CATEGORIES.NO_DATA".localized)
-                            }
+                            EmptyStateView(systemImage: "doc.text", text: "CATEGORIES.NO_DATA".localized)
                         }
                     }
                 }

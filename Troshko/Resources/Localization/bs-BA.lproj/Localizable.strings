@@ -12,6 +12,7 @@
 "WORDING_YES" = "Da";
 "WORDING_NO" = "Ne";
 "WORDING_NONE" = "Nijedno";
+"WORDING_APPLY" = "Primijeni";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Danas";
@@ -52,3 +53,6 @@
 "MONTHLY_OVERVIEW.NAV_TITLE" = "Mjesečni Pregled";
 "NO_DATA" = "Nema pronađenih podataka";
 "MONTHLY_OVERVIEW.TOTAL_EXPENSES" = "Ukupni troškovi: %@";
+"MONTHLY_OVERVIEW.NO_DATA" = "Trenutno nema dostupnih podataka za ovaj mjesec.";
+"PICKER.SELECT_MONTH" = "Odaberite Mjesec";
+"PICKER.SELECT_YEAR" = "Odaberite Godinu";

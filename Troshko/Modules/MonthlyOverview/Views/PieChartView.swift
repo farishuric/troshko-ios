@@ -32,7 +32,7 @@ struct PieChart: UIViewRepresentable {
         pieChart.drawSlicesUnderHoleEnabled = false
         
         pieChart.isUserInteractionEnabled = false
-        
+        pieChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         return pieChart
     }
     
@@ -57,9 +57,8 @@ struct PieChart: UIViewRepresentable {
         legend.font = .systemFont(ofSize: 14)
         
         uiView.data = PieChartData(dataSet: dataSet)
-        uiView.notifyDataSetChanged()
         
-        uiView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        uiView.notifyDataSetChanged()
     }
     
     class Coordinator: NSObject, ChartViewDelegate {
@@ -68,10 +67,6 @@ struct PieChart: UIViewRepresentable {
         init(parent: PieChart) {
             self.parent = parent
         }
-    }
-    
-    func test() {
-        print("test")
     }
 }
 
