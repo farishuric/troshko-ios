@@ -13,11 +13,47 @@ struct MonthlyOverviewView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                PieChart()
+            VStack {  
+//                HStack {
+//                    Spacer()
+//                    Button(action: {
+//                        viewModel.isPickerPresented.toggle()
+//                    }) {
+//                        Label("Date", systemImage: "chevron.down")
+//                    }
+//                    .buttonStyle(.bordered)
+//                    .tint(.black)
+//                }.padding(.horizontal, 16)
+                
+                Spacer()
+                VStack {
+                    if viewModel.entries.isEmpty {
+                        Text("NO_DATA".localized)
+                    } else {
+                        
+                        PieChart()
+                            .environmentObject(viewModel)
+                    }
+                    
+                    HStack {
+                        Spacer()
+                        Text(verbatim: "MONTHLY_OVERVIEW.TOTAL_EXPENSES".localized(arguments: "\(viewModel.totalExpenses) \(Locale.current.currencySymbol ?? "")"))
+                            .padding()
+                    }
+                }
+                Spacer()
+            }
+            .navigationTitle("MONTHLY_OVERVIEW.NAV_TITLE")
+            .onAppear {
+                viewModel.fetchCategoriesWithExpenses(for: Date())
+            }
+            .onChange(of: viewModel.selectedDate) { newValue in
+                viewModel.fetchCategoriesWithExpenses(for: newValue)
+            }
+            .sheet(isPresented: $viewModel.isPickerPresented) {
+                MonthYearPickerView()
                     .environmentObject(viewModel)
             }
-            .navigationTitle("Monthly overview")
         }
     }
 }

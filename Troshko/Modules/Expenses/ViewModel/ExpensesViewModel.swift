@@ -8,15 +8,18 @@
 import Foundation
 import CoreData
 
+/// View model for managing expenses.
 class ExpensesViewModel: ObservableObject {
+    
+    // MARK: - Published Properties
     
     @Published var selectedCategory = 0
     @Published var categories: [Category] = []
-    
     @Published var expenses: [Expense] = []
     @Published var isPresentingAddExpenses: Bool = false
-    
     @Published var groupedExpenses: [GroupedExpenses] = []
+    
+    // MARK: - Properties
     
     var editingExpense: Expense? {
         didSet {
@@ -29,10 +32,27 @@ class ExpensesViewModel: ObservableObject {
     
     private let viewContext: NSManagedObjectContext
     
+    // MARK: - Form Fields
+    
+    @Published var title = ""
+    @Published var description = ""
+    @Published var price: String = ""
+    @Published var selectedDate = Date()
+    
+    // MARK: - Computed Properties
+    
+    var isAddDisabled: Bool {
+        return title.isEmpty || description.isEmpty || price.isEmpty
+    }
+    
+    // MARK: - Initialization
+    
     init(viewContext: NSManagedObjectContext) {
         self.viewContext = viewContext
         fetchCategories()
     }
+    
+    // MARK: - Public Methods
     
     func fetchExpenses() {
         let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
@@ -55,7 +75,7 @@ class ExpensesViewModel: ObservableObject {
             print("Error deleting")
         }
     }
-
+    
     func groupExpensesByDate(expenses: [Expense]) -> [GroupedExpenses] {
         var groupedExpenses: [GroupedExpenses] = []
 
@@ -97,44 +117,32 @@ class ExpensesViewModel: ObservableObject {
     }
     
     func deleteFromGroup(at index: Int, in group: GroupedExpenses) {
-        let group = groupedExpenses.firstIndex {
-            $0 == group
-        }
-           
-        if let group {
-            let expense = groupedExpenses[group].expenses[index]
+        if let groupIndex = groupedExpenses.firstIndex(where: { $0 == group }) {
+            let expense = groupedExpenses[groupIndex].expenses[index]
             delete(expense: expense) {
                 DispatchQueue.main.async {
-                    self.groupedExpenses[group].expenses.removeAll { $0 == expense }
-                    if self.groupedExpenses[group].expenses.isEmpty {
-                        self.groupedExpenses.remove(at: group)
+                    self.groupedExpenses[groupIndex].expenses.removeAll { $0 == expense }
+                    if self.groupedExpenses[groupIndex].expenses.isEmpty {
+                        self.groupedExpenses.remove(at: groupIndex)
                     }
                 }
             }
-        }   
-    }
-    
-    @Published var title = ""
-    @Published var description = ""
-    @Published var price: String = ""
-    @Published var selectedDate = Date()
-    
-    var isAddDisabled: Bool {
-        return title.isEmpty || description.isEmpty || price.isEmpty
+        }
     }
     
     func saveExpense(completion: @escaping () -> Void) {
-//        let category = categories[selectedCategory]
+        let category = categories[selectedCategory]
         let newExpense = Expense(context: viewContext)
         newExpense.title = title
         newExpense.desc = description
         newExpense.price = price.toFloat() ?? 0.0
         newExpense.date = selectedDate
+        
         if !categories.isEmpty {
             newExpense.category = categories[selectedCategory]
         }
         
-//        category.addToExpenses(newExpense)
+        category.addToExpense(newExpense)
         do {
             try viewContext.save()
             completion()
@@ -153,11 +161,4 @@ class ExpensesViewModel: ObservableObject {
             print("Fetch failed")
         }
     }
-}
-
-struct GroupedExpenses: Identifiable, Equatable {
-    var id: UUID = .init()
-    var date: Date
-    var expenses: [Expense]
-    var formattedDate: String
 }

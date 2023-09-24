@@ -1,6 +1,7 @@
 // MARK: - General
 "EXPENSES.TITLE" = "Troškovi";
 "CATEGORIES.TITLE" = "Kategorije";
+"MONTHLY_OVERVIEW.TITLE" = "Pregled";
 
 // MARK: - Wording
 "WORDING_CANCEL" = "Otkaži";
@@ -46,3 +47,8 @@
 "CATEGORIES.DESCRIPTION" = "Dodajte kategorije troškova radi bolje organizacije i praćenja. Kategorizirajte svaki trošak kako biste dobili uvid u svoje navike trošenja i unaprijedili financijsko upravljanje.";
 "CATEGORIES.INFORMATION" = "Informacije o Kategoriji";
 "CATEGORIES.NAME" = "Ime Kategorije";
+
+// MARK: - Monthly overview
+"MONTHLY_OVERVIEW.NAV_TITLE" = "Mjesečni Pregled";
+"NO_DATA" = "Nema pronađenih podataka";
+"MONTHLY_OVERVIEW.TOTAL_EXPENSES" = "Ukupni troškovi: %@";

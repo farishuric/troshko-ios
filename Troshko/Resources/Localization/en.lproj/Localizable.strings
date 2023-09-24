@@ -50,3 +50,8 @@
 "CATEGORIES.DESCRIPTION" = "Add categories to expenses for better organization and tracking. Categorize each expense to gain insight into your spending habits and improve financial management.";
 "CATEGORIES.INFORMATION" = "Category Information";
 "CATEGORIES.NAME" = "Category Name";
+
+// MARK: - Monthly overview
+"MONTHLY_OVERVIEW.NAV_TITLE" = "Monthly Overview";
+"NO_DATA" = "No data found";
+"MONTHLY_OVERVIEW.TOTAL_EXPENSES" = "Total expenses: %@";
