@@ -25,6 +25,7 @@ extension Date {
         case monthDay = "MMM dd"
         case longDay = "EEEE, dd MMM"
         case isoFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        case monthYear = "MMM, yyyy"
     }
 
     init?(string: String, format: DateFormat) {

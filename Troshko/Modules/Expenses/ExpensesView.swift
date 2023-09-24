@@ -45,15 +45,7 @@ struct ExpensesView: View {
                     }
                     .overlay {
                         if expensesVM.expenses.isEmpty || expensesVM.groupedExpenses.isEmpty {
-                            VStack {
-                                Image(systemName: "exclamationmark.triangle")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 80, height: 80)
-                                    .foregroundColor(.blue)
-                                
-                                Text("EXPENSES.NO_EXPENSES".localized)
-                            }
+                            EmptyStateView(systemImage: "doc.text", text: "EXPENSES.NO_EXPENSES".localized)
                         }
                     }
                 }

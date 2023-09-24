@@ -10,42 +10,58 @@ import SwiftUI
 struct MonthYearPickerView: View {
     @EnvironmentObject var viewModel: MonthlyOverviewViewModel
     var body: some View {
-        VStack {
-            HStack {
-                VStack {
-                    Text("Select a Month")
-                        .font(.headline)
-                        .padding()
-                    Picker("Months", selection: $viewModel.selectedMonth) {
-                        ForEach(Month.allCases, id: \.self) { month in
-                            Text("\(month.title)")
+        NavigationView {
+            VStack {
+                HStack {
+                    VStack {
+                        Text("PICKER.SELECT_MONTH".localized)
+                            .font(.headline)
+                            .padding()
+                        Picker("Months", selection: $viewModel.selectedMonth) {
+                            ForEach(0..<13, id: \.self) { month in
+                                if let month = Month(rawValue: month) {
+                                    Text(month.title)
+                                }
+                            }
                         }
+                        .pickerStyle(.wheel) // Use .wheel style for the native picker
+                        .padding()
                     }
-                    .pickerStyle(.wheel) // Use .wheel style for the native picker
-                    .padding()
+                    
+                    VStack {
+                        Text("PICKER.SELECT_YEAR".localized)
+                            .font(.headline)
+                            .padding()
+                        Picker("Years", selection: $viewModel.selectedYear) {
+                            ForEach(2020..<2024, id: \.self) { year in
+                                Text(verbatim: "\(year)")
+                            }
+                        }
+                        .pickerStyle(.wheel) // Use .wheel style for the native picker
+                        .padding()
+                    }
                 }
-                
-                VStack {
-                    Text("Select a Year")
-                        .font(.headline)
-                        .padding()
-                    Picker("Years", selection: $viewModel.selectedYear) {
-                        ForEach(2020..<2024, id: \.self) { year in
-                            Text(verbatim: "\(year)")
-                        }
+                Button {
+                    viewModel.createDate()
+                    viewModel.isPickerPresented = false
+                } label: {
+                    Text("WORDING_APPLY".localized)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .padding()
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        viewModel.isPickerPresented = false
+                    } label: {
+                        Image(systemName: "xmark")
+                            .frame(width: 16.0, height: 16.0)
+                            .aspectRatio(contentMode: .fit)
                     }
-                    .pickerStyle(.wheel) // Use .wheel style for the native picker
-                    .padding()
                 }
             }
-            Button {
-                viewModel.isPickerPresented = false
-            } label: {
-                Text("Done")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.borderedProminent)
-            .padding()
         }
     }
 }

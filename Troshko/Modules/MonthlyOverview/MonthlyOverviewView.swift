@@ -14,31 +14,37 @@ struct MonthlyOverviewView: View {
     var body: some View {
         NavigationView {
             VStack {  
-//                HStack {
-//                    Spacer()
-//                    Button(action: {
-//                        viewModel.isPickerPresented.toggle()
-//                    }) {
-//                        Label("Date", systemImage: "chevron.down")
-//                    }
-//                    .buttonStyle(.bordered)
-//                    .tint(.black)
-//                }.padding(.horizontal, 16)
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        viewModel.isPickerPresented.toggle()
+                    }) {
+                        Label("\(viewModel.selectedDate.format(with: .monthYear))".capitalized, systemImage: "chevron.down")
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(.gray)
+                    .foregroundColor(.primary)
+                }.padding(.horizontal, 16)
                 
                 Spacer()
                 VStack {
+                    Spacer()
                     if viewModel.entries.isEmpty {
-                        Text("NO_DATA".localized)
+                        ZStack(alignment: .topTrailing) {
+                            EmptyStateView(systemImage: "chart.pie", text: "MONTHLY_OVERVIEW.NO_DATA".localized)
+                        }
                     } else {
                         
                         PieChart()
                             .environmentObject(viewModel)
                     }
-                    
+                    Spacer()
                     HStack {
                         Spacer()
-                        Text(verbatim: "MONTHLY_OVERVIEW.TOTAL_EXPENSES".localized(arguments: "\(viewModel.totalExpenses) \(Locale.current.currencySymbol ?? "")"))
-                            .padding()
+                        Text(verbatim: "MONTHLY_OVERVIEW.TOTAL_EXPENSES".localized(
+                            arguments: "\(viewModel.totalExpenses) \(Locale.current.currencySymbol ?? "")")
+                        )
+                        .padding()
                     }
                 }
                 Spacer()

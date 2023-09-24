@@ -13,6 +13,7 @@
 "WORDING_NO" = "No";
 "WORDING_NONE" = "None";
 "WORDING_SAVE" = "Save";
+"WORDING_APPLY" = "Apply";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Today";
@@ -55,3 +56,6 @@
 "MONTHLY_OVERVIEW.NAV_TITLE" = "Monthly Overview";
 "NO_DATA" = "No data found";
 "MONTHLY_OVERVIEW.TOTAL_EXPENSES" = "Total expenses: %@";
+"MONTHLY_OVERVIEW.NO_DATA" = "Currently, there is no chart data available for this month.";
+"PICKER.SELECT_MONTH" = "Select a Month";
+"PICKER.SELECT_YEAR" = "Select a Year";

@@ -49,6 +49,7 @@ class MonthlyOverviewViewModel: ObservableObject {
     
     /// Initializes the view model.
     init() {
+        setInitialDates()
         fetchCategoriesWithExpenses(for: Date())
     }
 }
@@ -112,5 +113,22 @@ extension MonthlyOverviewViewModel {
         var totalExpense: Float = 0
         models.forEach { totalExpense += $0.totalExpenses }
         return totalExpense
+    }
+    
+    func createDate() {
+        let calendar = Calendar.current
+        let components = DateComponents(year: selectedYear, month: selectedMonth + 1, day: 1)
+        if let date = calendar.date(from: components) {
+            self.selectedDate = date
+        }
+    }
+    
+    func setInitialDates() {
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: Date())
+        let year = calendar.component(.year, from: Date())
+        
+        self.selectedMonth = month - 1
+        self.selectedYear = year
     }
 }
