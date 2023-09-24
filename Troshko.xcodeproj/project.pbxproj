@@ -55,10 +55,10 @@
 		AFA800592ABF983100A7BEE2 /* MonthlyOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewView.swift; sourceTree = "<group>"; };
 		AFA8005C2ABF9AF600A7BEE2 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		AFA800602ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewViewModel.swift; sourceTree = "<group>"; };
-		AFA8007B2AC056AA00A7BEE2 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		AFA8007C2AC056AA00A7BEE2 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		AFA8007F2AC056BE00A7BEE2 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		AFA800802AC056BE00A7BEE2 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		AFA8007B2AC056AA00A7BEE2 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "Troshko/CoreData/Categories/Category+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		AFA8007C2AC056AA00A7BEE2 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "Troshko/CoreData/Categories/Category+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		AFA8007F2AC056BE00A7BEE2 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Expense+CoreDataClass.swift"; path = "Troshko/CoreData/Expenses/Expense+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		AFA800802AC056BE00A7BEE2 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Expense+CoreDataProperties.swift"; path = "Troshko/CoreData/Expenses/Expense+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
 		AFB9881E2AB8E3220068EC3B /* Float + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float + Extensions.swift"; sourceTree = "<group>"; };
 		AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 		AF11CA1F2AB83DD300BB21C9 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				AFA800722ABFB1A600A7BEE2 /* Categories */,
-				AFB9881A2AB8D9410068EC3B /* Expenses */,
+				AFA2FA412AC0767A002A802B /* Expenses */,
+				AFA2FA402AC0764E002A802B /* Categories */,
 				AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */,
 				AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */,
 			);
@@ -151,6 +151,24 @@
 				AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AFA2FA402AC0764E002A802B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8007C2AC056AA00A7BEE2 /* Category+CoreDataProperties.swift */,
+				AFA8007B2AC056AA00A7BEE2 /* Category+CoreDataClass.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		AFA2FA412AC0767A002A802B /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				AFA8007F2AC056BE00A7BEE2 /* Expense+CoreDataClass.swift */,
+				AFA800802AC056BE00A7BEE2 /* Expense+CoreDataProperties.swift */,
+			);
+			path = Expenses;
 			sourceTree = "<group>";
 		};
 		AFA8001C2ABE138D00A7BEE2 /* Config */ = {
@@ -187,24 +205,6 @@
 				AFA800602ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AFA800722ABFB1A600A7BEE2 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				AFA8007B2AC056AA00A7BEE2 /* Category+CoreDataClass.swift */,
-				AFA8007C2AC056AA00A7BEE2 /* Category+CoreDataProperties.swift */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		AFB9881A2AB8D9410068EC3B /* Expenses */ = {
-			isa = PBXGroup;
-			children = (
-				AFA8007F2AC056BE00A7BEE2 /* Expense+CoreDataClass.swift */,
-				AFA800802AC056BE00A7BEE2 /* Expense+CoreDataProperties.swift */,
-			);
-			path = Expenses;
 			sourceTree = "<group>";
 		};
 		AFB9881B2AB8DB1D0068EC3B /* ViewModel */ = {
