@@ -19,16 +19,20 @@ struct CategoriesView: View {
                 VStack {
                     List {
                         ForEach(categoriesVM.categories) { category in
-                            Text(category.name ?? "WORDING_UNKNOWN".localized)
-                                .swipeActions {
-                                    Button {
-                                        categoriesVM.categoryToDelete = category
-                                        categoriesVM.isShowingDeletionAlert = true
-                                    } label: {
-                                        Text("WORDING_DELETE".localized)
-                                    }
-                                    .tint(.red)
+                            NavigationLink {
+                                CategoryExpensesView(categoryName: category.name ?? "")
+                            } label: {
+                                Text(category.name ?? "WORDING_UNKNOWN".localized)
+                            }
+                            .swipeActions {
+                                Button {
+                                    categoriesVM.categoryToDelete = category
+                                    categoriesVM.isShowingDeletionAlert = true
+                                } label: {
+                                    Text("WORDING_DELETE".localized)
                                 }
+                                .tint(.red)
+                            }
                         }
                         .onChange(of: categoriesVM.categories) {
                             expensesVM.categories = $0
