@@ -16,7 +16,7 @@ struct BadgeView: View {
             .foregroundColor(.white)
             .padding(.horizontal, 8) // Adjust the padding as needed
             .padding(.vertical, 4)   // Adjust the padding as needed
-            .background(Capsule().fill(Color.red)) // Adjust the background color
+            .background(Capsule().fill(Color.blue)) // Adjust the background color
     }
 }
 
