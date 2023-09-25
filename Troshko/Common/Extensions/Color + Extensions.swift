@@ -20,7 +20,7 @@ extension Color {
             NSUIColor(.orange),
             NSUIColor(.purple),
             NSUIColor(.indigo),
-            NSUIColor(.pink),
+            NSUIColor(.pink)
         ]
         
         return colors

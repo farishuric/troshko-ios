@@ -257,14 +257,14 @@
 		AFFECE4F2AB79097003FE8B9 /* Troshko */ = {
 			isa = PBXGroup;
 			children = (
+				AFFECE542AB79098003FE8B9 /* Assets.xcassets */,
+				AFFECE632AB7910D003FE8B9 /* Common */,
 				AFA8001C2ABE138D00A7BEE2 /* Config */,
 				AF11CA1F2AB83DD300BB21C9 /* CoreData */,
-				AFFECE642AB79110003FE8B9 /* Resources */,
-				AFFECE632AB7910D003FE8B9 /* Common */,
 				AFFECE5E2AB790F0003FE8B9 /* Modules */,
-				AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */,
-				AFFECE542AB79098003FE8B9 /* Assets.xcassets */,
 				AFFECE562AB79098003FE8B9 /* Preview Content */,
+				AFFECE642AB79110003FE8B9 /* Resources */,
+				AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */,
 			);
 			path = Troshko;
 			sourceTree = "<group>";
@@ -282,7 +282,6 @@
 			children = (
 				AFA800562ABF980500A7BEE2 /* MonthlyOverview */,
 				AFFECE662AB791EA003FE8B9 /* Main */,
-				AFFECE622AB79100003FE8B9 /* Chart */,
 				AFFECE612AB790F8003FE8B9 /* Categories */,
 				AFFECE5F2AB790F2003FE8B9 /* Expenses */,
 			);
@@ -309,13 +308,6 @@
 				AFFECE6D2AB792D1003FE8B9 /* CategoriesView.swift */,
 			);
 			path = Categories;
-			sourceTree = "<group>";
-		};
-		AFFECE622AB79100003FE8B9 /* Chart */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Chart;
 			sourceTree = "<group>";
 		};
 		AFFECE632AB7910D003FE8B9 /* Common */ = {
