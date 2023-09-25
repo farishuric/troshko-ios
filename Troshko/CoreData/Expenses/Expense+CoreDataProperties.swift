@@ -2,7 +2,7 @@
 //  Expense+CoreDataProperties.swift
 //  Troshko
 //
-//  Created by Faris Hurić on 24. 9. 2023..
+//  Created by Faris Hurić on 25. 9. 2023..
 //
 //
 
@@ -19,6 +19,7 @@ extension Expense {
     @NSManaged public var desc: String?
     @NSManaged public var price: Float
     @NSManaged public var title: String?
+    @NSManaged public var id: UUID?
     @NSManaged public var category: Category?
 
 }

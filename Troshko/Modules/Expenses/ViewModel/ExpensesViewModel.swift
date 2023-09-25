@@ -21,12 +21,17 @@ class ExpensesViewModel: ObservableObject {
     
     // MARK: - Properties
     
+    /// Editing options
+    @Published var isEditing: Bool = false
     var editingExpense: Expense? {
         didSet {
             title = editingExpense?.title ?? ""
             description = editingExpense?.desc ?? ""
             price = "\(editingExpense?.price ?? 0.0)"
             selectedDate = editingExpense?.date ?? Date()
+            if let category = editingExpense?.category {
+                selectedCategory = categories.firstIndex(where: { category == $0 }) ?? 0
+            }
         }
     }
     
@@ -133,6 +138,7 @@ class ExpensesViewModel: ObservableObject {
     func saveExpense(completion: @escaping () -> Void) {
         let category = categories[selectedCategory]
         let newExpense = Expense(context: viewContext)
+        newExpense.id = UUID()
         newExpense.title = title
         newExpense.desc = description
         newExpense.price = price.toFloat() ?? 0.0
@@ -142,12 +148,41 @@ class ExpensesViewModel: ObservableObject {
             newExpense.category = categories[selectedCategory]
         }
         
-        category.addToExpense(newExpense)
+        if editingExpense == nil {
+            category.addToExpense(newExpense)
+        }
         do {
             try viewContext.save()
             completion()
         } catch {
             print("Error saving expense")
+        }
+    }
+    
+    func editExpense(completion: @escaping () -> Void) {
+        if let editingExpense {
+            guard let id = editingExpense.id else { return }
+            let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+            viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            fetchRequest.predicate = NSPredicate(format: "id == %@", id as NSUUID)
+            
+            let results = try? viewContext.fetch(fetchRequest)
+            
+            if let editedExpense = results?.first {
+                editedExpense.id = editingExpense.id
+                editedExpense.title = title
+                editedExpense.desc = description
+                editedExpense.price = price.toFloat() ?? 0.0
+                editedExpense.date = selectedDate
+                editedExpense.category = categories[selectedCategory]
+                
+                do {
+                    try viewContext.save()
+                    completion()
+                } catch {
+                    print("Error editing expense")
+                }
+            }
         }
     }
     

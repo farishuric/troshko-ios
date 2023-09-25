@@ -19,15 +19,18 @@ struct ExpenseItemView: View {
                 Text(viewModel.desc ?? "WORDING_UNKOWN".localized)
                     .font(.system(.caption))
                     .foregroundColor(.secondary)
+                               
                 Text("\(viewModel.date?.format(with: .short) ?? Date().format(with: .short))")
                     .font(.system(.caption))
+                    .foregroundColor(.primary)
             }
             
             Spacer()
             
-            VStack(alignment: .trailing) {
+            VStack(alignment: .trailing, spacing: 4) {
                 Text("\(viewModel.price.toString(decimal: 2))\(Locale.current.currencySymbol ?? "")")
                     .font(.system(.title2))
+                
                 BadgeView(text: viewModel.category?.name ?? "WORDING_UNKNOWN".localized)
             }
         }
