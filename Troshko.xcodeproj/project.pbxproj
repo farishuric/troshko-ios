@@ -14,6 +14,8 @@
 		AF550F062AC16EA90048152D /* Color + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF550F052AC16EA90048152D /* Color + Extensions.swift */; };
 		AF550F092AC1B96D0048152D /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF550F072AC1B96D0048152D /* Expense+CoreDataClass.swift */; };
 		AF550F0A2AC1B96D0048152D /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF550F082AC1B96D0048152D /* Expense+CoreDataProperties.swift */; };
+		AF550F0E2AC223530048152D /* CategoryExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF550F0D2AC223530048152D /* CategoryExpensesView.swift */; };
+		AF550F112AC2237D0048152D /* CategoryExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF550F102AC2237D0048152D /* CategoryExpensesViewModel.swift */; };
 		AFA2FA382AC06F53002A802B /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA372AC06F53002A802B /* Month.swift */; };
 		AFA2FA3B2AC06F76002A802B /* MonthlyOverviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA3A2AC06F76002A802B /* MonthlyOverviewModel.swift */; };
 		AFA2FA3E2AC0713F002A802B /* GroupedExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */; };
@@ -53,6 +55,8 @@
 		AF550F052AC16EA90048152D /* Color + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extensions.swift"; sourceTree = "<group>"; };
 		AF550F072AC1B96D0048152D /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Expense+CoreDataClass.swift"; path = "Troshko/CoreData/Expenses/Expense+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		AF550F082AC1B96D0048152D /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Expense+CoreDataProperties.swift"; path = "Troshko/CoreData/Expenses/Expense+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		AF550F0D2AC223530048152D /* CategoryExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExpensesView.swift; sourceTree = "<group>"; };
+		AF550F102AC2237D0048152D /* CategoryExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExpensesViewModel.swift; sourceTree = "<group>"; };
 		AFA2FA372AC06F53002A802B /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		AFA2FA3A2AC06F76002A802B /* MonthlyOverviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewModel.swift; sourceTree = "<group>"; };
 		AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedExpenses.swift; sourceTree = "<group>"; };
@@ -148,6 +152,23 @@
 				AF550F082AC1B96D0048152D /* Expense+CoreDataProperties.swift */,
 			);
 			path = Expenses;
+			sourceTree = "<group>";
+		};
+		AF550F0C2AC2233D0048152D /* CategoryExpenses */ = {
+			isa = PBXGroup;
+			children = (
+				AF550F0F2AC223730048152D /* ViewModel */,
+				AF550F0D2AC223530048152D /* CategoryExpensesView.swift */,
+			);
+			path = CategoryExpenses;
+			sourceTree = "<group>";
+		};
+		AF550F0F2AC223730048152D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF550F102AC2237D0048152D /* CategoryExpensesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AFA2FA362AC06F4B002A802B /* Models */ = {
@@ -303,6 +324,7 @@
 		AFFECE612AB790F8003FE8B9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				AF550F0C2AC2233D0048152D /* CategoryExpenses */,
 				E140C8EA2ABDA03A0076950C /* AddCategories */,
 				AFC9582F2AB8BB38000D6C0B /* ViewModel */,
 				AFFECE6D2AB792D1003FE8B9 /* CategoriesView.swift */,
@@ -524,6 +546,8 @@
 				AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */,
 				AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */,
 				AFFECE6A2AB7926D003FE8B9 /* MainView.swift in Sources */,
+				AF550F0E2AC223530048152D /* CategoryExpensesView.swift in Sources */,
+				AF550F112AC2237D0048152D /* CategoryExpensesViewModel.swift in Sources */,
 				AFA8005D2ABF9AF600A7BEE2 /* PieChartView.swift in Sources */,
 				E140C8EC2ABDA0740076950C /* AddCategoriesView.swift in Sources */,
 				AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */,
