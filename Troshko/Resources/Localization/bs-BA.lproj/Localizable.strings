@@ -12,6 +12,7 @@
 "WORDING_YES" = "Da";
 "WORDING_NO" = "Ne";
 "WORDING_NONE" = "Nijedno";
+"WORDING_SAVE" = "Spasi";
 "WORDING_APPLY" = "Primijeni";
 
 // MARK: - Calendar
