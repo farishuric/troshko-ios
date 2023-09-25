@@ -11,6 +11,7 @@
 		AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */; };
 		AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */; };
 		AF207AE92AC06BBE00CF5009 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF207AE82AC06BBE00CF5009 /* MonthYearPickerView.swift */; };
+		AF550F062AC16EA90048152D /* Color + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF550F052AC16EA90048152D /* Color + Extensions.swift */; };
 		AFA2FA382AC06F53002A802B /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA372AC06F53002A802B /* Month.swift */; };
 		AFA2FA3B2AC06F76002A802B /* MonthlyOverviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA3A2AC06F76002A802B /* MonthlyOverviewModel.swift */; };
 		AFA2FA3E2AC0713F002A802B /* GroupedExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */; };
@@ -49,6 +50,7 @@
 		AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TroshkoData.xcdatamodel; sourceTree = "<group>"; };
 		AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AF207AE82AC06BBE00CF5009 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+		AF550F052AC16EA90048152D /* Color + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extensions.swift"; sourceTree = "<group>"; };
 		AFA2FA372AC06F53002A802B /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
 		AFA2FA3A2AC06F76002A802B /* MonthlyOverviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewModel.swift; sourceTree = "<group>"; };
 		AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedExpenses.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */,
 				AFB9881E2AB8E3220068EC3B /* Float + Extensions.swift */,
 				AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */,
+				AF550F052AC16EA90048152D /* Color + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */,
+				AF550F062AC16EA90048152D /* Color + Extensions.swift in Sources */,
 				AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */,
 				AFA800812AC056BE00A7BEE2 /* Expense+CoreDataClass.swift in Sources */,
 				AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */,

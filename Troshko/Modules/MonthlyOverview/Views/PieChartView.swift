@@ -39,7 +39,7 @@ struct PieChart: UIViewRepresentable {
     func updateUIView(_ uiView: PieChartView, context: Context) {
         let dataSet = PieChartDataSet(entries: viewModel.entries)
         dataSet.label = ""
-        dataSet.colors = ChartColorTemplates.vordiplom()
+        dataSet.colors = Color.getChartColors()
         dataSet.drawIconsEnabled = false
         
         dataSet.sliceSpace = 3

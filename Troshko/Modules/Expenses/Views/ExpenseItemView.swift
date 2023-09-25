@@ -13,26 +13,22 @@ struct ExpenseItemView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                
                 Text(viewModel.title ?? "WORDING_UNKOWN".localized)
                     .font(.system(.title3))
                 
                 Text(viewModel.desc ?? "WORDING_UNKOWN".localized)
                     .font(.system(.caption))
                     .foregroundColor(.secondary)
-                
-                BadgeView(text: viewModel.category?.name ?? "WORDING_UNKNOWN".localized)
+                Text("\(viewModel.date?.format(with: .short) ?? Date().format(with: .short))")
+                    .font(.system(.caption))
             }
             
             Spacer()
             
-            VStack {
+            VStack(alignment: .trailing) {
                 Text("\(viewModel.price.toString(decimal: 2))\(Locale.current.currencySymbol ?? "")")
                     .font(.system(.title2))
-                
-                Text("\(viewModel.date?.format(with: .shortDateTime) ?? "14.11.2023")")
-                    .font(.system(.caption))
-                    .foregroundColor(.secondary)
+                BadgeView(text: viewModel.category?.name ?? "WORDING_UNKNOWN".localized)
             }
         }
     }
@@ -40,6 +36,6 @@ struct ExpenseItemView: View {
 
 struct ExpenseItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseItemView(viewModel: Expense(context: .init(concurrencyType: .mainQueueConcurrencyType)))
+        ExpenseItemView(viewModel: Expense(context: CoreDataManager.shared.container.viewContext))
     }
 }
