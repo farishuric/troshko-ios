@@ -31,6 +31,7 @@ struct AddExpensesView: View {
                     HStack(spacing: 4) {
                         Text("\(Locale.current.currencySymbol ?? "")")
                         TextField("0.0", text: $expensesVM.price)
+                            .keyboardType(UIKeyboardType.decimalPad)
                     }
                 } header: {
                     Text("ADD_EXPENSE.PRICE".localized)
@@ -71,10 +72,17 @@ struct AddExpensesView: View {
                     .tint(.red)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("WORDING_ADD".localized) {
-                        expensesVM.saveExpense {
-                            expensesVM.isPresentingAddExpenses = false
+                    Button(expensesVM.isEditing ? "WORDING_SAVE".localized : "WORDING_ADD".localized) {
+                        if expensesVM.isEditing {
+                            expensesVM.editExpense {
+                                expensesVM.isPresentingAddExpenses = false
+                            }
+                        } else {
+                            expensesVM.saveExpense {
+                                expensesVM.isPresentingAddExpenses = false
+                            }
                         }
+                        
                     }
                     .disabled(expensesVM.isAddDisabled)
                 }

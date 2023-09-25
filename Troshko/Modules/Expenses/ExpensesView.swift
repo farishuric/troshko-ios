@@ -27,6 +27,7 @@ struct ExpensesView: View {
                                         .swipeActions(edge: .leading) {
                                             Button("WORDING_EDIT".localized) {
                                                 expensesVM.editingExpense = expense
+                                                expensesVM.isEditing = true
                                                 expensesVM.isPresentingAddExpenses = true
                                             }
                                             .tint(.blue)
@@ -69,7 +70,8 @@ struct ExpensesView: View {
                 .environmentObject(expensesVM)
                 .onDisappear {
                     expensesVM.fetchExpenses()
-                    expensesVM.editingExpense = nil    
+                    expensesVM.editingExpense = nil
+                    expensesVM.isEditing = false
                 }
         }
         .onAppear {
