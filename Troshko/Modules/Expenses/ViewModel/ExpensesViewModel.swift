@@ -141,7 +141,7 @@ class ExpensesViewModel: ObservableObject {
         newExpense.id = UUID()
         newExpense.title = title
         newExpense.desc = description
-        newExpense.price = price.toFloat() ?? 0.0
+        newExpense.price = price.toDouble() ?? 0.0
         newExpense.date = selectedDate
         
         if !categories.isEmpty {
@@ -172,7 +172,7 @@ class ExpensesViewModel: ObservableObject {
                 editedExpense.id = editingExpense.id
                 editedExpense.title = title
                 editedExpense.desc = description
-                editedExpense.price = price.toFloat() ?? 0.0
+                editedExpense.price = price.toDouble() ?? 0.0
                 editedExpense.date = selectedDate
                 editedExpense.category = categories[selectedCategory]
                 
