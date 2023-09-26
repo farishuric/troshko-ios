@@ -9,5 +9,5 @@ import Foundation
 
 struct MonthlyOverviewModel {
     var categoryName: String
-    var totalExpenses: Float
+    var totalExpenses: Double
 }

@@ -40,7 +40,7 @@ class MonthlyOverviewViewModel: ObservableObject {
     @Published var selectedYear = 0
     
     /// The total expenses for the selected month.
-    @Published var totalExpenses: Float = 0
+    @Published var totalExpenses: Double = 0.0
     
     /// A flag indicating whether the date picker is presented.
     @Published var isPickerPresented = false
@@ -71,7 +71,7 @@ extension MonthlyOverviewViewModel {
         categoryFetchRequest.relationshipKeyPathsForPrefetching = ["expenses"]
         
         var models: [MonthlyOverviewModel] = []
-        var currentTotalPrice: Float = 0.0
+        var currentTotalPrice: Double = 0.0
         
         do {
             let categories = try managedObjectContext.fetch(categoryFetchRequest)
@@ -109,8 +109,8 @@ extension MonthlyOverviewViewModel {
     }
     
     /// Counts the total expenses for the selected month.
-    func countTotalMonthExpenses(from models: [MonthlyOverviewModel]) -> Float {
-        var totalExpense: Float = 0
+    func countTotalMonthExpenses(from models: [MonthlyOverviewModel]) -> Double {
+        var totalExpense: Double = 0.0
         models.forEach { totalExpense += $0.totalExpenses }
         return totalExpense
     }
