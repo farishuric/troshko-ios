@@ -27,7 +27,7 @@ class ExpensesViewModel: ObservableObject {
         didSet {
             title = editingExpense?.title ?? ""
             description = editingExpense?.desc ?? ""
-            price = "\(editingExpense?.price ?? 0.0)"
+            price = editingExpense?.price != nil ? "\(editingExpense!.price)" : ""
             selectedDate = editingExpense?.date ?? Date()
             if let category = editingExpense?.category {
                 selectedCategory = categories.firstIndex(where: { category == $0 }) ?? 0
@@ -43,6 +43,34 @@ class ExpensesViewModel: ObservableObject {
     @Published var description = ""
     @Published var price: String = ""
     @Published var selectedDate = Date()
+    
+    // MARK: - Price validation
+    @Published var priceErrorState: ErrorState?
+    
+    func validatePrice() {
+        if price.isEmpty {
+            priceErrorState = .emptyField
+        } else if !isValidFormat(price) {
+            priceErrorState = .invalidFormat
+        } else if isZeroPrice(price) {
+            priceErrorState = .custom(message: "Price cannot be zero")
+        } else {
+            priceErrorState = nil
+        }
+    }
+    
+    private func isValidFormat(_ text: String) -> Bool {
+        // Add your format validation logic here
+        // Example: Ensure the input is a valid number
+        return Double(text) != nil
+    }
+    
+    private func isZeroPrice(_ text: String) -> Bool {
+        if let price = Double(text), price == 0 {
+            return true
+        }
+        return false
+    }
     
     // MARK: - Computed Properties
     
@@ -136,21 +164,22 @@ class ExpensesViewModel: ObservableObject {
     }
     
     func saveExpense(completion: @escaping () -> Void) {
-        let category = categories[selectedCategory]
+        let category = categories[safe: selectedCategory]
         let newExpense = Expense(context: viewContext)
         newExpense.id = UUID()
         newExpense.title = title
         newExpense.desc = description
-        newExpense.price = price.toDouble() ?? 0.0
+        newExpense.price = price.toDouble()
         newExpense.date = selectedDate
         
         if !categories.isEmpty {
             newExpense.category = categories[selectedCategory]
         }
         
-        if editingExpense == nil {
+        if let category, editingExpense == nil {
             category.addToExpense(newExpense)
         }
+        
         do {
             try viewContext.save()
             completion()
@@ -172,7 +201,7 @@ class ExpensesViewModel: ObservableObject {
                 editedExpense.id = editingExpense.id
                 editedExpense.title = title
                 editedExpense.desc = description
-                editedExpense.price = price.toDouble() ?? 0.0
+                editedExpense.price = price.toDouble()
                 editedExpense.date = selectedDate
                 editedExpense.category = categories[selectedCategory]
                 

@@ -19,7 +19,7 @@ struct AddExpensesView: View {
                 } header: {
                     Text("ADD_EXPENSE.TITLE".localized)
                 }
-
+                
                 Section {
                     TextField("ADD_EXPENSE.DESCRIPTION.PLACEHOLDER".localized, text: $expensesVM.description)
                         .submitLabel(.next)
@@ -28,10 +28,32 @@ struct AddExpensesView: View {
                 }
                 
                 Section {
-                    HStack(spacing: 4) {
-                        Text("\(Locale.current.currencySymbol ?? "")")
-                        TextField("0.0", text: $expensesVM.price)
-                            .keyboardType(UIKeyboardType.decimalPad)
+                    VStack(alignment: .leading) {
+                        HStack(spacing: 4) {
+                            Text("\(Locale.current.currencySymbol ?? "")")
+                            TextField("0.0", text: $expensesVM.price)
+                                .keyboardType(UIKeyboardType.decimalPad)
+                                .submitLabel(.done)
+                                .toolbar {
+                                    ToolbarItemGroup(placement: .keyboard) {
+                                        Button {
+                                            expensesVM.validatePrice()
+                                        } label: {
+                                            Text("Done")
+                                        }
+                                    }
+                                }
+                                .onSubmit {
+                                    expensesVM.validatePrice()
+                                }
+                        }
+                        
+                        if expensesVM.priceErrorState != nil {
+                            withAnimation {
+                                ErrorMessageView(errorState: $expensesVM.priceErrorState)
+                            }
+                        }
+                        
                     }
                 } header: {
                     Text("ADD_EXPENSE.PRICE".localized)
@@ -60,7 +82,7 @@ struct AddExpensesView: View {
                 } header: {
                     Text("ADD_EXPENSE.CATEGORY".localized)
                 }
-
+                
             }
             .navigationBarTitle("ADD_EXPENSE".localized)
             .navigationBarTitleDisplayMode(.inline)
@@ -79,6 +101,7 @@ struct AddExpensesView: View {
                             }
                         } else {
                             expensesVM.saveExpense {
+                                expensesVM.price = ""
                                 expensesVM.isPresentingAddExpenses = false
                             }
                         }
@@ -88,13 +111,50 @@ struct AddExpensesView: View {
                 }
             }
         }
+        .onTapGesture {
+            endEditing()
+            expensesVM.validatePrice()
+        }
     }
-
+    
+    private func endEditing() {
+        UIApplication.shared.endEditing()
+    }
 }
 
 struct AddExpensesView_Previews: PreviewProvider {
     static var previews: some View {
         AddExpensesView()
             .environmentObject(ExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext))
+    }
+}
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
+struct ErrorMessageView: View {
+    @Binding var errorState: ErrorState?
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            if let errorMessage = errorState?.message {
+                HStack {
+                    Image(systemName: "x.circle")
+                        .resizable()
+                        .renderingMode(.template)
+                        .frame(width: 16, height: 16)
+                        .foregroundStyle(.red)
+                    Text(errorMessage)
+                        .font(.caption)
+                        .foregroundColor(.red)
+                        .multilineTextAlignment(.leading)
+                }
+                .transition(.move(edge: .top).combined(with: .opacity))
+                .animation(.default, value: errorState)
+            }
+        }
     }
 }
