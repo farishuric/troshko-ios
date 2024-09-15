@@ -1,6 +1,6 @@
 # Troshko - Expense Tracker App
 
-![Simulator Screenshot - iPhone 13 Pro - 2023-10-09 at 23 36 36](https://github.com/farishuric/Troshko/assets/74626441/8449a089-5a8e-4087-9bb9-b4ec95757483)
+<img src="https://github.com/farishuric/Troshko/assets/74626441/8449a089-5a8e-4087-9bb9-b4ec95757483" width="350">
 
 ## Overview
 
@@ -20,10 +20,14 @@ The Troshko App is a native iOS application built using SwiftUI. It helps you ef
 - Customizable categories to tailor the app to your specific needs.
 
 ## Screenshots
+<h3>Track Your Expenses Effortlessly</h3>
+<img src="https://github.com/farishuric/Troshko/assets/74626441/f907d306-9f48-4a8e-8553-bbba92baf0f8" width="350"><br>
 
-![Simulator Screenshot - iPhone 13 Pro - 2023-10-09 at 23 38 27](https://github.com/farishuric/Troshko/assets/74626441/f907d306-9f48-4a8e-8553-bbba92baf0f8)
-![Simulator Screenshot - iPhone 13 Pro - 2023-10-09 at 23 38 31](https://github.com/farishuric/Troshko/assets/74626441/b54188fa-94be-4230-8a71-aca936d15e32)
-![IMG_C907F7A69C5D-1](https://github.com/farishuric/Troshko/assets/74626441/b2230867-c888-4458-9520-435855892538)
+<h3>Organize Expenses by Categories</h3>
+<img src="https://github.com/farishuric/Troshko/assets/74626441/b54188fa-94be-4230-8a71-aca936d15e32" width="350"><br>
+
+<h3>Visualize Your Spending Trends</h3>
+<img src="https://github.com/farishuric/Troshko/assets/74626441/b2230867-c888-4458-9520-435855892538" width="350">
 
 ## Dependencies
 
