@@ -49,7 +49,6 @@ struct MonthlyOverviewView: View {
                 }
                 Spacer()
             }
-            .navigationTitle("MONTHLY_OVERVIEW.NAV_TITLE")
             .onAppear {
                 viewModel.fetchCategoriesWithExpenses(for: Date())
             }

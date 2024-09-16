@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF02D78A2C9773CF007694A8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D7892C9773CF007694A8 /* SettingsView.swift */; };
 		AF11CA1E2AB7B67800BB21C9 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */; };
 		AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */; };
 		AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		7BD37CF395FAC6B3ACDCC455 /* Pods-Troshko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Troshko.release.xcconfig"; path = "Target Support Files/Pods-Troshko/Pods-Troshko.release.xcconfig"; sourceTree = "<group>"; };
+		AF02D7892C9773CF007694A8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TroshkoData.xcdatamodel; sourceTree = "<group>"; };
 		AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -122,6 +124,14 @@
 				7BD37CF395FAC6B3ACDCC455 /* Pods-Troshko.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AF02D7882C9773C2007694A8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AF02D7892C9773CF007694A8 /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		AF11CA172AB7B0F800BB21C9 /* Models */ = {
@@ -308,6 +318,7 @@
 		AFFECE5E2AB790F0003FE8B9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AF02D7882C9773C2007694A8 /* Settings */,
 				AFA800562ABF980500A7BEE2 /* MonthlyOverview */,
 				AFFECE662AB791EA003FE8B9 /* Main */,
 				AFFECE612AB790F8003FE8B9 /* Categories */,
@@ -550,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF02D78A2C9773CF007694A8 /* SettingsView.swift in Sources */,
 				AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */,
 				AF550F062AC16EA90048152D /* Color + Extensions.swift in Sources */,
 				AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */,

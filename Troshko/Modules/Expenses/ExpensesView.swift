@@ -15,50 +15,38 @@ struct TestModel: Hashable {
 
 struct ExpensesView: View {
     @EnvironmentObject var expensesVM: ExpensesViewModel
+    
     var body: some View {
-        VStack {
-            NavigationView {
-                VStack {
-                    List {
-                        ForEach(expensesVM.groupedExpenses) { group in
-                            Section {
-                                ForEach(group.expenses, id: \.self) { expense in
-                                    ExpenseItemView(viewModel: expense)
-                                        .swipeActions(edge: .leading) {
-                                            Button("WORDING_EDIT".localized) {
-                                                expensesVM.editingExpense = expense
-                                                expensesVM.isEditing = true
-                                                expensesVM.isPresentingAddExpenses = true
-                                            }
-                                            .tint(.blue)
+        ZStack {
+            VStack {
+                List {
+                    ForEach(expensesVM.groupedExpenses) { group in
+                        Section {
+                            ForEach(group.expenses, id: \.self) { expense in
+                                ExpenseItemView(viewModel: expense)
+                                    .swipeActions(edge: .leading) {
+                                        Button("WORDING_EDIT".localized) {
+                                            expensesVM.editingExpense = expense
+                                            expensesVM.isEditing = true
+                                            expensesVM.isPresentingAddExpenses = true
                                         }
-                                }
-                                .onDelete { indexSet in
-                                    for index in indexSet {
-                                        expensesVM.deleteFromGroup(at: index, in: group)
+                                        .tint(.blue)
                                     }
-                                }
-                            } header: {
-                                Text(group.formattedDate)
                             }
-                            
-                        }
-                    }
-                    .overlay {
-                        if expensesVM.expenses.isEmpty || expensesVM.groupedExpenses.isEmpty {
-                            EmptyStateView(systemImage: "doc.text", text: "EXPENSES.NO_EXPENSES".localized)
-                        }
-                    }
-                }
-                .navigationTitle("EXPENSES.TITLE".localized)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            expensesVM.isPresentingAddExpenses.toggle()
-                        } label: {
-                            Label("", systemImage: "plus")
+                            .onDelete { indexSet in
+                                for index in indexSet {
+                                    expensesVM.deleteFromGroup(at: index, in: group)
+                                }
+                            }
+                        } header: {
+                            Text(group.formattedDate)
                         }
                         
+                    }
+                }
+                .overlay {
+                    if expensesVM.expenses.isEmpty || expensesVM.groupedExpenses.isEmpty {
+                        EmptyStateView(systemImage: "doc.text", text: "EXPENSES.NO_EXPENSES".localized)
                     }
                 }
             }
