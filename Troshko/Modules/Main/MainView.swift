@@ -8,6 +8,7 @@ enum NavigationState {
 
 struct MainView: View {
     @StateObject var expensesVM = ExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
+    @StateObject var categoriesVM = CategoriesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
     @State private var navigationState: NavigationState = .expenses
 
     var body: some View {
@@ -24,6 +25,7 @@ struct MainView: View {
 
                 CategoriesView()
                     .environmentObject(expensesVM)
+                    .environmentObject(categoriesVM)
                     .tabItem {
                         Label("CATEGORIES.TITLE".localized, systemImage: "archivebox.fill")
                     }
@@ -62,16 +64,12 @@ struct MainView: View {
                         }
                     case .categories:
                         Button {
-                            // Define your action for categories
+                            categoriesVM.isShowingAlert = true
                         } label: {
-                            Label("Categories Action", systemImage: "star")
+                            Label("Categories Action", systemImage: "plus")
                         }
                     case .monthlyOverview:
-                        Button {
-                            // Define your action for monthly overview
-                        } label: {
-                            Label("Monthly Action", systemImage: "calendar")
-                        }
+                        Text("")
                     }
                 }
             }
