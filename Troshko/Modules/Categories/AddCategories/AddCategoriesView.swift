@@ -39,7 +39,7 @@ struct AddCategoriesView: View {
             }
             .navigationBarTitle("CATEGORIES.ADD.CATEGORY".localized, displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
-                addCategoryVM.isShowingAlert = false
+                addCategoryVM.isShowingAddCategoryView = false
             }) {
                 Text("WORDING_CANCEL".localized)
             })

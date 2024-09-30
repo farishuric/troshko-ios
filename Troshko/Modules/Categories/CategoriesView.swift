@@ -9,12 +9,12 @@ import SwiftUI
 
 struct CategoriesView: View {
     // MARK: - View properties
-    @ObservedObject private var categoriesVM = CategoriesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
+    @EnvironmentObject var categoriesVM: CategoriesViewModel
     
     @EnvironmentObject var expensesVM: ExpensesViewModel
     
     var body: some View {
-        VStack {
+        ZStack {
             VStack {
                 List {
                     ForEach(categoriesVM.categories) { category in
@@ -66,8 +66,8 @@ struct CategoriesView: View {
                 Text("CATEGORIES.DELETION.MESSAGE".localized)
             }
         }
-        .sheet(isPresented: $categoriesVM.isShowingAlert) {
-            categoriesVM.isShowingAlert = false
+        .sheet(isPresented: $categoriesVM.isShowingAddCategoryView) {
+            categoriesVM.isShowingAddCategoryView = false
         } content: {
             AddCategoriesView()
                 .environmentObject(categoriesVM)
@@ -80,6 +80,6 @@ struct CategoriesView: View {
 
 struct CategoriesView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoriesView()
+        MainView()
     }
 }

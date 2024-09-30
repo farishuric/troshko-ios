@@ -9,63 +9,12 @@ import SwiftUI
 
 struct AddExpensesView: View {
     @EnvironmentObject var expensesVM: ExpensesViewModel
+    @FocusState private var focusedField: ExpensesFocusedField?
     
     var body: some View {
         NavigationView {
             Form {
-                Section {
-                    TextField("ADD_EXPENSE.TITLE.PLACEHOLDER".localized, text: $expensesVM.title)
-                        .submitLabel(.next)
-                } header: {
-                    Text("ADD_EXPENSE.TITLE".localized)
-                }
-                
-                Section {
-                    TextField("ADD_EXPENSE.DESCRIPTION.PLACEHOLDER".localized, text: $expensesVM.description)
-                        .submitLabel(.next)
-                } header: {
-                    Text("ADD_EXPENSE.DESCRIPTION".localized)
-                }
-                
-                Section {
-                    VStack(alignment: .leading) {
-                        HStack(spacing: 4) {
-                            Text("\(Locale.current.currencySymbol ?? "")")
-                            TextField("0.0", text: $expensesVM.price)
-                                .keyboardType(UIKeyboardType.decimalPad)
-                                .submitLabel(.done)
-                                .toolbar {
-                                    ToolbarItemGroup(placement: .keyboard) {
-                                        Button {
-                                            expensesVM.validatePrice()
-                                        } label: {
-                                            Text("Done")
-                                        }
-                                    }
-                                }
-                                .onSubmit {
-                                    expensesVM.validatePrice()
-                                }
-                        }
-                        
-                        if expensesVM.priceErrorState != nil {
-                            withAnimation {
-                                ErrorMessageView(errorState: $expensesVM.priceErrorState)
-                            }
-                        }
-                        
-                    }
-                } header: {
-                    Text("ADD_EXPENSE.PRICE".localized)
-                }
-                
-                Section {
-                    DatePicker("", selection: $expensesVM.selectedDate, displayedComponents: .date)
-                        .datePickerStyle(.graphical)
-                } header: {
-                    Text("ADD_EXPENSE.DATE".localized)
-                }
-                
+                // MARK: - Category selection
                 Section {
                     Picker("ADD_EXPENSE.CATEGORY_PLACEHOLDER".localized, selection: $expensesVM.selectedCategory) {
                         if expensesVM.categories.isEmpty {
@@ -83,6 +32,66 @@ struct AddExpensesView: View {
                     Text("ADD_EXPENSE.CATEGORY".localized)
                 }
                 
+                // MARK: - Expense title
+                Section {
+                    TextField("ADD_EXPENSE.TITLE.PLACEHOLDER".localized, text: $expensesVM.title)
+                        .submitLabel(.next)
+                } header: {
+                    Text("ADD_EXPENSE.TITLE".localized)
+                }
+                
+                // MARK: - Description
+                Section {
+                    TextField("ADD_EXPENSE.DESCRIPTION.PLACEHOLDER".localized, text: $expensesVM.description)
+                        .submitLabel(.next)
+                } header: {
+                    Text("ADD_EXPENSE.DESCRIPTION".localized)
+                }
+                
+                // MARK: - Price
+                Section {
+                    VStack(alignment: .leading) {
+                        HStack(spacing: 4) {
+                            Text("\(Locale.current.currencySymbol ?? "")")
+                            TextField("0.0", text: $expensesVM.price)
+                                .keyboardType(UIKeyboardType.decimalPad)
+                                .submitLabel(.done)
+                                .toolbar {
+                                    ToolbarItemGroup(placement: .keyboard) {
+                                        Button {
+                                            endEditing()
+                                            expensesVM.validatePrice()
+                                        } label: {
+                                            Text("WORDING_DONE".localized)
+                                        }
+                                    }
+                                }
+                                .onSubmit {
+                                    expensesVM.validatePrice()
+                                }
+                                .focused($focusedField, equals: .price)
+                        }
+                        
+                        if expensesVM.priceErrorState != nil {
+                            withAnimation {
+                                ErrorMessageView(errorState: $expensesVM.priceErrorState)
+                            }
+                        }
+                        
+                    }
+                } header: {
+                    Text("ADD_EXPENSE.PRICE".localized)
+                }
+                
+                // MARK: - Date pick
+                Section {
+                    DatePicker("", selection: $expensesVM.selectedDate, displayedComponents: .date)
+                        .datePickerStyle(.graphical)
+                        .onTapGesture(count: 99) {
+                            }
+                } header: {
+                    Text("ADD_EXPENSE.DATE".localized)
+                }
             }
             .navigationBarTitle("ADD_EXPENSE".localized)
             .navigationBarTitleDisplayMode(.inline)
@@ -113,7 +122,9 @@ struct AddExpensesView: View {
         }
         .onTapGesture {
             endEditing()
-            expensesVM.validatePrice()
+            if let focusedField, focusedField == .price {
+                expensesVM.validatePrice()
+            }
         }
     }
     

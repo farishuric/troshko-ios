@@ -45,7 +45,7 @@ struct MainView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink {
-                        SettingsView()
+                        MainMenuView()
                     } label: {
                         Image(systemName: "person.circle")
                             .resizable()
@@ -64,7 +64,7 @@ struct MainView: View {
                         }
                     case .categories:
                         Button {
-                            categoriesVM.isShowingAlert = true
+                            categoriesVM.isShowingAddCategoryView = true
                         } label: {
                             Label("Categories Action", systemImage: "plus")
                         }

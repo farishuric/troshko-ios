@@ -3,15 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF02D78A2C9773CF007694A8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D7892C9773CF007694A8 /* SettingsView.swift */; };
+		AF02D78A2C9773CF007694A8 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF02D7892C9773CF007694A8 /* MainMenuView.swift */; };
 		AF11CA1E2AB7B67800BB21C9 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */; };
 		AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */; };
 		AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */; };
 		AF207AE92AC06BBE00CF5009 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF207AE82AC06BBE00CF5009 /* MonthYearPickerView.swift */; };
+		AF4B61112CAA230C005B8CD3 /* ExpensesFocusedFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B61102CAA230C005B8CD3 /* ExpensesFocusedFields.swift */; };
+		AF4B61142CAA253C005B8CD3 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B61132CAA253C005B8CD3 /* PrivacyPolicyView.swift */; };
 		AF52BF0D2C127E4100B03835 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52BF0C2C127E4100B03835 /* Collection+Extensions.swift */; };
 		AF52BF112C12858000B03835 /* ErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52BF102C12858000B03835 /* ErrorState.swift */; };
 		AF550F062AC16EA90048152D /* Color + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF550F052AC16EA90048152D /* Color + Extensions.swift */; };
@@ -52,11 +54,13 @@
 
 /* Begin PBXFileReference section */
 		7BD37CF395FAC6B3ACDCC455 /* Pods-Troshko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Troshko.release.xcconfig"; path = "Target Support Files/Pods-Troshko/Pods-Troshko.release.xcconfig"; sourceTree = "<group>"; };
-		AF02D7892C9773CF007694A8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AF02D7892C9773CF007694A8 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TroshkoData.xcdatamodel; sourceTree = "<group>"; };
 		AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AF207AE82AC06BBE00CF5009 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+		AF4B61102CAA230C005B8CD3 /* ExpensesFocusedFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesFocusedFields.swift; sourceTree = "<group>"; };
+		AF4B61132CAA253C005B8CD3 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		AF52BF0C2C127E4100B03835 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		AF52BF102C12858000B03835 /* ErrorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorState.swift; sourceTree = "<group>"; };
 		AF550F052AC16EA90048152D /* Color + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extensions.swift"; sourceTree = "<group>"; };
@@ -97,6 +101,10 @@
 		E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AF4B61182CAA28E3005B8CD3 /* Models */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Models; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		AFFECE4A2AB79097003FE8B9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -126,12 +134,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		AF02D7882C9773C2007694A8 /* Settings */ = {
+		AF02D7882C9773C2007694A8 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
-				AF02D7892C9773CF007694A8 /* SettingsView.swift */,
+				AF4B61182CAA28E3005B8CD3 /* Models */,
+				AF02D7892C9773CF007694A8 /* MainMenuView.swift */,
+				AF4B61132CAA253C005B8CD3 /* PrivacyPolicyView.swift */,
 			);
-			path = Settings;
+			path = MainMenu;
 			sourceTree = "<group>";
 		};
 		AF11CA172AB7B0F800BB21C9 /* Models */ = {
@@ -200,6 +210,7 @@
 		AFA2FA3C2AC07139002A802B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AF4B61102CAA230C005B8CD3 /* ExpensesFocusedFields.swift */,
 				AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */,
 			);
 			path = Models;
@@ -318,7 +329,7 @@
 		AFFECE5E2AB790F0003FE8B9 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				AF02D7882C9773C2007694A8 /* Settings */,
+				AF02D7882C9773C2007694A8 /* MainMenu */,
 				AFA800562ABF980500A7BEE2 /* MonthlyOverview */,
 				AFFECE662AB791EA003FE8B9 /* Main */,
 				AFFECE612AB790F8003FE8B9 /* Categories */,
@@ -441,6 +452,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				AF4B61182CAA28E3005B8CD3 /* Models */,
+			);
 			name = Troshko;
 			productName = Troshko;
 			productReference = AFFECE4D2AB79097003FE8B9 /* Troshko.app */;
@@ -561,7 +575,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF02D78A2C9773CF007694A8 /* SettingsView.swift in Sources */,
+				AF02D78A2C9773CF007694A8 /* MainMenuView.swift in Sources */,
 				AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */,
 				AF550F062AC16EA90048152D /* Color + Extensions.swift in Sources */,
 				AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */,
@@ -578,7 +592,9 @@
 				AFFECE6C2AB792BB003FE8B9 /* ExpensesView.swift in Sources */,
 				AF52BF0D2C127E4100B03835 /* Collection+Extensions.swift in Sources */,
 				AF207AE92AC06BBE00CF5009 /* MonthYearPickerView.swift in Sources */,
+				AF4B61112CAA230C005B8CD3 /* ExpensesFocusedFields.swift in Sources */,
 				AFA2FA3B2AC06F76002A802B /* MonthlyOverviewModel.swift in Sources */,
+				AF4B61142CAA253C005B8CD3 /* PrivacyPolicyView.swift in Sources */,
 				AF6DAA072AC369B400944A4E /* Expense+CoreDataClass.swift in Sources */,
 				AFA800612ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift in Sources */,
 				AF52BF112C12858000B03835 /* ErrorState.swift in Sources */,
@@ -752,6 +768,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -782,6 +799,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

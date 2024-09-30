@@ -14,6 +14,7 @@
 "WORDING_NONE" = "None";
 "WORDING_SAVE" = "Save";
 "WORDING_APPLY" = "Apply";
+"WORDING_DONE" = "Done";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Today";
@@ -59,3 +60,36 @@
 "MONTHLY_OVERVIEW.NO_DATA" = "Currently, there is no chart data available for this month.";
 "PICKER.SELECT_MONTH" = "Select a Month";
 "PICKER.SELECT_YEAR" = "Select a Year";
+
+// MARK: - Privacy policy
+"PRIVACY_POLICY.TITLE" = "Privacy Policy";
+"PRIVACY_POLICY.LAST_UPDATED" = "Last updated: September 30, 2024";
+"PRIVACY_POLICY.INTRODUCTION" = "Troshko ('we', 'our', or 'us') is committed to protecting your privacy. This Privacy Policy explains how your personal data is collected, used, and shared when you use the Troshko app (the 'App').";
+
+"PRIVACY_POLICY.INFORMATION_WE_COLLECT.TITLE" = "1. Information We Collect";
+"PRIVACY_POLICY.INFORMATION_WE_COLLECT.CONTENT" = "The Troshko App does not collect or store any personal information on remote servers. All data you enter into the App is stored locally on your device...";
+
+"PRIVACY_POLICY.LOCAL_DATA_STORAGE.TITLE" = "2. Local Data Storage";
+"PRIVACY_POLICY.LOCAL_DATA_STORAGE.CONTENT" = "All data, including expenses and categories, is stored securely on your device using Apple's Core Data technology...";
+
+"PRIVACY_POLICY.ICLOUD_BACKUP.TITLE" = "3. iCloud Backup (If Enabled)";
+"PRIVACY_POLICY.ICLOUD_BACKUP.CONTENT" = "If you choose to enable iCloud backup, your data may be synchronized across your devices via Apple's iCloud service. This process is managed by Apple, and you are subject to Apple’s Privacy Policy.";
+
+"PRIVACY_POLICY.THIRD_PARTY_SERVICES.TITLE" = "4. Third-Party Services";
+"PRIVACY_POLICY.THIRD_PARTY_SERVICES.CONTENT" = "The Troshko App does not integrate with any third-party services, and no third-party companies have access to your data.";
+
+"PRIVACY_POLICY.DATA_SECURITY.TITLE" = "5. Your Data Security";
+"PRIVACY_POLICY.DATA_SECURITY.CONTENT" = "We value your trust in using the Troshko App, and we are committed to protecting your data. While we use Apple's built-in security features to safeguard your information, please note that no method of electronic storage is 100% secure.";
+
+"PRIVACY_POLICY.CHILDRENS_PRIVACY.TITLE" = "6. Children’s Privacy";
+"PRIVACY_POLICY.CHILDRENS_PRIVACY.CONTENT" = "The Troshko App is not intended for use by individuals under the age of 13. We do not knowingly collect personal information from children. If we become aware that a child has provided us with personal data, we will take steps to delete that information.";
+
+"PRIVACY_POLICY.CHANGES.TITLE" = "7. Changes to This Privacy Policy";
+"PRIVACY_POLICY.CHANGES.CONTENT" = "We may update our Privacy Policy from time to time. We will notify you of any changes by updating the 'Last updated' date at the top of this policy. It is recommended that you review this policy periodically for any changes.";
+
+"PRIVACY_POLICY.YOUR_CONSENT.TITLE" = "8. Your Consent";
+"PRIVACY_POLICY.YOUR_CONSENT.CONTENT" = "By using the Troshko App, you consent to this Privacy Policy.";
+
+"PRIVACY_POLICY.CONTACT_US.TITLE" = "9. Contact Us";
+"PRIVACY_POLICY.CONTACT_US.CONTENT" = "If you have any questions or concerns about this Privacy Policy, please contact us at: faris_huric@hotmail.com";
+

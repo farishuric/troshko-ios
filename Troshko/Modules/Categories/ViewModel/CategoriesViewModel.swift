@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class CategoriesViewModel: ObservableObject {
-    @Published var isShowingAlert: Bool = false
+    @Published var isShowingAddCategoryView: Bool = false
     @Published var categoryName: String = ""
     
     @Published var categories: [Category] = []
@@ -45,7 +45,7 @@ class CategoriesViewModel: ObservableObject {
         newCategory.name = categoryName
         newCategory.createdAt = Date()
         try? viewContext.save()
-        isShowingAlert = false
+        isShowingAddCategoryView = false
         categoryName = ""
     }
     

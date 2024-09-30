@@ -67,6 +67,10 @@ struct ExpensesView: View {
                 expensesVM.fetchExpenses()
             }
         }
+        .onChange(of: expensesVM.selectedDate) { value1, value2 in
+            print("Value 1 \(value1)")
+            print("Value 2 \(value2)")
+        }
     }
 }
 
