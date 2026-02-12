@@ -33,7 +33,10 @@ struct MonthYearPickerView: View {
                             .font(.headline)
                             .padding()
                         Picker("Years", selection: $viewModel.selectedYear) {
-                            ForEach(2020..<2024, id: \.self) { year in
+                            let currentYear = Calendar.current.component(.year, from: Date())
+                            let startYear = 2020
+                            let endYear = currentYear + 5
+                            ForEach(startYear...endYear, id: \.self) { year in
                                 Text(verbatim: "\(year)")
                             }
                         }
