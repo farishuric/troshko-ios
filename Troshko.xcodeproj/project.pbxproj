@@ -35,6 +35,9 @@
 		AFC958312AB8BB48000D6C0B /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */; };
 		AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */; };
 		AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */; };
+		AFE438722F3EACCC00F49919 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AFE438712F3EACCC00F49919 /* Lottie */; };
+		AFE438762F3EACFD00F49919 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE438752F3EACFD00F49919 /* SplashScreenView.swift */; };
+		AFE4387E2F3EAF5E00F49919 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE4387C2F3EAF5E00F49919 /* LaunchScreen.storyboard */; };
 		AFF231D02F3EA58800389661 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = AFF231CF2F3EA58800389661 /* DGCharts */; };
 		AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */; };
 		AFFECE552AB79098003FE8B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE542AB79098003FE8B9 /* Assets.xcassets */; };
@@ -90,6 +93,8 @@
 		AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
 		AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesViewModel.swift; sourceTree = "<group>"; };
+		AFE438752F3EACFD00F49919 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		AFE4387C2F3EAF5E00F49919 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFFECE4D2AB79097003FE8B9 /* Troshko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Troshko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroshkoApp.swift; sourceTree = "<group>"; };
 		AFFECE542AB79098003FE8B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFF231D02F3EA58800389661 /* DGCharts in Frameworks */,
+				AFE438722F3EACCC00F49919 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +263,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		AFE4387D2F3EAF5E00F49919 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AFE4387C2F3EAF5E00F49919 /* LaunchScreen.storyboard */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		AFF231CE2F3EA58800389661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +355,7 @@
 		AFFECE632AB7910D003FE8B9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				AFE4387D2F3EAF5E00F49919 /* SplashScreen */,
 				AF11CA1C2AB7B67000BB21C9 /* Views */,
 				AFFECE7D2AB79AE2003FE8B9 /* Extensions */,
 			);
@@ -359,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				AFFECE692AB7926D003FE8B9 /* MainView.swift */,
+				AFE438752F3EACFD00F49919 /* SplashScreenView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -461,6 +477,7 @@
 			packageReferences = (
 				AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */,
 				AFBDDDB52F3EA44B00191111 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				AFE438702F3EACCC00F49919 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = AFFECE4E2AB79097003FE8B9 /* Products */;
 			projectDirPath = "";
@@ -479,6 +496,7 @@
 				AFA8001E2ABE139C00A7BEE2 /* .swiftlint.yml in Resources */,
 				AFFECE582AB79098003FE8B9 /* Preview Assets.xcassets in Resources */,
 				AFFECE7A2AB79AA4003FE8B9 /* Localizable.strings in Resources */,
+				AFE4387E2F3EAF5E00F49919 /* LaunchScreen.storyboard in Resources */,
 				AFFECE752AB79A97003FE8B9 /* Localizable.strings in Resources */,
 				AFFECE552AB79098003FE8B9 /* Assets.xcassets in Resources */,
 			);
@@ -520,6 +538,7 @@
 				AFFECE6A2AB7926D003FE8B9 /* MainView.swift in Sources */,
 				AF550F0E2AC223530048152D /* CategoryExpensesView.swift in Sources */,
 				AF550F112AC2237D0048152D /* CategoryExpensesViewModel.swift in Sources */,
+				AFE438762F3EACFD00F49919 /* SplashScreenView.swift in Sources */,
 				AFA8005D2ABF9AF600A7BEE2 /* PieChartView.swift in Sources */,
 				E140C8EC2ABDA0740076950C /* AddCategoriesView.swift in Sources */,
 				AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */,
@@ -960,9 +979,22 @@
 				minimumVersion = 0.63.2;
 			};
 		};
+		AFE438702F3EACCC00F49919 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AFE438712F3EACCC00F49919 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFE438702F3EACCC00F49919 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		AFF231CF2F3EA58800389661 /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */;

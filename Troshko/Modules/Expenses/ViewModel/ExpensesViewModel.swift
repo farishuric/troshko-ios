@@ -18,6 +18,7 @@ class ExpensesViewModel: ObservableObject {
     @Published var expenses: [Expense] = []
     @Published var isPresentingAddExpenses: Bool = false
     @Published var groupedExpenses: [GroupedExpenses] = []
+    @Published var isLoading: Bool = true
     
     // MARK: - Properties
     
@@ -84,6 +85,8 @@ class ExpensesViewModel: ObservableObject {
     init(viewContext: NSManagedObjectContext) {
         self.viewContext = viewContext
         fetchCategories()
+        fetchExpenses()
+        isLoading = false
     }
     
     // MARK: - Public Methods

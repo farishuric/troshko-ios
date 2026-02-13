@@ -14,7 +14,7 @@ struct TroshkoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            SplashScreenView()
         }
     }
 }

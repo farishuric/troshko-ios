@@ -74,11 +74,6 @@ struct ExpensesView: View {
                     expensesVM.isEditing = false
                 }
         }
-        .onAppear {
-            withAnimation {
-                expensesVM.fetchExpenses()
-            }
-        }
     }
 }
 
