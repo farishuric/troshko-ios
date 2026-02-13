@@ -35,6 +35,7 @@
 		AFC958312AB8BB48000D6C0B /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */; };
 		AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */; };
 		AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */; };
+		AFF231D02F3EA58800389661 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = AFF231CF2F3EA58800389661 /* DGCharts */; };
 		AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */; };
 		AFFECE552AB79098003FE8B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE542AB79098003FE8B9 /* Assets.xcassets */; };
 		AFFECE582AB79098003FE8B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE572AB79098003FE8B9 /* Preview Assets.xcassets */; };
@@ -46,11 +47,22 @@
 		AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */; };
 		AFFECE862AB7A575003FE8B9 /* AddExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */; };
 		E140C8EC2ABDA0740076950C /* AddCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */; };
-		E7E2F31E6ABFB3193A358BF4 /* Pods_Troshko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4000A381937E3B328C0CB1F /* Pods_Troshko.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AFF231D42F3EA58B00389661 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		7BD37CF395FAC6B3ACDCC455 /* Pods-Troshko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Troshko.release.xcconfig"; path = "Target Support Files/Pods-Troshko/Pods-Troshko.release.xcconfig"; sourceTree = "<group>"; };
 		AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TroshkoData.xcdatamodel; sourceTree = "<group>"; };
 		AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -90,8 +102,6 @@
 		AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemView.swift; sourceTree = "<group>"; };
 		AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesView.swift; sourceTree = "<group>"; };
-		C4000A381937E3B328C0CB1F /* Pods_Troshko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Troshko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D520E7BBAF92109EF00259D5 /* Pods-Troshko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Troshko.debug.xcconfig"; path = "Target Support Files/Pods-Troshko/Pods-Troshko.debug.xcconfig"; sourceTree = "<group>"; };
 		E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,30 +110,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7E2F31E6ABFB3193A358BF4 /* Pods_Troshko.framework in Frameworks */,
+				AFF231D02F3EA58800389661 /* DGCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2FA9A80A6AC6268AFAC5EC4E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C4000A381937E3B328C0CB1F /* Pods_Troshko.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		32805FD70BE5E9550AFA2551 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D520E7BBAF92109EF00259D5 /* Pods-Troshko.debug.xcconfig */,
-				7BD37CF395FAC6B3ACDCC455 /* Pods-Troshko.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		AF11CA172AB7B0F800BB21C9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,13 +257,19 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		AFF231CE2F3EA58800389661 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AFFECE442AB79097003FE8B9 = {
 			isa = PBXGroup;
 			children = (
 				AFFECE4F2AB79097003FE8B9 /* Troshko */,
+				AFF231CE2F3EA58800389661 /* Frameworks */,
 				AFFECE4E2AB79097003FE8B9 /* Products */,
-				32805FD70BE5E9550AFA2551 /* Pods */,
-				2FA9A80A6AC6268AFAC5EC4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -419,12 +418,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFFECE5B2AB79098003FE8B9 /* Build configuration list for PBXNativeTarget "Troshko" */;
 			buildPhases = (
-				D10542C9449CB1EAF80C7663 /* [CP] Check Pods Manifest.lock */,
 				AFFECE492AB79097003FE8B9 /* Sources */,
 				AFFECE4A2AB79097003FE8B9 /* Frameworks */,
 				AFFECE4B2AB79097003FE8B9 /* Resources */,
 				AFA8001B2ABE12F900A7BEE2 /* SwiftLint */,
-				FB5A39CAB7EAB049FB81E7C0 /* [CP] Embed Pods Frameworks */,
+				AFF231D42F3EA58B00389661 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -460,6 +458,10 @@
 				"bs-BA",
 			);
 			mainGroup = AFFECE442AB79097003FE8B9;
+			packageReferences = (
+				AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */,
+				AFBDDDB52F3EA44B00191111 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+			);
 			productRefGroup = AFFECE4E2AB79097003FE8B9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -503,45 +505,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" --config \"${SRCROOT}/Troshko/Config/.swiftlint.yml\"\necho ${SRCROOT}\n";
-		};
-		D10542C9449CB1EAF80C7663 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Troshko-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FB5A39CAB7EAB049FB81E7C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Troshko/Pods-Troshko-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Troshko/Pods-Troshko-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Troshko/Pods-Troshko-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -723,6 +686,64 @@
 			};
 			name = Release;
 		};
+		AFFECE5C2AB79098003FE8B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Troshko/Preview Content\"";
+				DEVELOPMENT_TEAM = GZ7U8T8325;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.development.troshko;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFFECE5D2AB79098003FE8B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Troshko/Preview Content\"";
+				DEVELOPMENT_TEAM = GZ7U8T8325;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.development.troshko;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F2A8C4F92C5A3E1B00ABC123 /* Debug-Dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -837,69 +858,8 @@
 			};
 			name = "Release-Prod";
 		};
-		AFFECE5C2AB79098003FE8B9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D520E7BBAF92109EF00259D5 /* Pods-Troshko.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Troshko/Preview Content\"";
-				DEVELOPMENT_TEAM = GZ7U8T8325;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.development.troshko;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		AFFECE5D2AB79098003FE8B9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BD37CF395FAC6B3ACDCC455 /* Pods-Troshko.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Troshko/Preview Content\"";
-				DEVELOPMENT_TEAM = GZ7U8T8325;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.development.troshko;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		F2A8C5002C5A3E1B00ABC123 /* Debug-Dev */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D520E7BBAF92109EF00259D5 /* Pods-Troshko.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -929,7 +889,6 @@
 		};
 		F2A8C5012C5A3E1B00ABC123 /* Release-Prod */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7BD37CF395FAC6B3ACDCC455 /* Pods-Troshko.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -983,6 +942,33 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		AFBDDDB52F3EA44B00191111 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.63.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AFF231CF2F3EA58800389661 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */ = {
