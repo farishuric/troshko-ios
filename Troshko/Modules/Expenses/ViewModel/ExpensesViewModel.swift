@@ -23,6 +23,7 @@ class ExpensesViewModel: ObservableObject {
     
     /// Editing options
     @Published var isEditing: Bool = false
+    @Published var showEditConfirmation: Bool = false
     var editingExpense: Expense? {
         didSet {
             title = editingExpense?.title ?? ""
@@ -189,6 +190,21 @@ class ExpensesViewModel: ObservableObject {
     }
     
     func editExpense(completion: @escaping () -> Void) {
+        showEditConfirmation = true
+        
+        // Store the completion handler for use in confirmation
+        pendingCompletion = completion
+    }
+    
+    func confirmEditExpense() {
+        _performEditExpense {
+            self.pendingCompletion?()
+        }
+    }
+    
+    private var pendingCompletion: (() -> Void)?
+    
+    private func _performEditExpense(completion: @escaping () -> Void) {
         if let editingExpense {
             guard let id = editingExpense.id else { return }
             let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()

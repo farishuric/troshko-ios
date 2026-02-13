@@ -111,6 +111,19 @@ struct AddExpensesView: View {
                 }
             }
         }
+        .confirmationDialog(
+            "EDIT_CONFIRMATION_TITLE".localized,
+            isPresented: $expensesVM.showEditConfirmation,
+            presenting: ()
+        ) { _ in
+            Button("WORDING_CONFIRM".localized, role: .destructive) {
+                expensesVM.confirmEditExpense()
+                expensesVM.isPresentingAddExpenses = false
+            }
+            Button("WORDING_CANCEL".localized, role: .cancel) { }
+        } message: { _ in
+            Text("EDIT_CONFIRMATION_MESSAGE".localized)
+        }
         .onTapGesture {
             endEditing()
             expensesVM.validatePrice()

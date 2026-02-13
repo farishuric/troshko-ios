@@ -14,6 +14,7 @@
 "WORDING_NONE" = "None";
 "WORDING_SAVE" = "Save";
 "WORDING_APPLY" = "Apply";
+"WORDING_CONFIRM" = "Confirm";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Today";
@@ -37,6 +38,10 @@
 
 "ADD_EXPENSE.CATEGORY" = "Category";
 "ADD_EXPENSE.CATEGORY_PLACEHOLDER" = "Select an option";
+
+// MARK: - Edit expense
+"EDIT_CONFIRMATION_TITLE" = "Save Changes?";
+"EDIT_CONFIRMATION_MESSAGE" = "Are you sure you want to save these changes?";
 
 
 // MARK: - Categories

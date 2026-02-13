@@ -14,6 +14,7 @@
 "WORDING_NONE" = "Nijedno";
 "WORDING_SAVE" = "Spasi";
 "WORDING_APPLY" = "Primijeni";
+"WORDING_CONFIRM" = "Potvrdi";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Danas";
@@ -36,6 +37,10 @@
 
 "ADD_EXPENSE.CATEGORY" = "Kategorija";
 "ADD_EXPENSE.CATEGORY_PLACEHOLDER" = "Izaberite opciju";
+
+// MARK: - Edit expense
+"EDIT_CONFIRMATION_TITLE" = "Spasiti Izmjene?";
+"EDIT_CONFIRMATION_MESSAGE" = "Jeste li sigurni da želite spasiti ove izmjene?";
 
 // MARK: - Categories
 "CATEGORIES.NO_DATA" = "Nema pronađenih kategorija";
