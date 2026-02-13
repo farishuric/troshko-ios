@@ -124,14 +124,6 @@ struct AddExpensesView: View {
         } message: { _ in
             Text("EDIT_CONFIRMATION_MESSAGE".localized)
         }
-        .onTapGesture {
-            endEditing()
-            expensesVM.validatePrice()
-        }
-    }
-    
-    private func endEditing() {
-        UIApplication.shared.endEditing()
     }
 }
 
