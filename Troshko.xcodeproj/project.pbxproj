@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AFE438722F3EACCC00F49919 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AFE438712F3EACCC00F49919 /* Lottie */; };
-		AFF231D02F3EA58800389661 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = AFF231CF2F3EA58800389661 /* DGCharts */; };
 		C1A0DE0000000000000000C1 /* MVVM in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B1 /* MVVM */; };
 		C1A0DE0000000000000000C2 /* DI in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B2 /* DI */; };
 		C1A0DE0000000000000000C3 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B3 /* Networking */; };
@@ -42,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFF231D02F3EA58800389661 /* DGCharts in Frameworks */,
 				AFE438722F3EACCC00F49919 /* Lottie in Frameworks */,
 				C1A0DE0000000000000000C1 /* MVVM in Frameworks */,
 				C1A0DE0000000000000000C2 /* DI in Frameworks */,
@@ -137,7 +135,6 @@
 			);
 			mainGroup = AFFECE442AB79097003FE8B9;
 			packageReferences = (
-				AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */,
 				AFBDDDB52F3EA44B00191111 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 				AFE438702F3EACCC00F49919 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				C1A0DE0000000000000000A1 /* XCLocalSwiftPackageReference "libs/MVVM" */,
@@ -597,14 +594,6 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.0;
-			};
-		};
 		AFBDDDB52F3EA44B00191111 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
@@ -628,11 +617,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AFE438702F3EACCC00F49919 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
-		};
-		AFF231CF2F3EA58800389661 /* DGCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = DGCharts;
 		};
 		C1A0DE0000000000000000B1 /* MVVM */ = {
 			isa = XCSwiftPackageProductDependency;
