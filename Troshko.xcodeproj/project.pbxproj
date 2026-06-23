@@ -70,6 +70,14 @@
 		};
 /* End PBXCopyFilesBuildPhase section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C1A0DE0000000000000000F0 /* Troshko */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Troshko;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFileReference section */
 		AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TroshkoData.xcdatamodel; sourceTree = "<group>"; };
@@ -291,7 +299,7 @@
 		AFFECE442AB79097003FE8B9 = {
 			isa = PBXGroup;
 			children = (
-				AFFECE4F2AB79097003FE8B9 /* Troshko */,
+				C1A0DE0000000000000000F0 /* Troshko */,
 				AFF231CE2F3EA58800389661 /* Frameworks */,
 				AFFECE4E2AB79097003FE8B9 /* Products */,
 			);
@@ -454,6 +462,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				C1A0DE0000000000000000F0 /* Troshko */,
+			);
 			name = Troshko;
 			packageProductDependencies = (
 				C1A0DE0000000000000000B1 /* MVVM */,
@@ -515,12 +526,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFA8001E2ABE139C00A7BEE2 /* .swiftlint.yml in Resources */,
-				AFFECE582AB79098003FE8B9 /* Preview Assets.xcassets in Resources */,
-				AFFECE7A2AB79AA4003FE8B9 /* Localizable.strings in Resources */,
-				AFE4387E2F3EAF5E00F49919 /* LaunchScreen.storyboard in Resources */,
-				AFFECE752AB79A97003FE8B9 /* Localizable.strings in Resources */,
-				AFFECE552AB79098003FE8B9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,41 +558,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */,
-				AF550F062AC16EA90048152D /* Color + Extensions.swift in Sources */,
-				AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */,
-				AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */,
-				AFFECE6A2AB7926D003FE8B9 /* MainView.swift in Sources */,
-				AF550F0E2AC223530048152D /* CategoryExpensesView.swift in Sources */,
-				AF550F112AC2237D0048152D /* CategoryExpensesViewModel.swift in Sources */,
-				AFE438762F3EACFD00F49919 /* SplashScreenView.swift in Sources */,
-				AFA8005D2ABF9AF600A7BEE2 /* PieChartView.swift in Sources */,
-				E140C8EC2ABDA0740076950C /* AddCategoriesView.swift in Sources */,
-				AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */,
-				AFA2FA382AC06F53002A802B /* Month.swift in Sources */,
-				AFA8007E2AC056AA00A7BEE2 /* Category+CoreDataProperties.swift in Sources */,
-				AFFECE6E2AB792D1003FE8B9 /* CategoriesView.swift in Sources */,
-				AFFECE6C2AB792BB003FE8B9 /* ExpensesView.swift in Sources */,
-				AF52BF0D2C127E4100B03835 /* Collection+Extensions.swift in Sources */,
-				AF207AE92AC06BBE00CF5009 /* MonthYearPickerView.swift in Sources */,
-				AFA2FA3B2AC06F76002A802B /* MonthlyOverviewModel.swift in Sources */,
-				AF6DAA072AC369B400944A4E /* Expense+CoreDataClass.swift in Sources */,
-				AFA800612ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift in Sources */,
-				AF52BF112C12858000B03835 /* ErrorState.swift in Sources */,
-				AFA2FA452AC0A700002A802B /* EmptyStateView.swift in Sources */,
-				AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */,
-				AF6DAA082AC369B400944A4E /* Expense+CoreDataProperties.swift in Sources */,
-				AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */,
-				AFA8005A2ABF983100A7BEE2 /* MonthlyOverviewView.swift in Sources */,
-				AFA8007D2AC056AA00A7BEE2 /* Category+CoreDataClass.swift in Sources */,
-				AFC239EF2ABCA24900384EE7 /* Date + Extensions.swift in Sources */,
-				AF11CA1E2AB7B67800BB21C9 /* BadgeView.swift in Sources */,
-				AF6DAA0D2AC36B5200944A4E /* Double+Extensions.swift in Sources */,
-				AFB9881D2AB8DB2A0068EC3B /* ExpensesViewModel.swift in Sources */,
-				AFA2FA3E2AC0713F002A802B /* GroupedExpenses.swift in Sources */,
-				AFC958312AB8BB48000D6C0B /* CategoriesViewModel.swift in Sources */,
-				AFB9881F2AB8E3220068EC3B /* Float + Extensions.swift in Sources */,
-				AFFECE862AB7A575003FE8B9 /* AddExpensesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,6 +707,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Troshko/Preview Content\"";
 				DEVELOPMENT_TEAM = GZ7U8T8325;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "*.md";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -766,6 +737,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Troshko/Preview Content\"";
 				DEVELOPMENT_TEAM = GZ7U8T8325;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "*.md";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -909,6 +881,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Troshko/Preview Content\"";
 				DEVELOPMENT_TEAM = GZ7U8T8325;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "*.md";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -938,6 +911,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Troshko/Preview Content\"";
 				DEVELOPMENT_TEAM = GZ7U8T8325;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_SOURCE_FILE_NAMES = "*.md";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
