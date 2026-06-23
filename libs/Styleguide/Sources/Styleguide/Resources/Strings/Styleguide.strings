@@ -1,0 +1,58 @@
+/* 
+  Styleguide.strings
+  Styleguide
+
+  Created by Styleguide on 2024.
+*/
+
+// MARK: - Button Labels
+"button.save" = "Save";
+"button.cancel" = "Cancel";
+"button.done" = "Done";
+"button.next" = "Next";
+"button.previous" = "Previous";
+"button.continue" = "Continue";
+"button.back" = "Back";
+"button.close" = "Close";
+"button.delete" = "Delete";
+"button.edit" = "Edit";
+"button.add" = "Add";
+"button.remove" = "Remove";
+"button.submit" = "Submit";
+"button.reset" = "Reset";
+"button.retry" = "Retry";
+"button.loading" = "Loading...";
+
+// MARK: - TextField Placeholders
+"textfield.placeholder.email" = "Enter your email";
+"textfield.placeholder.password" = "Enter your password";
+"textfield.placeholder.name" = "Enter your name";
+"textfield.placeholder.phone" = "Enter your phone number";
+"textfield.placeholder.search" = "Search...";
+"textfield.placeholder.message" = "Type your message...";
+"textfield.placeholder.comment" = "Add a comment...";
+
+// MARK: - Error Messages
+"error.required" = "This field is required";
+"error.invalid.email" = "Please enter a valid email address";
+"error.invalid.phone" = "Please enter a valid phone number";
+"error.password.too.short" = "Password must be at least 8 characters";
+"error.password.mismatch" = "Passwords do not match";
+"error.network" = "Network error. Please try again.";
+"error.generic" = "Something went wrong. Please try again.";
+
+// MARK: - Success Messages
+"success.saved" = "Saved successfully";
+"success.updated" = "Updated successfully";
+"success.deleted" = "Deleted successfully";
+"success.sent" = "Sent successfully";
+
+// MARK: - Accessibility Labels
+"accessibility.button" = "Button";
+"accessibility.textfield" = "Text field";
+"accessibility.card" = "Card";
+"accessibility.close" = "Close";
+"accessibility.back" = "Back";
+"accessibility.menu" = "Menu";
+"accessibility.search" = "Search";
+"accessibility.loading" = "Loading";

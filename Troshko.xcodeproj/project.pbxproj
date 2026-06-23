@@ -50,6 +50,11 @@
 		AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */; };
 		AFFECE862AB7A575003FE8B9 /* AddExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */; };
 		E140C8EC2ABDA0740076950C /* AddCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */; };
+		C1A0DE0000000000000000C1 /* MVVM in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B1 /* MVVM */; };
+		C1A0DE0000000000000000C2 /* DI in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B2 /* DI */; };
+		C1A0DE0000000000000000C3 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B3 /* Networking */; };
+		C1A0DE0000000000000000C4 /* Extension in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B4 /* Extension */; };
+		C1A0DE0000000000000000C5 /* Styleguide in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B5 /* Styleguide */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -117,6 +122,11 @@
 			files = (
 				AFF231D02F3EA58800389661 /* DGCharts in Frameworks */,
 				AFE438722F3EACCC00F49919 /* Lottie in Frameworks */,
+				C1A0DE0000000000000000C1 /* MVVM in Frameworks */,
+				C1A0DE0000000000000000C2 /* DI in Frameworks */,
+				C1A0DE0000000000000000C3 /* Networking in Frameworks */,
+				C1A0DE0000000000000000C4 /* Extension in Frameworks */,
+				C1A0DE0000000000000000C5 /* Styleguide in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +455,13 @@
 			dependencies = (
 			);
 			name = Troshko;
+			packageProductDependencies = (
+				C1A0DE0000000000000000B1 /* MVVM */,
+				C1A0DE0000000000000000B2 /* DI */,
+				C1A0DE0000000000000000B3 /* Networking */,
+				C1A0DE0000000000000000B4 /* Extension */,
+				C1A0DE0000000000000000B5 /* Styleguide */,
+			);
 			productName = Troshko;
 			productReference = AFFECE4D2AB79097003FE8B9 /* Troshko.app */;
 			productType = "com.apple.product-type.application";
@@ -478,6 +495,11 @@
 				AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */,
 				AFBDDDB52F3EA44B00191111 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 				AFE438702F3EACCC00F49919 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				C1A0DE0000000000000000A1 /* XCLocalSwiftPackageReference "libs/MVVM" */,
+				C1A0DE0000000000000000A2 /* XCLocalSwiftPackageReference "libs/DI" */,
+				C1A0DE0000000000000000A3 /* XCLocalSwiftPackageReference "libs/Networking" */,
+				C1A0DE0000000000000000A4 /* XCLocalSwiftPackageReference "libs/Extension" */,
+				C1A0DE0000000000000000A5 /* XCLocalSwiftPackageReference "libs/Styleguide" */,
 			);
 			productRefGroup = AFFECE4E2AB79097003FE8B9 /* Products */;
 			projectDirPath = "";
@@ -641,7 +663,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -695,7 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -813,7 +835,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -867,7 +889,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -962,6 +984,29 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		C1A0DE0000000000000000A1 /* XCLocalSwiftPackageReference "libs/MVVM" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = libs/MVVM;
+		};
+		C1A0DE0000000000000000A2 /* XCLocalSwiftPackageReference "libs/DI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = libs/DI;
+		};
+		C1A0DE0000000000000000A3 /* XCLocalSwiftPackageReference "libs/Networking" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = libs/Networking;
+		};
+		C1A0DE0000000000000000A4 /* XCLocalSwiftPackageReference "libs/Extension" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = libs/Extension;
+		};
+		C1A0DE0000000000000000A5 /* XCLocalSwiftPackageReference "libs/Styleguide" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = libs/Styleguide;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -990,6 +1035,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C1A0DE0000000000000000B1 /* MVVM */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MVVM;
+		};
+		C1A0DE0000000000000000B2 /* DI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DI;
+		};
+		C1A0DE0000000000000000B3 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		C1A0DE0000000000000000B4 /* Extension */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Extension;
+		};
+		C1A0DE0000000000000000B5 /* Styleguide */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Styleguide;
+		};
 		AFE438712F3EACCC00F49919 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AFE438702F3EACCC00F49919 /* XCRemoteSwiftPackageReference "lottie-ios" */;
