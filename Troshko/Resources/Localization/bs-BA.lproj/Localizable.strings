@@ -23,6 +23,10 @@
 
 // MARK: - Expenses
 "EXPENSES.NO_EXPENSES" = "Nema pronađenih troškova";
+"EXPENSES.EMPTY.TITLE" = "Započnite evidenciju troškova";
+"EXPENSES.EMPTY.MESSAGE" = "Dodajte prvi trošak i ovaj ekran će postati vaš dnevni pregled novca.";
+"EXPENSES.SUMMARY.TITLE" = "Evidentirana potrošnja";
+"EXPENSES.SUMMARY.COUNT" = "%d unosa";
 "EXPENSES.LOAD_ERROR" = "Nije moguće učitati troškove";
 "EXPENSES.DELETE_ERROR" = "Nije moguće izbrisati trošak";
 "EXPENSES.SAVE_ERROR" = "Nije moguće spasiti trošak";

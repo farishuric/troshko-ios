@@ -23,6 +23,10 @@
 
 // MARK: - Expenses
 "EXPENSES.NO_EXPENSES" = "No expenses found";
+"EXPENSES.EMPTY.TITLE" = "Start your spending log";
+"EXPENSES.EMPTY.MESSAGE" = "Add the first expense and this screen will turn into your daily money snapshot.";
+"EXPENSES.SUMMARY.TITLE" = "Logged spending";
+"EXPENSES.SUMMARY.COUNT" = "%d entries";
 "EXPENSES.LOAD_ERROR" = "Couldn't load expenses";
 "EXPENSES.DELETE_ERROR" = "Couldn't delete the expense";
 "EXPENSES.SAVE_ERROR" = "Couldn't save the expense";

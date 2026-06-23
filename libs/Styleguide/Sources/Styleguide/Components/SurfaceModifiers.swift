@@ -32,6 +32,12 @@ public struct FloatingCardModifier: ViewModifier {
                     .fill(SemanticColor.Colors.surfaceCard.swiftUIColor.opacity(0.78))
                     .background(.ultraThinMaterial, in: shape)
             }
+            .overlay {
+                shape.strokeBorder(
+                    SemanticColor.Colors.plainWhite.swiftUIColor.opacity(0.12),
+                    lineWidth: Spacing.Semantic.borderWidth
+                )
+            }
             .clipShape(shape)
             .softShadow()
     }

@@ -17,7 +17,7 @@ struct ExpensesView<VM: ViewModel>: View
 
     var body: some View {
         NavigationStack {
-            BaseScreen(isLoading: isLoading) {
+            BaseScreen(isLoading: isLoading, showsAmbientBackground: true) {
                 content
             }
             .navigationTitle("EXPENSES.TITLE".localized)
@@ -71,11 +71,22 @@ struct ExpensesView<VM: ViewModel>: View
 
     private func list(_ groups: [ExpenseGroup]) -> some View {
         List {
-            ForEach(groups) { group in
+            expenseSummary(groups)
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets(
+                    top: Spacing.Semantic.screenMargin,
+                    leading: Spacing.Semantic.screenMargin,
+                    bottom: Spacing.Semantic.itemSpacing,
+                    trailing: Spacing.Semantic.screenMargin
+                ))
+                .listRowBackground(Color.clear)
+
+            ForEach(Array(groups.enumerated()), id: \.element.id) { groupIndex, group in
                 Section {
-                    ForEach(group.expenses) { expense in
+                    ForEach(Array(group.expenses.enumerated()), id: \.element.id) { rowIndex, expense in
                         ExpenseRow(expense: expense)
-                            .listRowBackground(SemanticColor.Colors.backgroundPrimary.swiftUIColor)
+                            .softAppear(index: rowEntranceIndex(groups, groupIndex, rowIndex))
+                            .floatingListRow()
                             .contentShape(Rectangle())
                             .swipeActions(edge: .leading) {
                                 Button("WORDING_EDIT".localized) {
@@ -90,40 +101,143 @@ struct ExpensesView<VM: ViewModel>: View
                             }
                     }
                 } header: {
-                    Text(group.title)
+                    sectionHeader(group)
                 }
             }
         }
-        .listStyle(.insetGrouped)
+        .listStyle(.plain)
         .scrollContentBackground(.hidden)
     }
 
-    private var emptyState: some View {
-        VStack(spacing: Spacing.Semantic.itemSpacing) {
-            Image(systemName: "doc.text")
-                .font(.system(size: 56))
-                .foregroundStyle(SemanticColor.Colors.primary.swiftUIColor)
-            Text("EXPENSES.NO_EXPENSES".localized)
-                .font(.regular(.body))
-                .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
-                .multilineTextAlignment(.center)
+    /// Flat running index across all groups so the calm entrance cascades down the
+    /// whole list, not just within each day-section.
+    private func rowEntranceIndex(_ groups: [ExpenseGroup], _ groupIndex: Int, _ rowIndex: Int) -> Int {
+        let preceding = groups[..<groupIndex].reduce(0) { $0 + $1.expenses.count }
+        return preceding + rowIndex
+    }
+
+    private func expenseSummary(_ groups: [ExpenseGroup]) -> some View {
+        let expenses = groups.flatMap(\.expenses)
+        let total = totalAmount(for: expenses)
+
+        return FloatingCard {
+            VStack(alignment: .leading, spacing: Spacing.Semantic.itemSpacing) {
+                HStack(alignment: .top, spacing: Spacing.Semantic.itemSpacing) {
+                    VStack(alignment: .leading, spacing: Spacing.Semantic.groupSpacing) {
+                        Text("EXPENSES.SUMMARY.TITLE".localized)
+                            .font(.regular(.small))
+                            .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
+                        Text(total.formatted())
+                            .font(.bold(.title))
+                            .foregroundStyle(SemanticColor.Colors.textPrimary.swiftUIColor)
+                    }
+
+                    Spacer(minLength: Spacing.Semantic.itemSpacing)
+
+                    Image(systemName: "creditcard.fill")
+                        .font(.semibold(.large))
+                        .foregroundStyle(SemanticColor.Colors.primary.swiftUIColor)
+                        .frame(
+                            width: Spacing.Semantic.minimumTouchTarget,
+                            height: Spacing.Semantic.minimumTouchTarget
+                        )
+                        .background(
+                            Circle().fill(SemanticColor.Colors.primary.swiftUIColor.opacity(0.14))
+                        )
+                }
+
+                Text("EXPENSES.SUMMARY.COUNT".localized(arguments: expenses.count))
+                    .font(.regular(.small))
+                    .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
+            }
         }
-        .padding(Spacing.Semantic.screenMargin)
+        .softAppear()
+    }
+
+    private func sectionHeader(_ group: ExpenseGroup) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: Spacing.Semantic.itemSpacing) {
+            Text(group.title)
+                .font(.semibold(.small))
+                .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
+
+            Spacer(minLength: Spacing.Semantic.itemSpacing)
+
+            Text(group.total.formatted())
+                .font(.semibold(.small))
+                .foregroundStyle(SemanticColor.Colors.textTertiary.swiftUIColor)
+        }
+        .textCase(nil)
+        .padding(.horizontal, Spacing.Semantic.screenMargin)
+        .padding(.top, Spacing.Semantic.groupSpacing)
+        .padding(.bottom, Spacing.Semantic.componentMargin)
+    }
+
+    private func totalAmount(for expenses: [Expense]) -> Money {
+        let currencyCode = expenses.first?.amount.currencyCode ?? Money.deviceCurrencyCode
+        return expenses.reduce(.zero(currencyCode: currencyCode)) { $0 + $1.amount }
+    }
+
+    private var emptyState: some View {
+        VStack {
+            Spacer(minLength: Spacing.Semantic.sectionSpacing)
+
+            FloatingCard {
+                VStack(spacing: Spacing.Semantic.itemSpacing) {
+                    Image(systemName: "creditcard.fill")
+                        .font(.bold(.title))
+                        .foregroundStyle(SemanticColor.Colors.primary.swiftUIColor)
+                        .frame(
+                            width: Spacing.Semantic.buttonHeightLarge,
+                            height: Spacing.Semantic.buttonHeightLarge
+                        )
+                        .background(
+                            Circle().fill(SemanticColor.Colors.primary.swiftUIColor.opacity(0.14))
+                        )
+
+                    VStack(spacing: Spacing.Semantic.groupSpacing) {
+                        Text("EXPENSES.EMPTY.TITLE".localized)
+                            .font(.semibold(.title))
+                            .foregroundStyle(SemanticColor.Colors.textPrimary.swiftUIColor)
+                            .multilineTextAlignment(.center)
+
+                        Text("EXPENSES.EMPTY.MESSAGE".localized)
+                            .font(.regular(.body))
+                            .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+
+                    PrimaryButton(action: { vm.trigger(.addTapped) }) {
+                        Label("ADD_EXPENSE".localized, systemImage: "plus")
+                    }
+                    .padding(.top, Spacing.Semantic.groupSpacing)
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .softAppear()
+            .padding(Spacing.Semantic.screenMargin)
+
+            Spacer(minLength: Spacing.Semantic.sectionSpacing)
+        }
     }
 
     private func errorState(_ message: String) -> some View {
-        VStack(spacing: Spacing.Semantic.itemSpacing) {
-            Image(systemName: "exclamationmark.triangle")
-                .font(.system(size: 48))
-                .foregroundStyle(SemanticColor.Colors.error.swiftUIColor)
-            Text(message)
-                .font(.regular(.body))
-                .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
-                .multilineTextAlignment(.center)
-            Button("WORDING_RETRY".localized) { vm.trigger(.reload) }
-                .font(.semibold(.body))
-                .foregroundStyle(SemanticColor.Colors.primary.swiftUIColor)
+        FloatingCard {
+            VStack(spacing: Spacing.Semantic.itemSpacing) {
+                Image(systemName: "exclamationmark.triangle")
+                    .font(.bold(.title))
+                    .foregroundStyle(SemanticColor.Colors.error.swiftUIColor)
+                Text(message)
+                    .font(.regular(.body))
+                    .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
+                    .multilineTextAlignment(.center)
+                Button("WORDING_RETRY".localized) { vm.trigger(.reload) }
+                    .font(.semibold(.body))
+                    .foregroundStyle(SemanticColor.Colors.primary.swiftUIColor)
+            }
+            .frame(maxWidth: .infinity)
         }
+        .softAppear()
         .padding(Spacing.Semantic.screenMargin)
     }
 }
