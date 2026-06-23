@@ -10,9 +10,7 @@ import SwiftUI
 struct CategoriesView: View {
     // MARK: - View properties
     @ObservedObject private var categoriesVM = CategoriesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
-    
-    @EnvironmentObject var expensesVM: ExpensesViewModel
-    
+
     var body: some View {
         VStack {
             NavigationView {
@@ -33,9 +31,6 @@ struct CategoriesView: View {
                                 }
                                 .tint(.red)
                             }
-                        }
-                        .onChange(of: categoriesVM.categories) {
-                            expensesVM.categories = $0
                         }
                     }
                     .overlay {
@@ -64,9 +59,7 @@ struct CategoriesView: View {
                     Button("WORDING_DELETE".localized, role: .destructive) {
                         if let category = categoriesVM.categoryToDelete {
                             withAnimation {
-                                categoriesVM.delete(category: category) {
-                                    expensesVM.fetchCategories()
-                                }
+                                categoriesVM.delete(category: category) { }
                             }
                         }
                     }

@@ -32,7 +32,13 @@ Conform Troshko to Aisthesis's architecture (reusing its infra libs + Styleguide
   - DI composition root: `AppDependencies.registerAll()` in `TroshkoApp.init()`; all 5 modules imported from app code.
   - App target converted to a **synchronized folder group** (`PBXFileSystemSynchronizedRootGroup`, root `Troshko/`); Sources/Resources phases emptied (auto-managed); `EXCLUDED_SOURCE_FILE_NAMES = "*.md"` added to all 4 app configs.
 
-- **Phase 1 — Expenses end-to-end (NEXT):** reorganize `Troshko/` into `App/` + `Features/Expenses/{Domain,Data,UI,DI}`; SwiftData `@Model` `Expense`+`Category`; `ExpenseRepository` protocol + `SwiftDataExpenseRepository`; `ExpensesView<VM>` + ViewModel + State/Event/VMEvent on `BaseScreen`; `ExpensesDependencyContainer.register()` wired into `AppDependencies`. This is the reference feature the rest copy. Core Data still present (coexists).
+- **Phase 1 — Expenses end-to-end ✅ DONE (build verified clean):** `Features/Expenses/{Domain,Data,UI,DI}` built as the reference feature.
+  - **Domain:** `Expense` + `ExpenseCategory` structs (persistence-agnostic); `ExpenseRepository` protocol; use cases `Get/Add/Update/DeleteExpense` + `GetExpenseCategories` (protocol + `Standard*` impl, `@Injected` repo).
+  - **Data:** SwiftData `@Model` `ExpenseEntity` + `ExpenseCategoryEntity` (with `toDomain()` mapping); `SwiftDataExpenseRepository` (all store access hops via `MainActor.run`, returns Sendable Domain structs); `ExpenseStore.container` shared `ModelContainer`.
+  - **UI:** `ExpensesView<VM>` (list, grouped Today/This month/Month-Year) + `AddExpenseView<VM>` (add/edit sheet), each with `ViewModel`/`ViewState`/`ViewEvent`/`ViewModelEvent`; `BaseScreen` inside a `NavigationStack`; Styleguide tokens + `PrimaryButton`/`AppTextField`. Generic-VM + `@StateObject` ownership pattern (per Aisthesis `QuestionnaireView`/`HomeRootView`).
+  - **DI:** `ExpensesDependencyContainer.register()` wired into `AppDependencies.registerAll()`.
+  - **Cutover:** old `Troshko/Modules/Expenses/` deleted; `MainView` Expenses tab now `ExpensesView(vm: ExpensesViewModel())`; `CategoriesView` decoupled from the old shared `ExpensesViewModel`.
+  - **Known transitional gap:** Categories/MonthlyOverview still on Core Data (Phase 2), so categories created there are **not** visible in the new SwiftData expense picker until Phase 2 unifies them. No data migration (deferred to Phase 3).
 
 - **Phase 2 — Migrate Categories + MonthlyOverview** the same way; swap DGCharts → Swift Charts.
 
@@ -49,3 +55,5 @@ Conform Troshko to Aisthesis's architecture (reusing its infra libs + Styleguide
 - **Styleguide carries Aisthesis-domain leftovers** (`SensoryOptionCardView`, `QuestionnaireNavigationBar`, `CategoryStepIndicatorView`, `Face*` assets, a hardcoded "AISTHESIS Beta" string in `AppSheet.swift`). They compile; prune during feature migration.
 - **Response DTOs must NOT have explicit `CodingKeys`** (Networking's `JSONDecoder.api` uses `.convertFromSnakeCase`); request DTOs always should. (From Aisthesis `DECISIONS.md`.)
 - Migration-minted `.xcodeproj` UUIDs use the `C1A0DE…` prefix.
+- **Legacy Core Data `Expense` class renamed to `LegacyExpense`** (Phase 1) so the new Domain `Expense` struct owns the canonical name (same-target, no namespaces → hard collision otherwise). The model **entity** is still named `"Expense"`; only `representedClassName`/`@objc` + the class changed, so existing stores still map. Legacy `GroupedExpenses` + `ExpenseItemView` (Core Data-backed) were moved to `Modules/Categories/Legacy/`. All of this is deleted in Phase 3 with the rest of Core Data.
+- **SwiftData repo concurrency:** `SwiftDataExpenseRepository` wraps every `mainContext` access in `try await MainActor.run { … }` (SwiftData's `mainContext` is main-actor bound) and returns plain Sendable Domain structs — keeps the Domain `ExpenseRepository` protocol isolation-free, no `@MainActor` leak into Domain.

@@ -15,6 +15,7 @@
 "WORDING_SAVE" = "Save";
 "WORDING_APPLY" = "Apply";
 "WORDING_CONFIRM" = "Confirm";
+"WORDING_RETRY" = "Retry";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Today";
@@ -22,9 +23,13 @@
 
 // MARK: - Expenses
 "EXPENSES.NO_EXPENSES" = "No expenses found";
+"EXPENSES.LOAD_ERROR" = "Couldn't load expenses";
+"EXPENSES.DELETE_ERROR" = "Couldn't delete the expense";
+"EXPENSES.SAVE_ERROR" = "Couldn't save the expense";
 
 // MARK: - Add expense
 "ADD_EXPENSE" = "Add Expense";
+"ADD_EXPENSE.EDIT_TITLE" = "Edit Expense";
 "ADD_EXPENSE.TITLE" = "Title";
 "ADD_EXPENSE.TITLE.PLACEHOLDER" = "Bracelet";
 
@@ -33,6 +38,8 @@
 "ADD_EXPENSE.DESCRIPTION.PLACEHOLDER" = "Bought for Amila's birthday";
 
 "ADD_EXPENSE.PRICE" = "Price";
+"ADD_EXPENSE.PRICE.PLACEHOLDER" = "0.00";
+"ADD_EXPENSE.PRICE.ERROR" = "Enter a valid amount greater than zero";
 
 "ADD_EXPENSE.DATE" = "Date";
 

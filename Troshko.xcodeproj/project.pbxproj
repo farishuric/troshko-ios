@@ -3,53 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF11CA1E2AB7B67800BB21C9 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */; };
-		AF11CA222AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */; };
-		AF11CA292AB840C700BB21C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */; };
-		AF207AE92AC06BBE00CF5009 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF207AE82AC06BBE00CF5009 /* MonthYearPickerView.swift */; };
-		AF52BF0D2C127E4100B03835 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52BF0C2C127E4100B03835 /* Collection+Extensions.swift */; };
-		AF52BF112C12858000B03835 /* ErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF52BF102C12858000B03835 /* ErrorState.swift */; };
-		AF550F062AC16EA90048152D /* Color + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF550F052AC16EA90048152D /* Color + Extensions.swift */; };
-		AF550F0E2AC223530048152D /* CategoryExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF550F0D2AC223530048152D /* CategoryExpensesView.swift */; };
-		AF550F112AC2237D0048152D /* CategoryExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF550F102AC2237D0048152D /* CategoryExpensesViewModel.swift */; };
-		AF6DAA072AC369B400944A4E /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DAA052AC369B400944A4E /* Expense+CoreDataClass.swift */; };
-		AF6DAA082AC369B400944A4E /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DAA062AC369B400944A4E /* Expense+CoreDataProperties.swift */; };
-		AF6DAA0D2AC36B5200944A4E /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DAA0C2AC36B5200944A4E /* Double+Extensions.swift */; };
-		AFA2FA382AC06F53002A802B /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA372AC06F53002A802B /* Month.swift */; };
-		AFA2FA3B2AC06F76002A802B /* MonthlyOverviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA3A2AC06F76002A802B /* MonthlyOverviewModel.swift */; };
-		AFA2FA3E2AC0713F002A802B /* GroupedExpenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */; };
-		AFA2FA452AC0A700002A802B /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2FA442AC0A700002A802B /* EmptyStateView.swift */; };
-		AFA8001E2ABE139C00A7BEE2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = AFA8001D2ABE139C00A7BEE2 /* .swiftlint.yml */; };
-		AFA8005A2ABF983100A7BEE2 /* MonthlyOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA800592ABF983100A7BEE2 /* MonthlyOverviewView.swift */; };
-		AFA8005D2ABF9AF600A7BEE2 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8005C2ABF9AF600A7BEE2 /* PieChartView.swift */; };
-		AFA800612ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA800602ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift */; };
-		AFA8007D2AC056AA00A7BEE2 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8007B2AC056AA00A7BEE2 /* Category+CoreDataClass.swift */; };
-		AFA8007E2AC056AA00A7BEE2 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA8007C2AC056AA00A7BEE2 /* Category+CoreDataProperties.swift */; };
-		AFB9881D2AB8DB2A0068EC3B /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */; };
-		AFB9881F2AB8E3220068EC3B /* Float + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB9881E2AB8E3220068EC3B /* Float + Extensions.swift */; };
-		AFC239EF2ABCA24900384EE7 /* Date + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */; };
-		AFC958312AB8BB48000D6C0B /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */; };
-		AFC958322AB8BB8B000D6C0B /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */; };
-		AFC958542AB8D34A000D6C0B /* AddExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */; };
 		AFE438722F3EACCC00F49919 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = AFE438712F3EACCC00F49919 /* Lottie */; };
-		AFE438762F3EACFD00F49919 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE438752F3EACFD00F49919 /* SplashScreenView.swift */; };
-		AFE4387E2F3EAF5E00F49919 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFE4387C2F3EAF5E00F49919 /* LaunchScreen.storyboard */; };
 		AFF231D02F3EA58800389661 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = AFF231CF2F3EA58800389661 /* DGCharts */; };
-		AFFECE512AB79097003FE8B9 /* TroshkoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */; };
-		AFFECE552AB79098003FE8B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE542AB79098003FE8B9 /* Assets.xcassets */; };
-		AFFECE582AB79098003FE8B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE572AB79098003FE8B9 /* Preview Assets.xcassets */; };
-		AFFECE6A2AB7926D003FE8B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE692AB7926D003FE8B9 /* MainView.swift */; };
-		AFFECE6C2AB792BB003FE8B9 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE6B2AB792BB003FE8B9 /* ExpensesView.swift */; };
-		AFFECE6E2AB792D1003FE8B9 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE6D2AB792D1003FE8B9 /* CategoriesView.swift */; };
-		AFFECE752AB79A97003FE8B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE772AB79A97003FE8B9 /* Localizable.strings */; };
-		AFFECE7A2AB79AA4003FE8B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AFFECE7C2AB79AA4003FE8B9 /* Localizable.strings */; };
-		AFFECE832AB7A2B4003FE8B9 /* ExpenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */; };
-		AFFECE862AB7A575003FE8B9 /* AddExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */; };
-		E140C8EC2ABDA0740076950C /* AddCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */; };
 		C1A0DE0000000000000000C1 /* MVVM in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B1 /* MVVM */; };
 		C1A0DE0000000000000000C2 /* DI in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B2 /* DI */; };
 		C1A0DE0000000000000000C3 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = C1A0DE0000000000000000B3 /* Networking */; };
@@ -70,58 +29,13 @@
 		};
 /* End PBXCopyFilesBuildPhase section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		C1A0DE0000000000000000F0 /* Troshko */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Troshko;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFileReference section */
-		AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
-		AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TroshkoData.xcdatamodel; sourceTree = "<group>"; };
-		AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		AF207AE82AC06BBE00CF5009 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
-		AF52BF0C2C127E4100B03835 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
-		AF52BF102C12858000B03835 /* ErrorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorState.swift; sourceTree = "<group>"; };
-		AF550F052AC16EA90048152D /* Color + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extensions.swift"; sourceTree = "<group>"; };
-		AF550F0D2AC223530048152D /* CategoryExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExpensesView.swift; sourceTree = "<group>"; };
-		AF550F102AC2237D0048152D /* CategoryExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExpensesViewModel.swift; sourceTree = "<group>"; };
-		AF6DAA052AC369B400944A4E /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Expense+CoreDataClass.swift"; path = "Troshko/CoreData/Expenses/Expense+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		AF6DAA062AC369B400944A4E /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Expense+CoreDataProperties.swift"; path = "Troshko/CoreData/Expenses/Expense+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		AF6DAA0C2AC36B5200944A4E /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
-		AFA2FA372AC06F53002A802B /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
-		AFA2FA3A2AC06F76002A802B /* MonthlyOverviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewModel.swift; sourceTree = "<group>"; };
-		AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedExpenses.swift; sourceTree = "<group>"; };
-		AFA2FA442AC0A700002A802B /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
-		AFA8001D2ABE139C00A7BEE2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		AFA800592ABF983100A7BEE2 /* MonthlyOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewView.swift; sourceTree = "<group>"; };
-		AFA8005C2ABF9AF600A7BEE2 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
-		AFA800602ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyOverviewViewModel.swift; sourceTree = "<group>"; };
-		AFA8007B2AC056AA00A7BEE2 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "Troshko/CoreData/Categories/Category+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		AFA8007C2AC056AA00A7BEE2 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "Troshko/CoreData/Categories/Category+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
-		AFB9881E2AB8E3220068EC3B /* Float + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float + Extensions.swift"; sourceTree = "<group>"; };
-		AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
-		AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
-		AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesViewModel.swift; sourceTree = "<group>"; };
-		AFE438752F3EACFD00F49919 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
-		AFE4387C2F3EAF5E00F49919 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFFECE4D2AB79097003FE8B9 /* Troshko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Troshko.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroshkoApp.swift; sourceTree = "<group>"; };
-		AFFECE542AB79098003FE8B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AFFECE572AB79098003FE8B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AFFECE692AB7926D003FE8B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		AFFECE6B2AB792BB003FE8B9 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
-		AFFECE6D2AB792D1003FE8B9 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
-		AFFECE762AB79A97003FE8B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AFFECE7B2AB79AA4003FE8B9 /* bs-BA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "bs-BA"; path = "bs-BA.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
-		AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemView.swift; sourceTree = "<group>"; };
-		AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpensesView.swift; sourceTree = "<group>"; };
-		E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C1A0DE0000000000000000F0 /* Troshko */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Troshko; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AFFECE4A2AB79097003FE8B9 /* Frameworks */ = {
@@ -141,154 +55,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AF11CA172AB7B0F800BB21C9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		AF11CA1C2AB7B67000BB21C9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AF11CA1D2AB7B67800BB21C9 /* BadgeView.swift */,
-				AFA2FA442AC0A700002A802B /* EmptyStateView.swift */,
-				AF52BF102C12858000B03835 /* ErrorState.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		AF11CA1F2AB83DD300BB21C9 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				AF6DAA042AC3699600944A4E /* Expenses */,
-				AFA2FA402AC0764E002A802B /* Categories */,
-				AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */,
-				AF11CA282AB840C700BB21C9 /* CoreDataManager.swift */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		AF550F0C2AC2233D0048152D /* CategoryExpenses */ = {
-			isa = PBXGroup;
-			children = (
-				AF550F0F2AC223730048152D /* ViewModel */,
-				AF550F0D2AC223530048152D /* CategoryExpensesView.swift */,
-			);
-			path = CategoryExpenses;
-			sourceTree = "<group>";
-		};
-		AF550F0F2AC223730048152D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				AF550F102AC2237D0048152D /* CategoryExpensesViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AF6DAA042AC3699600944A4E /* Expenses */ = {
-			isa = PBXGroup;
-			children = (
-				AF6DAA062AC369B400944A4E /* Expense+CoreDataProperties.swift */,
-				AF6DAA052AC369B400944A4E /* Expense+CoreDataClass.swift */,
-			);
-			path = Expenses;
-			sourceTree = "<group>";
-		};
-		AFA2FA362AC06F4B002A802B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				AFA2FA372AC06F53002A802B /* Month.swift */,
-				AFA2FA3A2AC06F76002A802B /* MonthlyOverviewModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		AFA2FA3C2AC07139002A802B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				AFA2FA3D2AC0713F002A802B /* GroupedExpenses.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		AFA2FA402AC0764E002A802B /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				AFA8007C2AC056AA00A7BEE2 /* Category+CoreDataProperties.swift */,
-				AFA8007B2AC056AA00A7BEE2 /* Category+CoreDataClass.swift */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		AFA8001C2ABE138D00A7BEE2 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				AFA8001D2ABE139C00A7BEE2 /* .swiftlint.yml */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
-		AFA800562ABF980500A7BEE2 /* MonthlyOverview */ = {
-			isa = PBXGroup;
-			children = (
-				AFA2FA362AC06F4B002A802B /* Models */,
-				AFA8005F2ABFA44000A7BEE2 /* ViewModel */,
-				AFA8005B2ABF9A9C00A7BEE2 /* Views */,
-				AFA800592ABF983100A7BEE2 /* MonthlyOverviewView.swift */,
-			);
-			path = MonthlyOverview;
-			sourceTree = "<group>";
-		};
-		AFA8005B2ABF9A9C00A7BEE2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AFA8005C2ABF9AF600A7BEE2 /* PieChartView.swift */,
-				AF207AE82AC06BBE00CF5009 /* MonthYearPickerView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		AFA8005F2ABFA44000A7BEE2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				AFA800602ABFA45200A7BEE2 /* MonthlyOverviewViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AFB9881B2AB8DB1D0068EC3B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				AFB9881C2AB8DB2A0068EC3B /* ExpensesViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AFC9582F2AB8BB38000D6C0B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				AFC958302AB8BB48000D6C0B /* CategoriesViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AFC958522AB8D33F000D6C0B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				AFC958532AB8D34A000D6C0B /* AddExpensesViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AFE4387D2F3EAF5E00F49919 /* SplashScreen */ = {
-			isa = PBXGroup;
-			children = (
-				AFE4387C2F3EAF5E00F49919 /* LaunchScreen.storyboard */,
-			);
-			path = SplashScreen;
-			sourceTree = "<group>";
-		};
 		AFF231CE2F3EA58800389661 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,138 +77,6 @@
 				AFFECE4D2AB79097003FE8B9 /* Troshko.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		AFFECE4F2AB79097003FE8B9 /* Troshko */ = {
-			isa = PBXGroup;
-			children = (
-				AFFECE542AB79098003FE8B9 /* Assets.xcassets */,
-				AFFECE632AB7910D003FE8B9 /* Common */,
-				AFA8001C2ABE138D00A7BEE2 /* Config */,
-				AF11CA1F2AB83DD300BB21C9 /* CoreData */,
-				AFFECE5E2AB790F0003FE8B9 /* Modules */,
-				AFFECE562AB79098003FE8B9 /* Preview Content */,
-				AFFECE642AB79110003FE8B9 /* Resources */,
-				AFFECE502AB79097003FE8B9 /* TroshkoApp.swift */,
-			);
-			path = Troshko;
-			sourceTree = "<group>";
-		};
-		AFFECE562AB79098003FE8B9 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				AFFECE572AB79098003FE8B9 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		AFFECE5E2AB790F0003FE8B9 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-				AFA800562ABF980500A7BEE2 /* MonthlyOverview */,
-				AFFECE662AB791EA003FE8B9 /* Main */,
-				AFFECE612AB790F8003FE8B9 /* Categories */,
-				AFFECE5F2AB790F2003FE8B9 /* Expenses */,
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
-		AFFECE5F2AB790F2003FE8B9 /* Expenses */ = {
-			isa = PBXGroup;
-			children = (
-				AFA2FA3C2AC07139002A802B /* Models */,
-				AFB9881B2AB8DB1D0068EC3B /* ViewModel */,
-				AFFECE842AB7A568003FE8B9 /* Add expenses */,
-				AFFECE802AB7A29A003FE8B9 /* Views */,
-				AFFECE6B2AB792BB003FE8B9 /* ExpensesView.swift */,
-			);
-			path = Expenses;
-			sourceTree = "<group>";
-		};
-		AFFECE612AB790F8003FE8B9 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				AF550F0C2AC2233D0048152D /* CategoryExpenses */,
-				E140C8EA2ABDA03A0076950C /* AddCategories */,
-				AFC9582F2AB8BB38000D6C0B /* ViewModel */,
-				AFFECE6D2AB792D1003FE8B9 /* CategoriesView.swift */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		AFFECE632AB7910D003FE8B9 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				AFE4387D2F3EAF5E00F49919 /* SplashScreen */,
-				AF11CA1C2AB7B67000BB21C9 /* Views */,
-				AFFECE7D2AB79AE2003FE8B9 /* Extensions */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		AFFECE642AB79110003FE8B9 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				AFFECE722AB79A84003FE8B9 /* Localization */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		AFFECE662AB791EA003FE8B9 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				AFFECE692AB7926D003FE8B9 /* MainView.swift */,
-				AFE438752F3EACFD00F49919 /* SplashScreenView.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		AFFECE722AB79A84003FE8B9 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				AFFECE772AB79A97003FE8B9 /* Localizable.strings */,
-				AFFECE7C2AB79AA4003FE8B9 /* Localizable.strings */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		AFFECE7D2AB79AE2003FE8B9 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				AFFECE7E2AB79AEC003FE8B9 /* String + Extensions.swift */,
-				AFB9881E2AB8E3220068EC3B /* Float + Extensions.swift */,
-				AFC239EE2ABCA24900384EE7 /* Date + Extensions.swift */,
-				AF550F052AC16EA90048152D /* Color + Extensions.swift */,
-				AF6DAA0C2AC36B5200944A4E /* Double+Extensions.swift */,
-				AF52BF0C2C127E4100B03835 /* Collection+Extensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		AFFECE802AB7A29A003FE8B9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AFFECE822AB7A2B4003FE8B9 /* ExpenseItemView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		AFFECE842AB7A568003FE8B9 /* Add expenses */ = {
-			isa = PBXGroup;
-			children = (
-				AFC958522AB8D33F000D6C0B /* ViewModel */,
-				AF11CA172AB7B0F800BB21C9 /* Models */,
-				AFFECE852AB7A575003FE8B9 /* AddExpensesView.swift */,
-			);
-			path = "Add expenses";
-			sourceTree = "<group>";
-		};
-		E140C8EA2ABDA03A0076950C /* AddCategories */ = {
-			isa = PBXGroup;
-			children = (
-				E140C8EB2ABDA0740076950C /* AddCategoriesView.swift */,
-			);
-			path = AddCategories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,25 +196,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		AFFECE772AB79A97003FE8B9 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AFFECE762AB79A97003FE8B9 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		AFFECE7C2AB79AA4003FE8B9 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AFFECE7B2AB79AA4003FE8B9 /* bs-BA */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AFFECE592AB79098003FE8B9 /* Debug */ = {
@@ -1009,6 +624,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AFE438712F3EACCC00F49919 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFE438702F3EACCC00F49919 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		AFF231CF2F3EA58800389661 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
 		C1A0DE0000000000000000B1 /* MVVM */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MVVM;
@@ -1029,30 +654,7 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Styleguide;
 		};
-		AFE438712F3EACCC00F49919 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AFE438702F3EACCC00F49919 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-		AFF231CF2F3EA58800389661 /* DGCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AFBDDDB02F3EA41E00191111 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = DGCharts;
-		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		AF11CA202AB83F8B00BB21C9 /* TroshkoData.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */,
-			);
-			currentVersion = AF11CA212AB83F8B00BB21C9 /* TroshkoData.xcdatamodel */;
-			path = TroshkoData.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = AFFECE452AB79097003FE8B9 /* Project object */;
 }

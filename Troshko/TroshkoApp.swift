@@ -36,8 +36,6 @@ struct TroshkoApp: App {
 /// container so the DI infrastructure is wired and ready.
 enum AppDependencies {
     static func registerAll() {
-        // No feature dependencies yet — feature containers plug in here.
-        // e.g. ExpensesDependencyContainer.register()
-        _ = DIContainer.shared
+        ExpensesDependencyContainer.register()
     }
 }
