@@ -6,15 +6,38 @@
 //
 
 import SwiftUI
+// Shared infrastructure (ported from the Aisthesis architecture — see CLAUDE.md).
+import DI
+import MVVM
+import Networking
+import Extension
+import Styleguide
 
 @main
 struct TroshkoApp: App {
-    // CoreData
+    // CoreData — legacy; to be replaced by SwiftData behind a Repository in Phase 1.
     private var coreDataManager: CoreDataManager = CoreDataManager()
+
+    init() {
+        AppDependencies.registerAll()
+    }
 
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
         }
+    }
+}
+
+/// Composition root for the app.
+///
+/// Each feature registers its own dependencies here via a `<Feature>DependencyContainer`
+/// (added during the per-feature migration, Phase 1+). Phase 0 only stands up the
+/// container so the DI infrastructure is wired and ready.
+enum AppDependencies {
+    static func registerAll() {
+        // No feature dependencies yet — feature containers plug in here.
+        // e.g. ExpensesDependencyContainer.register()
+        _ = DIContainer.shared
     }
 }
