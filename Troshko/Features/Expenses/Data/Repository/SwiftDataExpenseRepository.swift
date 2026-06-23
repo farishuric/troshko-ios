@@ -39,7 +39,8 @@ final class SwiftDataExpenseRepository: ExpenseRepository {
                 id: expense.id,
                 title: expense.title,
                 details: expense.details,
-                amount: expense.amount,
+                amountMinor: expense.amount.amountMinor,
+                currencyCode: expense.amount.currencyCode,
                 date: expense.date,
                 category: Self.categoryEntity(for: expense.category, in: context)
             )
@@ -55,7 +56,8 @@ final class SwiftDataExpenseRepository: ExpenseRepository {
             guard let entity = try Self.expenseEntity(id: expense.id, in: context) else { return }
             entity.title = expense.title
             entity.details = expense.details
-            entity.amount = expense.amount
+            entity.amountMinor = expense.amount.amountMinor
+            entity.currencyCode = expense.amount.currencyCode
             entity.date = expense.date
             entity.category = Self.categoryEntity(for: expense.category, in: context)
             try context.save()

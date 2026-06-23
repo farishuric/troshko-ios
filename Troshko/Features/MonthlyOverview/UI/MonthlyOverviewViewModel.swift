@@ -24,7 +24,8 @@ final class MonthlyOverviewViewModel: ViewModel {
         Task { @MainActor in
             do {
                 let items = try await getOverview.execute(for: date)
-                let total = items.reduce(0) { $0 + $1.total }
+                let currencyCode = items.first?.total.currencyCode ?? Money.deviceCurrencyCode
+                let total = items.reduce(.zero(currencyCode: currencyCode)) { $0 + $1.total }
                 state = items.isEmpty ? .empty : .loaded(items: items, total: total)
             } catch {
                 state = .error("MONTHLY_OVERVIEW.LOAD_ERROR".localized)

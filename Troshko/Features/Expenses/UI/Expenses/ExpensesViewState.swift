@@ -14,7 +14,8 @@ struct ExpenseGroup: Identifiable, Equatable {
     let title: String
     let expenses: [Expense]
 
-    var total: Double {
-        expenses.reduce(0) { $0 + $1.amount }
+    var total: Money {
+        let currencyCode = expenses.first?.amount.currencyCode ?? Money.deviceCurrencyCode
+        return expenses.reduce(.zero(currencyCode: currencyCode)) { $0 + $1.amount }
     }
 }
