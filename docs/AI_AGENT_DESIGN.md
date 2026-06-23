@@ -2,7 +2,7 @@
 
 > **What this doc is.** The design record for Troshko's AI layer — the "pocket advisor" agent, its tool contracts, guardrails, and the receipt-scanning pipeline. Read `PRODUCT_SPEC.md` first for *why* (product intent, monetization, unit economics) and `CLAUDE.md` for *how the app is built* (Clean Architecture). This doc is the *how the AI works*.
 >
-> **Status: forward-looking. Nothing here is built yet.** It's the thesis to design toward, captured before it drifts into code-only knowledge. Update this when a decision changes.
+> **Status: mostly forward-looking.** Phase 8 has started the free on-device line with category suggestion and a Home monthly insight; the full advisor, tool loop, receipt pipeline, rules, and premium cloud pieces are still thesis/design only. Update this when a decision changes.
 >
 > _Last updated: 2026-06-23._
 
@@ -219,7 +219,8 @@ A scanned receipt is just a **proposed expense**. Same pattern: extract a candid
 
 | Capability | Tier | How |
 |---|---|---|
-| NL entry · auto-categorise · basic monthly summary | Free | On-device Foundation Models, single-step |
+| Auto-categorise · basic monthly summary | Free | On-device Foundation Models, single-step |
+| NL entry | Free | On-device Foundation Models, single-step; deferred after the first category-suggestion slice |
 | Conversational advisor ("can I afford X") | Premium | Phone-orchestrated Claude loop, derived results only |
 | Receipt scanning | Premium | On-device capture+OCR → cloud Haiku structuring (text only) → confirm card |
 | Cross-device sync / Postgres + pgvector | Later | Not required for MVP |

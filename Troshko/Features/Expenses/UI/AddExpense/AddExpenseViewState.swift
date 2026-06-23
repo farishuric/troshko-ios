@@ -11,5 +11,14 @@ enum AddExpenseViewState: ViewState {
         var canSave: Bool
         var amountError: String?
         var isEditMode: Bool
+        var categorySuggestion: CategorySuggestionState
+    }
+
+    enum CategorySuggestionState: Equatable {
+        case idle
+        case loading
+        case suggested(ExpenseCategorySuggestion)
+        case noSuggestion
+        case unavailable
     }
 }

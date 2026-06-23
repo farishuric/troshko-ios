@@ -3,7 +3,8 @@
 ## Intent
 
 Home is the first-tab emotional hub for Phase 7. It introduces income tracking,
-a single savings goal, exact this-month saved math, and curated static tips.
+a single savings goal, exact this-month saved math, curated static tips, and the
+Phase 8 on-device monthly insight card.
 
 ## Entry Points
 
@@ -31,6 +32,7 @@ a single savings goal, exact this-month saved math, and curated static tips.
 - `UI/Home/*`
 - `UI/AddIncome/*`
 - `UI/SavingsGoal/*`
+- `../OnDeviceAI/Domain/UseCase/GenerateMonthlyInsightUseCase.swift`
 
 ## Behaviour
 
@@ -39,6 +41,9 @@ a single savings goal, exact this-month saved math, and curated static tips.
 - Savings goal progress compares this-month saved against the goal's monthly target.
 - The app stores one active savings goal for Phase 7.
 - Static tips are curated local copy, animated through Styleguide `Banner`.
+- The monthly AI insight first tries on-device Foundation Models from pre-computed
+  Home summary numbers, then falls back to a deterministic localized insight when
+  Apple Intelligence is unavailable.
 
 ## Design
 

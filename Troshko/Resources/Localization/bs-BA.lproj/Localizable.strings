@@ -49,6 +49,16 @@
 
 "ADD_EXPENSE.CATEGORY" = "Kategorija";
 "ADD_EXPENSE.CATEGORY_PLACEHOLDER" = "Izaberite opciju";
+"ADD_EXPENSE.AI.SUGGEST_CATEGORY" = "Predloži kategoriju";
+"ADD_EXPENSE.AI.THINKING" = "Provjera lokalno";
+"ADD_EXPENSE.AI.THINKING_MESSAGE" = "Troshko koristi AI na uređaju da uporedi ovaj trošak s vašim kategorijama.";
+"ADD_EXPENSE.AI.SUGGESTED_CATEGORY" = "Predložena kategorija";
+"ADD_EXPENSE.AI.NO_SUGGESTION" = "Nema jasnog poklapanja";
+"ADD_EXPENSE.AI.NO_SUGGESTION_MESSAGE" = "Izaberite kategoriju ručno ili kasnije dodajte prikladniju.";
+
+// MARK: - On-device AI
+"ON_DEVICE_AI.UNAVAILABLE_TITLE" = "AI nije dostupan";
+"ON_DEVICE_AI.UNAVAILABLE_MESSAGE" = "Ručni unos i dalje radi. Apple Intelligence možda nije dostupan na ovom uređaju ili u trenutnim postavkama.";
 
 // MARK: - Edit expense
 "EDIT_CONFIRMATION_TITLE" = "Spasiti Izmjene?";
@@ -56,6 +66,12 @@
 
 // MARK: - Categories
 "CATEGORIES.NO_DATA" = "Nema pronađenih kategorija";
+"CATEGORIES.EMPTY.TITLE" = "Oblikuj potrošnju";
+"CATEGORIES.EMPTY.MESSAGE" = "Kreiraj nekoliko kategorija kako bi troškovi, uvidi i mjesečni pregledi bili ličniji.";
+"CATEGORIES.SUMMARY.TITLE" = "Biblioteka kategorija";
+"CATEGORIES.SUMMARY.COUNT" = "%d ukupno";
+"CATEGORIES.SUMMARY.MESSAGE" = "Drži ovaj popis urednim. Svaka kategorija daje jasniji pogled na potrošnju.";
+"CATEGORIES.ROW.SUBTITLE" = "Prikaži troškove";
 "CATEGORIES.ENTER.TITLE" = "Nova Kategorija";
 "CATEGORIES.ENTER.MESSAGE" = "Unesite naziv nove kategorije";
 "CATEGORIES.PLACEHOLDER" = "Kupovina";
@@ -127,6 +143,16 @@
 "HOME.GOAL.MONTHLY_TARGET" = "Mjesečni cilj";
 "HOME.GOAL.AMOUNT_ERROR" = "Unesite ispravan iznos veći od nule";
 "HOME.GOAL.SAVE_ERROR" = "Nije moguće spasiti cilj štednje";
+"HOME.AI_INSIGHT.LOADING_TITLE" = "Priprema lokalnog uvida";
+"HOME.AI_INSIGHT.LOADING_MESSAGE" = "Troshko sažima ovaj mjesec na uređaju.";
+"HOME.AI_INSIGHT.UNAVAILABLE_TITLE" = "Uvid nije dostupan";
+"HOME.AI_INSIGHT.UNAVAILABLE_MESSAGE" = "Tačni iznosi prihoda, potrošnje i štednje i dalje su prikazani iznad.";
+"HOME.AI_INSIGHT.FALLBACK_POSITIVE_TITLE" = "Ovaj mjesec ti je ostalo novca";
+"HOME.AI_INSIGHT.FALLBACK_POSITIVE_MESSAGE" = "%@ je još kod tebe. Razmisli da dio prebaciš prema cilju dok je mjesec miran.";
+"HOME.AI_INSIGHT.FALLBACK_NEGATIVE_TITLE" = "Potrošnja je ispred";
+"HOME.AI_INSIGHT.FALLBACK_NEGATIVE_MESSAGE" = "Ovaj mjesec je evidentirano %@ potrošnje. Kratka pauza prije sljedeće kupovine može pomoći da se mjesec oporavi.";
+"HOME.AI_INSIGHT.FALLBACK_BALANCED_TITLE" = "Tačno si na liniji";
+"HOME.AI_INSIGHT.FALLBACK_BALANCED_MESSAGE" = "Prihod i potrošnja su zasad izjednačeni. Sljedećih nekoliko unosa odlučuje gdje će mjesec završiti.";
 "HOME.TIP.POSITIVE.TITLE" = "Iznad si vode";
 "HOME.TIP.POSITIVE.MESSAGE" = "Kada je ušteđeno ovaj mjesec pozitivno, prebaci mali dio prema cilju prije nego mjesec postane bučan.";
 "HOME.TIP.NEGATIVE.TITLE" = "Ovom mjesecu treba pauza";

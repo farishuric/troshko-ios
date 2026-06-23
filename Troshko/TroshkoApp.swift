@@ -38,6 +38,7 @@ struct TroshkoApp: App {
 enum AppDependencies {
     static func registerAll() {
         SettingsDependencyContainer.register()
+        OnDeviceAIDependencyContainer.register()
         ExpensesDependencyContainer.register()
         // Depends on Expenses' GetExpensesUseCase for saved-this-month math.
         HomeDependencyContainer.register()

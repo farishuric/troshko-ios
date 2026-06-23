@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import Styleguide
+import UIKit
 
 struct MainView: View {
     @State private var isPresentingSettings = false
+
+    init() {
+        Self.configureTabBarAppearance()
+    }
 
     var body: some View {
         TabView {
@@ -26,6 +32,7 @@ struct MainView: View {
                     Label("MONTHLY_OVERVIEW.TITLE".localized, systemImage: "chart.pie")
                 }
         }
+        .tint(SemanticColor.Colors.primary.swiftUIColor)
         .environment(\.openSettings) {
             isPresentingSettings = true
         }
@@ -34,6 +41,33 @@ struct MainView: View {
                 .presentationDetents([.medium, .large])
                 .presentationBackground(.ultraThinMaterial)
         }
+    }
+
+    private static func configureTabBarAppearance() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+        appearance.backgroundColor = SemanticColor.Colors.surfaceCard.color.withAlphaComponent(0.82)
+        appearance.shadowColor = SemanticColor.Colors.borderPrimary.color.withAlphaComponent(0.4)
+
+        let selectedColor = SemanticColor.Colors.primary.color
+        let normalColor = SemanticColor.Colors.textSecondary.color
+
+        [
+            appearance.stackedLayoutAppearance,
+            appearance.inlineLayoutAppearance,
+            appearance.compactInlineLayoutAppearance
+        ].forEach { itemAppearance in
+            itemAppearance.selected.iconColor = selectedColor
+            itemAppearance.selected.titleTextAttributes = [.foregroundColor: selectedColor]
+            itemAppearance.normal.iconColor = normalColor
+            itemAppearance.normal.titleTextAttributes = [.foregroundColor: normalColor]
+        }
+
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+        UITabBar.appearance().tintColor = selectedColor
+        UITabBar.appearance().unselectedItemTintColor = normalColor
     }
 }
 

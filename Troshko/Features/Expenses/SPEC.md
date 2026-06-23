@@ -4,7 +4,8 @@
 
 Expenses is the daily spending log. It owns listing, grouping, adding, editing,
 deleting, and displaying expense amounts. It is also the reference screen for the
-Phase 5 calm/floating design language.
+Phase 5 calm/floating design language. Phase 8 adds an optional on-device AI
+category suggestion inside Add/Edit Expense.
 
 ## Entry Points
 
@@ -38,6 +39,7 @@ Phase 5 calm/floating design language.
 - `UI/AddExpense/AddExpenseViewState.swift`
 - `UI/AddExpense/AddExpenseViewEvent.swift`
 - `UI/AddExpense/AddExpenseViewModelEvent.swift`
+- `../OnDeviceAI/Domain/UseCase/SuggestExpenseCategoryUseCase.swift`
 
 ## Behaviour
 
@@ -46,6 +48,8 @@ Phase 5 calm/floating design language.
   explicit currency code.
 - Add/edit validates title and amount before enabling save.
 - Add/edit supports optional category selection.
+- Add/edit can suggest a category via on-device AI. Suggestions are
+  propose-then-confirm and can only apply an existing category.
 - Swipe actions support edit and delete from the list.
 - Empty state presents a clear add-expense call to action.
 

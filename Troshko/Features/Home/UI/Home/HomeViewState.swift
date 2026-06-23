@@ -9,4 +9,11 @@ enum HomeViewState: ViewState, Equatable {
 
 struct HomeLoadedState: Equatable {
     var summary: HomeSummary
+    var monthlyInsight: MonthlyInsightState
+}
+
+enum MonthlyInsightState: Equatable {
+    case loading
+    case ready(MonthlyInsight)
+    case unavailable
 }

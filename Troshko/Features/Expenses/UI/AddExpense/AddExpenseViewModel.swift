@@ -14,6 +14,7 @@ final class AddExpenseViewModel: ViewModel {
     @Injected private var getCategories: GetExpenseCategoriesUseCase
     @Injected private var addExpense: AddExpenseUseCase
     @Injected private var updateExpense: UpdateExpenseUseCase
+    @Injected private var suggestCategory: SuggestExpenseCategoryUseCase
 
     private let editing: Expense?
     private let currencyCode: String
@@ -24,6 +25,7 @@ final class AddExpenseViewModel: ViewModel {
     private var date: Date
     private var selectedCategory: ExpenseCategory?
     private var categories: [ExpenseCategory] = []
+    private var categorySuggestion: AddExpenseViewState.CategorySuggestionState = .idle
 
     init(editing: Expense?) {
         self.editing = editing
@@ -33,7 +35,13 @@ final class AddExpenseViewModel: ViewModel {
         self.amountText = editing?.amount.inputText() ?? ""
         self.date = editing?.date ?? Date()
         self.selectedCategory = editing?.category
-        self.state = .form(.init(categories: [], canSave: false, amountError: nil, isEditMode: editing != nil))
+        self.state = .form(.init(
+            categories: [],
+            canSave: false,
+            amountError: nil,
+            isEditMode: editing != nil,
+            categorySuggestion: .idle
+        ))
         refreshForm()
     }
 
@@ -54,6 +62,10 @@ final class AddExpenseViewModel: ViewModel {
             date = value
         case .categorySelected(let category):
             selectedCategory = category
+            categorySuggestion = .idle
+            refreshForm()
+        case .suggestCategoryTapped:
+            suggestExpenseCategory()
         case .saveTapped:
             save()
         }
@@ -77,8 +89,32 @@ final class AddExpenseViewModel: ViewModel {
             categories: categories,
             canSave: canSave,
             amountError: amountError,
-            isEditMode: editing != nil
+            isEditMode: editing != nil,
+            categorySuggestion: categorySuggestion
         ))
+    }
+
+    private func suggestExpenseCategory() {
+        let amount = Money.parse(amountText, currencyCode: currencyCode)
+        categorySuggestion = .loading
+        refreshForm()
+
+        Task { @MainActor in
+            do {
+                let suggestion = try await suggestCategory.execute(
+                    title: title,
+                    details: details,
+                    amount: amount,
+                    date: date,
+                    categories: categories
+                )
+                categorySuggestion = suggestion.map(AddExpenseViewState.CategorySuggestionState.suggested)
+                    ?? .noSuggestion
+            } catch {
+                categorySuggestion = .unavailable
+            }
+            refreshForm()
+        }
     }
 
     private func save() {

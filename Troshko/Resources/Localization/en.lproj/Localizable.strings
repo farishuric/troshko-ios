@@ -50,6 +50,16 @@
 
 "ADD_EXPENSE.CATEGORY" = "Category";
 "ADD_EXPENSE.CATEGORY_PLACEHOLDER" = "Select an option";
+"ADD_EXPENSE.AI.SUGGEST_CATEGORY" = "Suggest category";
+"ADD_EXPENSE.AI.THINKING" = "Checking locally";
+"ADD_EXPENSE.AI.THINKING_MESSAGE" = "Troshko is using on-device AI to compare this expense with your categories.";
+"ADD_EXPENSE.AI.SUGGESTED_CATEGORY" = "Suggested category";
+"ADD_EXPENSE.AI.NO_SUGGESTION" = "No clear match";
+"ADD_EXPENSE.AI.NO_SUGGESTION_MESSAGE" = "Pick a category manually or add a better-fitting one later.";
+
+// MARK: - On-device AI
+"ON_DEVICE_AI.UNAVAILABLE_TITLE" = "AI unavailable";
+"ON_DEVICE_AI.UNAVAILABLE_MESSAGE" = "Manual entry still works. Apple Intelligence may be unavailable on this device or in the current settings.";
 
 // MARK: - Edit expense
 "EDIT_CONFIRMATION_TITLE" = "Save Changes?";
@@ -58,6 +68,12 @@
 
 // MARK: - Categories
 "CATEGORIES.NO_DATA" = "No categories found";
+"CATEGORIES.EMPTY.TITLE" = "Shape your spending";
+"CATEGORIES.EMPTY.MESSAGE" = "Create a few categories so expenses, insights, and monthly views feel personal.";
+"CATEGORIES.SUMMARY.TITLE" = "Category library";
+"CATEGORIES.SUMMARY.COUNT" = "%d total";
+"CATEGORIES.SUMMARY.MESSAGE" = "Keep this list tidy. Each category becomes a cleaner lens on your spending.";
+"CATEGORIES.ROW.SUBTITLE" = "View expenses";
 "CATEGORIES.ENTER.TITLE" = "New Category";
 "CATEGORIES.ENTER.MESSAGE" = "Enter a name for your new category";
 "CATEGORIES.PLACEHOLDER" = "Shopping";
@@ -129,6 +145,16 @@
 "HOME.GOAL.MONTHLY_TARGET" = "Monthly target";
 "HOME.GOAL.AMOUNT_ERROR" = "Enter a valid amount greater than zero";
 "HOME.GOAL.SAVE_ERROR" = "Couldn't save savings goal";
+"HOME.AI_INSIGHT.LOADING_TITLE" = "Preparing a local insight";
+"HOME.AI_INSIGHT.LOADING_MESSAGE" = "Troshko is summarizing this month on device.";
+"HOME.AI_INSIGHT.UNAVAILABLE_TITLE" = "Insight unavailable";
+"HOME.AI_INSIGHT.UNAVAILABLE_MESSAGE" = "Your exact income, spending, and savings numbers are still shown above.";
+"HOME.AI_INSIGHT.FALLBACK_POSITIVE_TITLE" = "You kept money this month";
+"HOME.AI_INSIGHT.FALLBACK_POSITIVE_MESSAGE" = "%@ is still with you. Consider moving part of it toward your goal while the month is calm.";
+"HOME.AI_INSIGHT.FALLBACK_NEGATIVE_TITLE" = "Spending is ahead";
+"HOME.AI_INSIGHT.FALLBACK_NEGATIVE_MESSAGE" = "You have logged %@ in spending this month. A quick pause before the next purchase can help the month recover.";
+"HOME.AI_INSIGHT.FALLBACK_BALANCED_TITLE" = "You are right on the line";
+"HOME.AI_INSIGHT.FALLBACK_BALANCED_MESSAGE" = "Income and spending are balanced so far. The next few entries will decide where this month lands.";
 "HOME.TIP.POSITIVE.TITLE" = "You are above water";
 "HOME.TIP.POSITIVE.MESSAGE" = "When saved-this-month is positive, move a small part toward your goal before the month gets noisy.";
 "HOME.TIP.NEGATIVE.TITLE" = "This month needs a pause";
