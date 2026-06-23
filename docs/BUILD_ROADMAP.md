@@ -4,7 +4,7 @@
 >
 > **Roles:** a separate agent writes the code; this doc + the product-direction owner keep the project honest — each phase is a polished vertical slice, validated against the spec before the next begins. **No half-features.**
 >
-> _Last updated: 2026-06-23._
+> _Last updated: 2026-06-24._
 
 Status legend: ✅ done · 🟡 in progress · ⬜ planned · ⛔ blocked.
 
@@ -26,25 +26,26 @@ Architecture migration (Phases 0–4: Clean Architecture, SwiftData, spec + AI d
 
 ## Phases
 
-### Phase 5 — Foundations: money + motion 🟡 (CURRENT)
+### Phase 5 — Foundations: money + motion ✅
 **Spec:** `docs/PHASE_5_SPEC.md` (the work order — money minor-units migration + design language, propose-first).
 **Goal:** put the two cross-cutting foundations in before anything is built on top of them.
 - ✅ **Track A — money `Double` → integer minor units** (+ currency code) across Domain/Data/UI. Canonical `Money` type (`Troshko/Common/Money/Money.swift`); one formatter/parser; integer aggregation throughout; floats only at parse/format/chart-size boundaries. Existing SwiftData store wiped (no real data) rather than migrated.
-- 🟡 **Track B — animated/floating design language** in Styleguide. Direction chosen: **Calm & fluid** (slow gentle springs, fade + 8pt rise, frosted floating cards on an ambient glow — extends the existing soft base). Built: `Motion` primitives (durations + named animations + Reduce-Motion `resolved`), `softAppear` entrance (with staggered cascade) + `AnyTransition.calm`, `FloatingCard`, `Banner`. Demo screen: Expenses list refactored (ambient background, per-row calm cascade, floating empty/error states). Pending the user's visual sign-off on build.
+- ✅ **Track B — animated/floating design language** in Styleguide. Direction chosen: **Calm & fluid** (slow gentle springs, fade + 8pt rise, frosted floating cards on an ambient glow — extends the existing soft base). Built: `Motion` primitives (durations + named animations + Reduce-Motion `resolved`), `softAppear` entrance (with staggered cascade) + `AnyTransition.calm`, `FloatingCard`, `Banner`. Demo screen: Expenses list refactored (ambient background, summary card, per-row calm cascade, floating empty/error states). User approved the visual direction.
 - **Done when:** all amounts are exact integers end-to-end; a documented motion/floating component set exists that later screens reuse.
 - **Why first:** both are invisible but cross-cutting — retrofitting either later is far more expensive. Exact money underpins every financial number.
 
-### Phase 6 — Profile menu + appearance ⬜
+### Phase 6 — Profile menu + appearance ✅
 **Goal:** the in-app menu shell, local-only.
-- Top-corner **profile entry** → settings · **appearance** (light/dark/theme) · language · version/about.
+- ✅ Top-corner **profile entry** → settings · **appearance** (light/dark/system) · language · version/about.
 - **No auth yet.**
 - **Done when:** a polished settings/menu surface ships; the nav slot for future account features exists.
 - **Why here:** low-risk quick win; reserves the slot Phase 9 fills (logout, delete account, subscription).
 
-### Phase 7 — Home v1 ⬜
+### Phase 7 — Home v1 🟡 (CURRENT)
 **Goal:** the emotional hub, built on the new income model.
-- New data: **income** entries · **SavingsGoal** model · month-balance calculations (pure Swift, exact).
-- **Home screen:** time-of-day greeting · this-month **saved** (income − spend) · **savings-goal progress chart** · animated banners (**curated static tips**).
+- ✅ New data: **income** entries · **SavingsGoal** model · month-balance calculations (pure Swift, exact).
+- ✅ **Home screen:** time-of-day greeting · this-month **saved** (income − spend) · **savings-goal progress chart** · animated banners (**curated static tips**).
+- 🟡 Pending user build validation.
 - **Done when:** Home is the default tab, shows real saved/goal data, and feels designed (uses Phase 5 motion language).
 - **Depends on:** Phase 5 (money) + the income model introduced here.
 
@@ -73,6 +74,7 @@ Architecture migration (Phases 0–4: Clean Architecture, SwiftData, spec + AI d
 ### Phase 11 — Content + hygiene ⬜ (ongoing / optional)
 **Goal:** polish and deferred extras.
 - Economics **news/tips** feed (network + content source) · **budgets** · search/filter · **export**.
+- Typography pass: Plus Jakarta Sans is bundled/registered, but the app still needs a full sweep to replace remaining raw/system font usage and tune type hierarchy through every screen.
 - **Why last:** news carries network + content-ops + posture cost; hygiene items fold in as polish without blocking the core arc.
 
 ---

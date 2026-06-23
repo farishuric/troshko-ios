@@ -16,6 +16,7 @@
 "WORDING_APPLY" = "Primijeni";
 "WORDING_CONFIRM" = "Potvrdi";
 "WORDING_RETRY" = "Pokušaj ponovo";
+"WORDING_DONE" = "Gotovo";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Danas";
@@ -78,3 +79,59 @@
 "MONTHLY_OVERVIEW.UNCATEGORIZED" = "Bez kategorije";
 "PICKER.SELECT_MONTH" = "Odaberite Mjesec";
 "PICKER.SELECT_YEAR" = "Odaberite Godinu";
+
+// MARK: - Settings
+"SETTINGS.TITLE" = "Postavke";
+"SETTINGS.PROFILE.ACCESSIBILITY" = "Otvori postavke";
+"SETTINGS.PROFILE.TITLE" = "Troshko";
+"SETTINGS.PROFILE.SUBTITLE" = "Lokalno, privatno, na ovom uređaju.";
+"SETTINGS.APPEARANCE.TITLE" = "Izgled";
+"SETTINGS.APPEARANCE.SYSTEM" = "Sistem";
+"SETTINGS.APPEARANCE.LIGHT" = "Svijetlo";
+"SETTINGS.APPEARANCE.DARK" = "Tamno";
+"SETTINGS.LANGUAGE.TITLE" = "Jezik";
+"SETTINGS.VERSION.TITLE" = "Verzija";
+
+// MARK: - Home
+"HOME.TITLE" = "Početna";
+"HOME.LOAD_ERROR" = "Nije moguće učitati početnu";
+"HOME.GREETING.MORNING" = "Dobro jutro";
+"HOME.GREETING.AFTERNOON" = "Dobar dan";
+"HOME.GREETING.EVENING" = "Dobro večer";
+"HOME.GREETING.SUBTITLE" = "Mirni pregled onoga što ti je ostalo ovog mjeseca.";
+"HOME.SAVED_THIS_MONTH" = "Ušteđeno ovaj mjesec";
+"HOME.INCOME_THIS_MONTH" = "Prihod";
+"HOME.SPENT_THIS_MONTH" = "Potrošeno";
+"HOME.ADD_INCOME" = "Dodaj prihod";
+"HOME.INCOME.ADD_TITLE" = "Dodaj prihod";
+"HOME.INCOME.SOURCE" = "Izvor";
+"HOME.INCOME.SOURCE_PLACEHOLDER" = "Plata";
+"HOME.INCOME.AMOUNT" = "Iznos";
+"HOME.INCOME.AMOUNT_PLACEHOLDER" = "0.00";
+"HOME.INCOME.AMOUNT_ERROR" = "Unesite ispravan iznos veći od nule";
+"HOME.INCOME.DATE" = "Datum";
+"HOME.INCOME.SAVE" = "Spasi prihod";
+"HOME.INCOME.SAVE_ERROR" = "Nije moguće spasiti prihod";
+"HOME.GOAL.TITLE" = "Cilj štednje";
+"HOME.GOAL.EMPTY" = "Postavi mjesečni cilj i Troshko će pratiti napredak iz stvarnog prihoda i potrošnje.";
+"HOME.GOAL.SUBTITLE" = "%@ · cilj %@";
+"HOME.GOAL.PROGRESS" = "%@ od %@ ovaj mjesec";
+"HOME.GOAL.SET" = "Postavi cilj";
+"HOME.GOAL.UPDATE" = "Ažuriraj cilj";
+"HOME.GOAL.EDIT" = "Uredi cilj štednje";
+"HOME.GOAL.SET_TITLE" = "Postavi cilj štednje";
+"HOME.GOAL.EDIT_TITLE" = "Uredi cilj štednje";
+"HOME.GOAL.NAME" = "Naziv cilja";
+"HOME.GOAL.NAME_PLACEHOLDER" = "Fond za hitne slučajeve";
+"HOME.GOAL.TARGET_AMOUNT" = "Ukupni cilj";
+"HOME.GOAL.MONTHLY_TARGET" = "Mjesečni cilj";
+"HOME.GOAL.AMOUNT_ERROR" = "Unesite ispravan iznos veći od nule";
+"HOME.GOAL.SAVE_ERROR" = "Nije moguće spasiti cilj štednje";
+"HOME.TIP.POSITIVE.TITLE" = "Iznad si vode";
+"HOME.TIP.POSITIVE.MESSAGE" = "Kada je ušteđeno ovaj mjesec pozitivno, prebaci mali dio prema cilju prije nego mjesec postane bučan.";
+"HOME.TIP.NEGATIVE.TITLE" = "Ovom mjesecu treba pauza";
+"HOME.TIP.NEGATIVE.MESSAGE" = "Prihod je trenutno iza potrošnje. Kratak pregled prije sljedeće kupovine može spriječiti da razlika raste.";
+"HOME.TIP.GOAL.TITLE" = "Daj štednji oblik";
+"HOME.TIP.GOAL.MESSAGE" = "Imenovani cilj pretvara preostali novac u vidljivu metu.";
+"HOME.TIP.GOAL_CHECK.TITLE" = "Provjeri liniju cilja";
+"HOME.TIP.GOAL_CHECK.MESSAGE" = "Ako je traka napretka kratka, jedan manji izbor u potrošnji još može pomoći da se mjesec oporavi.";

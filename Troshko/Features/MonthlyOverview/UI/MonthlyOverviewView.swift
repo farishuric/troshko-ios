@@ -23,6 +23,9 @@ struct MonthlyOverviewView<VM: ViewModel>: View
             }
             .navigationTitle("MONTHLY_OVERVIEW.NAV_TITLE".localized)
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    ProfileMenuButton()
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         presentingPicker = true

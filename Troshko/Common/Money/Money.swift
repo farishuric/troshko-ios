@@ -23,9 +23,18 @@ struct Money: Equatable, Hashable, Sendable {
         lhs.adding(rhs)
     }
 
+    static func -(lhs: Money, rhs: Money) -> Money {
+        lhs.subtracting(rhs)
+    }
+
     func adding(_ other: Money) -> Money {
         precondition(currencyCode == other.currencyCode, "Cannot add amounts with different currencies")
         return Money(amountMinor: amountMinor + other.amountMinor, currencyCode: currencyCode)
+    }
+
+    func subtracting(_ other: Money) -> Money {
+        precondition(currencyCode == other.currencyCode, "Cannot subtract amounts with different currencies")
+        return Money(amountMinor: amountMinor - other.amountMinor, currencyCode: currencyCode)
     }
 
     func formatted(locale: Locale = .current) -> String {

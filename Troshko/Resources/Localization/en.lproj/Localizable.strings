@@ -16,6 +16,7 @@
 "WORDING_APPLY" = "Apply";
 "WORDING_CONFIRM" = "Confirm";
 "WORDING_RETRY" = "Retry";
+"WORDING_DONE" = "Done";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Today";
@@ -80,3 +81,59 @@
 "MONTHLY_OVERVIEW.UNCATEGORIZED" = "Uncategorized";
 "PICKER.SELECT_MONTH" = "Select a Month";
 "PICKER.SELECT_YEAR" = "Select a Year";
+
+// MARK: - Settings
+"SETTINGS.TITLE" = "Settings";
+"SETTINGS.PROFILE.ACCESSIBILITY" = "Open settings";
+"SETTINGS.PROFILE.TITLE" = "Troshko";
+"SETTINGS.PROFILE.SUBTITLE" = "Local, private, on this device.";
+"SETTINGS.APPEARANCE.TITLE" = "Appearance";
+"SETTINGS.APPEARANCE.SYSTEM" = "System";
+"SETTINGS.APPEARANCE.LIGHT" = "Light";
+"SETTINGS.APPEARANCE.DARK" = "Dark";
+"SETTINGS.LANGUAGE.TITLE" = "Language";
+"SETTINGS.VERSION.TITLE" = "Version";
+
+// MARK: - Home
+"HOME.TITLE" = "Home";
+"HOME.LOAD_ERROR" = "Couldn't load Home";
+"HOME.GREETING.MORNING" = "Good morning";
+"HOME.GREETING.AFTERNOON" = "Good afternoon";
+"HOME.GREETING.EVENING" = "Good evening";
+"HOME.GREETING.SUBTITLE" = "A calm look at what stayed with you this month.";
+"HOME.SAVED_THIS_MONTH" = "Saved this month";
+"HOME.INCOME_THIS_MONTH" = "Income";
+"HOME.SPENT_THIS_MONTH" = "Spent";
+"HOME.ADD_INCOME" = "Add income";
+"HOME.INCOME.ADD_TITLE" = "Add Income";
+"HOME.INCOME.SOURCE" = "Source";
+"HOME.INCOME.SOURCE_PLACEHOLDER" = "Salary";
+"HOME.INCOME.AMOUNT" = "Amount";
+"HOME.INCOME.AMOUNT_PLACEHOLDER" = "0.00";
+"HOME.INCOME.AMOUNT_ERROR" = "Enter a valid amount greater than zero";
+"HOME.INCOME.DATE" = "Date";
+"HOME.INCOME.SAVE" = "Save income";
+"HOME.INCOME.SAVE_ERROR" = "Couldn't save income";
+"HOME.GOAL.TITLE" = "Savings goal";
+"HOME.GOAL.EMPTY" = "Set a monthly target and Troshko will track your progress from real income and spending.";
+"HOME.GOAL.SUBTITLE" = "%@ · %@ goal";
+"HOME.GOAL.PROGRESS" = "%@ of %@ this month";
+"HOME.GOAL.SET" = "Set goal";
+"HOME.GOAL.UPDATE" = "Update goal";
+"HOME.GOAL.EDIT" = "Edit savings goal";
+"HOME.GOAL.SET_TITLE" = "Set Savings Goal";
+"HOME.GOAL.EDIT_TITLE" = "Edit Savings Goal";
+"HOME.GOAL.NAME" = "Goal name";
+"HOME.GOAL.NAME_PLACEHOLDER" = "Emergency fund";
+"HOME.GOAL.TARGET_AMOUNT" = "Total target";
+"HOME.GOAL.MONTHLY_TARGET" = "Monthly target";
+"HOME.GOAL.AMOUNT_ERROR" = "Enter a valid amount greater than zero";
+"HOME.GOAL.SAVE_ERROR" = "Couldn't save savings goal";
+"HOME.TIP.POSITIVE.TITLE" = "You are above water";
+"HOME.TIP.POSITIVE.MESSAGE" = "When saved-this-month is positive, move a small part toward your goal before the month gets noisy.";
+"HOME.TIP.NEGATIVE.TITLE" = "This month needs a pause";
+"HOME.TIP.NEGATIVE.MESSAGE" = "Income is behind spending right now. A short review before the next purchase can keep the gap from growing.";
+"HOME.TIP.GOAL.TITLE" = "Give savings a shape";
+"HOME.TIP.GOAL.MESSAGE" = "A named goal turns leftover money into a visible target.";
+"HOME.TIP.GOAL_CHECK.TITLE" = "Check the goal line";
+"HOME.TIP.GOAL_CHECK.MESSAGE" = "If the progress bar is short, one smaller discretionary choice can still help this month recover.";

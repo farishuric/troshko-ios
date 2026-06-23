@@ -17,6 +17,9 @@ struct AddExpenseView<VM: ViewModel>: View
     @State private var amount: String
     @State private var date: Date
     @State private var selectedCategoryID: UUID?
+    @FocusState private var isTitleFocused: Bool
+    @FocusState private var isDetailsFocused: Bool
+    @FocusState private var isAmountFocused: Bool
     private let currencyCode: String
 
     init(vm: VM, editing: Expense?, onSaved: @escaping () -> Void) {
@@ -32,7 +35,7 @@ struct AddExpenseView<VM: ViewModel>: View
 
     var body: some View {
         NavigationStack {
-            BaseScreen(isLoading: isSaving, dismissesKeyboardOnTap: true) {
+            BaseScreen(isLoading: isSaving) {
                 if case .form(let form) = vm.state {
                     formView(form)
                 } else if case .error(let message) = vm.state {
@@ -46,6 +49,12 @@ struct AddExpenseView<VM: ViewModel>: View
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("WORDING_CANCEL".localized) { dismiss() }
+                }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("WORDING_DONE".localized) {
+                        clearFieldFocus()
+                    }
                 }
             }
             .safeAreaInset(edge: .bottom) {
@@ -82,6 +91,12 @@ struct AddExpenseView<VM: ViewModel>: View
         return "ADD_EXPENSE".localized
     }
 
+    private func clearFieldFocus() {
+        isTitleFocused = false
+        isDetailsFocused = false
+        isAmountFocused = false
+    }
+
     private func formView(_ form: AddExpenseViewState.FormState) -> some View {
         ScrollView {
             VStack(alignment: .leading, spacing: Spacing.Semantic.sectionSpacing) {
@@ -89,8 +104,9 @@ struct AddExpenseView<VM: ViewModel>: View
                     title: LocalizedStringKey("ADD_EXPENSE.TITLE"),
                     placeholder: LocalizedStringKey("ADD_EXPENSE.TITLE.PLACEHOLDER"),
                     text: $title,
+                    focus: $isTitleFocused,
                     submitLabel: .next,
-                    onSubmit: {}
+                    onSubmit: { isDetailsFocused = true }
                 )
                 .onValueChange(of: title) { vm.trigger(.titleChanged($0)) }
 
@@ -98,8 +114,9 @@ struct AddExpenseView<VM: ViewModel>: View
                     title: LocalizedStringKey("ADD_EXPENSE.DESCRIPTION"),
                     placeholder: LocalizedStringKey("ADD_EXPENSE.DESCRIPTION.PLACEHOLDER"),
                     text: $details,
+                    focus: $isDetailsFocused,
                     submitLabel: .next,
-                    onSubmit: {}
+                    onSubmit: { isAmountFocused = true }
                 )
                 .onValueChange(of: details) { vm.trigger(.detailsChanged($0)) }
 
@@ -113,13 +130,14 @@ struct AddExpenseView<VM: ViewModel>: View
             .padding(.top, Spacing.Semantic.sectionSpacing)
             .padding(.bottom, Spacing.Semantic.buttonHeightLarge)
         }
+        .scrollDismissesKeyboard(.interactively)
     }
 
     private func amountField(error: String?) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: Spacing.Semantic.componentMargin) {
             Text("ADD_EXPENSE.PRICE".localized)
-                .font(.caption)
-                .foregroundStyle(.secondary)
+                .font(.semibold(.body))
+                .foregroundStyle(SemanticColor.Colors.textPrimary.swiftUIColor)
 
             HStack(spacing: Spacing.Semantic.groupSpacing) {
                 Text(Money.currencySymbol(for: currencyCode))
@@ -130,6 +148,7 @@ struct AddExpenseView<VM: ViewModel>: View
                     .font(.regular(.body))
                     .foregroundStyle(SemanticColor.Colors.textFieldText.swiftUIColor)
                     .tint(SemanticColor.Colors.primary.swiftUIColor)
+                    .focused($isAmountFocused)
                     .onValueChange(of: amount) { vm.trigger(.amountChanged($0)) }
             }
             .padding(Spacing.Semantic.componentPadding)
@@ -141,7 +160,7 @@ struct AddExpenseView<VM: ViewModel>: View
                         error == nil
                             ? SemanticColor.Colors.borderPrimary.swiftUIColor
                             : SemanticColor.Colors.borderError.swiftUIColor,
-                        lineWidth: 1
+                        lineWidth: Spacing.Semantic.borderWidth
                     )
             )
 
@@ -162,6 +181,7 @@ struct AddExpenseView<VM: ViewModel>: View
                 .labelsHidden()
                 .datePickerStyle(.graphical)
                 .tint(SemanticColor.Colors.primary.swiftUIColor)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .onValueChange(of: date) { vm.trigger(.dateChanged($0)) }
         }
     }
@@ -189,7 +209,7 @@ struct AddExpenseView<VM: ViewModel>: View
     private func errorView(_ message: String) -> some View {
         VStack(spacing: Spacing.Semantic.itemSpacing) {
             Image(systemName: "exclamationmark.triangle")
-                .font(.system(size: 48))
+                .font(.bold(.title))
                 .foregroundStyle(SemanticColor.Colors.error.swiftUIColor)
             Text(message)
                 .font(.regular(.body))
