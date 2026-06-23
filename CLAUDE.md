@@ -2,51 +2,60 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> **Status: mid-migration.** Troshko is being re-architected from a simple SwiftUI + Core Data app onto a Clean Architecture + MVVM stack borrowed from the Aisthesis project. **Read `MIGRATION.md` first** — it holds the phased plan, what's done, what's next, and the locked-in decisions. This file describes the *target* architecture and conventions; some app code still uses the old patterns until its feature is migrated.
+
 ## Overview
 
-Troshko is a native iOS expense-tracker app built with SwiftUI and Core Data (local-only persistence, no backend). Three feature areas: adding expenses, organizing them into categories, and a monthly overview with charts.
+Troshko is a native iOS expense tracker (SwiftUI). Three feature areas: adding expenses, organizing them into categories, and a monthly overview with charts. Local-only today; a future direction is an on-device AI "pocket advisor" (Apple Foundation Models) — which is why the deployment target is iOS 26.
 
 ## Build & Run
 
-The project uses Swift Package Manager (migrated from CocoaPods). There are two shared schemes with separate bundle identifiers:
-
-- `Troshko-Dev` — development build
-- `Troshko-Prod` — production build
+SPM-based (migrated from CocoaPods). Two shared app schemes with separate bundle IDs: `Troshko-Dev` and `Troshko-Prod`. There is **no test target**.
 
 ```bash
-# Build the dev scheme on a simulator
+xcodebuild -list -project Troshko.xcodeproj                      # parse/validate project, resolve packages
 xcodebuild -project Troshko.xcodeproj -scheme Troshko-Dev \
-  -destination 'platform=iOS Simulator,name=iPhone 15' build
-
-# Resolve SPM dependencies (if needed)
-xcodebuild -resolvePackageDependencies -project Troshko.xcodeproj
+  -destination 'platform=iOS Simulator,name=iPhone 16' build    # build the dev scheme
 ```
 
-There is no test target in this project, so there are no tests to run.
+- **iOS minimum: 26.0** · Swift 5. (Bumped from 16.4 during migration to unlock SwiftData + Apple Foundation Models.)
+- The app target is an **Xcode 16 synchronized folder group** (`PBXFileSystemSynchronizedRootGroup`, root = `Troshko/`): files under `Troshko/` are auto-included — **just create the file, no `.xcodeproj` edits needed.** (See `MIGRATION.md` gotchas for the `EXCLUDED_SOURCE_FILE_NAMES = "*.md"` rule that makes co-located `SPEC.md` files safe.)
+- Third-party deps: `lottie-ios`, `DGCharts` (being replaced by Apple Swift Charts), `SwiftLintPlugins`. SwiftLint config at `Troshko/Config/.swiftlint.yml`. Note: the `SwiftLint` run-script build phase still points at the stale `${PODS_ROOT}` path — a known pre-existing cleanup item.
 
-- Deployment target: iOS 16.4 · Swift 5
-- Dependencies (SPM): `Charts` (danielgindi/Charts, used by the pie chart), `lottie-ios`, and the `SwiftLintPlugins` build-tool plugin (SwiftLint runs at build time).
+## Architecture (target state)
 
-### SwiftLint
+**Clean Architecture + MVVM**, ported from Aisthesis. Three concerns kept separate: Clean Architecture (dependency direction UI → Domain ← Data), MVVM (View↔ViewModel), and navigation. The authoritative pattern reference is `/Users/fare/Documents/aisthesis/ios-respond-app/Aisthesis/CLAUDE.md` (and its `DECISIONS.md`); Troshko follows it with the deltas recorded in `MIGRATION.md`.
 
-Config lives at `Troshko/Config/.swiftlint.yml` and runs automatically via the SwiftLint build plugin. Several rules are intentionally disabled (`line_length`, `identifier_name`, `force_cast`, `force_try`, `trailing_whitespace`, and others) — do not assume default SwiftLint behavior.
+### Shared infrastructure — `libs/` (ported, wired, building)
+Local SPM packages, all platform iOS 26, self-contained (no cross-imports):
 
-## Architecture
+| Lib | What's in it |
+|---|---|
+| `libs/MVVM` | `ViewModel` protocol + `ViewState`/`ViewEvent`/`ViewModelEvent` marker protocols (Combine-based: `@Published` state + `AnyPublisher` event stream) |
+| `libs/DI` | `DIContainer` singleton + `@Injected` property wrapper; scopes (`.shared`/`.transient`/`.featureScoped`) |
+| `libs/Networking` | `NetworkProvider` (async/await), `NetworkRequest`, `APIEnvelope`, interceptors. **Unused until a backend exists.** Injects a generic `x-platform: iOS` header. |
+| `libs/Extension` | Date/Data helpers |
+| `libs/Styleguide` | Design system: `BaseScreen`, `PrimaryButton`, `AppTextField`, `Card`, color/spacing/font tokens. **Reskinned** to Troshko brand green `#55BF8A`. Still carries some Aisthesis-domain components (`SensoryOptionCardView`, questionnaire bits, `Face*` assets) pending pruning. |
 
-MVVM throughout. The app is organized under `Troshko/Modules/<Feature>/`, each feature splitting into `Views/`, `ViewModel/`, and `Models/`. View models are `ObservableObject` classes; views observe them via `@StateObject`/`@EnvironmentObject`.
+### App composition root
+`Troshko/TroshkoApp.swift` calls `AppDependencies.registerAll()` from `init()`. Each migrated feature registers its deps there via a `<Feature>DependencyContainer.register()`.
 
-**Entry / navigation flow:** `TroshkoApp` → `SplashScreenView` (timed animation, ~2.5s) → `MainView`. `MainView` is a `TabView` with three tabs: Expenses, Categories, Monthly Overview.
+### Feature layout (per Aisthesis; established in Phase 1)
+Each feature is a folder under the app target: `Troshko/Features/<Feature>/{Domain, Data, UI, DI}`.
+- **Domain**: `Model/` (entities), `Repository/` (protocols only), `UseCase/`.
+- **Data**: `Model/` (DTOs), `Repository/` (implementations — SwiftData / UserDefaults / Keychain).
+- **UI**: `<Screen>/` with `<Name>View.swift`, `<Name>ViewModel.swift`, `<Name>ViewState.swift`, `<Name>ViewEvent.swift`, `<Name>ViewModelEvent.swift`. Every root view uses `BaseScreen { }` as its outermost container.
+- **DI**: `<Feature>DependencyContainer.swift`.
 
-**Shared expenses state:** `MainView` creates a single `ExpensesViewModel` and injects it as an `@EnvironmentObject` into both the Expenses and Categories tabs, so they share one source of truth for expenses and categories. `ExpensesViewModel` also owns the add/edit form state (title, description, price, date, selected category) and price validation — adding and editing expenses go through this same view model, not a separate one.
-
-**Core Data:** `CoreDataManager` is a singleton (`CoreDataManager.shared`) wrapping an `NSPersistentContainer` named `TroshkoData` (model in `Troshko/CoreData/TroshkoData.xcdatamodeld`). View models are constructed with the shared `viewContext` and perform fetch/save/delete directly against it. Two entities:
-- `Expense` — `id` (UUID), `title`, `desc`, `price` (Double), `date`, and a to-one `category` relationship.
-- `Category` — `name`, `createdAt`, and an ordered to-many `expense` relationship.
-
-Expenses are grouped for display by `groupExpensesByDate` into `GroupedExpenses`, bucketing into "Today", "This month", or a "MMMM yyyy" header.
+### Design rules (from Styleguide — non-negotiable)
+- Only `AppFont.Size` tokens (`small`/`body`/`large`/`title`/`headline`) — no invented sizes.
+- Only `SemanticColor.Colors.*` tokens — no raw `Color(...)`, hex, or `UIColor`.
+- Only `Spacing.Semantic.*` — no magic numbers.
+- Reuse `PrimaryButton`, `AppTextField`, `Card` before building custom.
+- Loading is owned by `BaseScreen(isLoading:)`, not per-screen spinners.
 
 ## Conventions
 
-- **Localization is mandatory for user-facing strings.** Strings are keys resolved through the `String.localized` extension (`"EXPENSES.TITLE".localized`). Two locales are maintained: `en` and `bs-BA` (`Troshko/Resources/Localization/`). Add new keys to both `.lproj` files.
-- **Colors** are referenced by asset-catalog name (e.g. `Color("main")` from `Assets.xcassets/App colors`).
-- Reusable cross-feature pieces live in `Troshko/Common/` — `Views/` (e.g. `EmptyStateView`, `BadgeView`, `ErrorState`) and `Extensions/` (String/Date/Double/Color helpers such as `toDouble()`, `[safe:]` collection subscript).
+- **Localization is mandatory** for user-facing strings via `String.localized` (`"KEY".localized`). Locales: `en` and `bs-BA` (`Troshko/Resources/Localization/`). Keep both `.lproj` in sync.
+- Persistence target state: **SwiftData** (relational expense data) + UserDefaults (small prefs) + Keychain (sensitive) — all behind Domain `Repository` protocols. Core Data (`CoreDataManager`, `TroshkoData.xcdatamodeld`) is **legacy, removed in Phase 3**; it coexists with SwiftData during migration.
+- Project-file UUIDs minted during migration use a recognizable `C1A0DE…` prefix.
