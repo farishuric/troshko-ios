@@ -25,28 +25,28 @@ extension Category {
 extension Category {
 
     @objc(insertObject:inExpenseAtIndex:)
-    @NSManaged public func insertIntoExpense(_ value: Expense, at idx: Int)
+    @NSManaged public func insertIntoExpense(_ value: LegacyExpense, at idx: Int)
 
     @objc(removeObjectFromExpenseAtIndex:)
     @NSManaged public func removeFromExpense(at idx: Int)
 
     @objc(insertExpense:atIndexes:)
-    @NSManaged public func insertIntoExpense(_ values: [Expense], at indexes: NSIndexSet)
+    @NSManaged public func insertIntoExpense(_ values: [LegacyExpense], at indexes: NSIndexSet)
 
     @objc(removeExpenseAtIndexes:)
     @NSManaged public func removeFromExpense(at indexes: NSIndexSet)
 
     @objc(replaceObjectInExpenseAtIndex:withObject:)
-    @NSManaged public func replaceExpense(at idx: Int, with value: Expense)
+    @NSManaged public func replaceExpense(at idx: Int, with value: LegacyExpense)
 
     @objc(replaceExpenseAtIndexes:withExpense:)
-    @NSManaged public func replaceExpense(at indexes: NSIndexSet, with values: [Expense])
+    @NSManaged public func replaceExpense(at indexes: NSIndexSet, with values: [LegacyExpense])
 
     @objc(addExpenseObject:)
-    @NSManaged public func addToExpense(_ value: Expense)
+    @NSManaged public func addToExpense(_ value: LegacyExpense)
 
     @objc(removeExpenseObject:)
-    @NSManaged public func removeFromExpense(_ value: Expense)
+    @NSManaged public func removeFromExpense(_ value: LegacyExpense)
 
     @objc(addExpense:)
     @NSManaged public func addToExpense(_ values: NSOrderedSet)

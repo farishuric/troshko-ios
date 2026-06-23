@@ -78,7 +78,7 @@ extension MonthlyOverviewViewModel {
             
             for category in categories {
                 if let expenses = category.expense {
-                    let expenseArray = expenses.array as! [Expense]
+                    let expenseArray = expenses.array as! [LegacyExpense]
                     let filteredExpenses = expenseArray.filter { (expense) -> Bool in
                         if let expenseDate = expense.date {
                             return expenseDate >= startOfMonth! && expenseDate <= endOfMonth!

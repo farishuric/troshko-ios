@@ -51,7 +51,7 @@ class CategoriesViewModel: ObservableObject {
     
     func delete(category: Category, completion: @escaping () -> Void) {
         // Fetch all expenses associated with the category
-        let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+        let fetchRequest: NSFetchRequest<LegacyExpense> = LegacyExpense.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "category == %@", category)
         
         do {

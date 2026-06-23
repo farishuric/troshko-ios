@@ -9,10 +9,10 @@
 import Foundation
 import CoreData
 
-extension Expense {
+extension LegacyExpense {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Expense> {
-        return NSFetchRequest<Expense>(entityName: "Expense")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<LegacyExpense> {
+        return NSFetchRequest<LegacyExpense>(entityName: "Expense")
     }
 
     @NSManaged public var date: Date?
@@ -24,6 +24,6 @@ extension Expense {
 
 }
 
-extension Expense: Identifiable {
+extension LegacyExpense: Identifiable {
 
 }

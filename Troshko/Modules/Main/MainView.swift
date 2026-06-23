@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var expensesVM = ExpensesViewModel(viewContext: CoreDataManager.shared.container.viewContext)
-    
     var body: some View {
         TabView {
-            ExpensesView()
-                .environmentObject(expensesVM)
+            // Migrated to Clean Architecture (Phase 1). Owns its own ViewModel via DI.
+            ExpensesView(vm: ExpensesViewModel())
                 .tabItem {
                     Label("EXPENSES.TITLE".localized, systemImage: "creditcard")
                 }
+            // Categories & MonthlyOverview still on the legacy Core Data path (Phase 2).
             CategoriesView()
-                .environmentObject(expensesVM)
                 .tabItem {
                     Label("CATEGORIES.TITLE".localized, systemImage: "archivebox.fill")
                 }

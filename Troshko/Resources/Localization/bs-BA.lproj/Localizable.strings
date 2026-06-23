@@ -15,6 +15,7 @@
 "WORDING_SAVE" = "Spasi";
 "WORDING_APPLY" = "Primijeni";
 "WORDING_CONFIRM" = "Potvrdi";
+"WORDING_RETRY" = "Pokušaj ponovo";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Danas";
@@ -22,9 +23,13 @@
 
 // MARK: - Expenses
 "EXPENSES.NO_EXPENSES" = "Nema pronađenih troškova";
+"EXPENSES.LOAD_ERROR" = "Nije moguće učitati troškove";
+"EXPENSES.DELETE_ERROR" = "Nije moguće izbrisati trošak";
+"EXPENSES.SAVE_ERROR" = "Nije moguće spasiti trošak";
 
 // MARK: - Add expense
 "ADD_EXPENSE" = "Dodaj Trošak";
+"ADD_EXPENSE.EDIT_TITLE" = "Uredi Trošak";
 "ADD_EXPENSE.TITLE" = "Naziv";
 "ADD_EXPENSE.TITLE.PLACEHOLDER" = "Narukvica";
 
@@ -32,6 +37,8 @@
 "ADD_EXPENSE.DESCRIPTION.PLACEHOLDER" = "Kupljeno za Amilin rođendan";
 
 "ADD_EXPENSE.PRICE" = "Cijena";
+"ADD_EXPENSE.PRICE.PLACEHOLDER" = "0.00";
+"ADD_EXPENSE.PRICE.ERROR" = "Unesite ispravan iznos veći od nule";
 
 "ADD_EXPENSE.DATE" = "Datum";
 

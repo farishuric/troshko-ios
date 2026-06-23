@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 final class CategoryExpensesViewModel: ObservableObject {
-    @Published var expenses: [Expense] = []
+    @Published var expenses: [LegacyExpense] = []
     @Published var groupedExpenses: [GroupedExpenses] = []
     
     let viewContext = CoreDataManager.shared.container.viewContext
@@ -23,7 +23,7 @@ final class CategoryExpensesViewModel: ObservableObject {
         do {
             let result = try viewContext.fetch(fetchRequest)
             if let category = result.first {
-                if let expenses = category.expense?.array as? [Expense] {
+                if let expenses = category.expense?.array as? [LegacyExpense] {
                     self.expenses = expenses
                     self.groupedExpenses = groupExpensesByDate(expenses: expenses)
                 }
@@ -33,7 +33,7 @@ final class CategoryExpensesViewModel: ObservableObject {
         }
     }
     
-    func groupExpensesByDate(expenses: [Expense]) -> [GroupedExpenses] {
+    func groupExpensesByDate(expenses: [LegacyExpense]) -> [GroupedExpenses] {
         var groupedExpenses: [GroupedExpenses] = []
 
         // Create a DateFormatter to format the dates for grouping
