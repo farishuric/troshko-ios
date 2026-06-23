@@ -10,6 +10,7 @@ struct ExpensesView<VM: ViewModel>: View
     @StateObject private var vm: VM
 
     @State private var route: AddExpenseRoute?
+    @State private var presentingCategories = false
 
     init(vm: VM) {
         _vm = StateObject(wrappedValue: vm)
@@ -22,6 +23,18 @@ struct ExpensesView<VM: ViewModel>: View
             }
             .navigationTitle("EXPENSES.TITLE".localized)
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    ProfileMenuButton()
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        presentingCategories = true
+                    } label: {
+                        Image(systemName: "archivebox.fill")
+                    }
+                    .tint(SemanticColor.Colors.primary.swiftUIColor)
+                    .accessibilityLabel(Text("CATEGORIES.TITLE".localized))
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         vm.trigger(.addTapped)
@@ -47,6 +60,9 @@ struct ExpensesView<VM: ViewModel>: View
                 editing: route.expense,
                 onSaved: { vm.trigger(.reload) }
             )
+        }
+        .sheet(isPresented: $presentingCategories) {
+            CategoriesView(vm: CategoriesViewModel())
         }
     }
 

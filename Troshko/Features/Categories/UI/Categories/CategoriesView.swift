@@ -29,6 +29,9 @@ struct CategoriesView<VM: ViewModel>: View
                 )
             }
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    ProfileMenuButton()
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         vm.trigger(.addTapped)

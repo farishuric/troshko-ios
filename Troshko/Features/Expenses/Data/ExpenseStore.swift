@@ -7,7 +7,12 @@ import SwiftData
 enum ExpenseStore {
     static let container: ModelContainer = {
         do {
-            return try ModelContainer(for: ExpenseEntity.self, ExpenseCategoryEntity.self)
+            return try ModelContainer(
+                for: ExpenseEntity.self,
+                ExpenseCategoryEntity.self,
+                IncomeEntryEntity.self,
+                SavingsGoalEntity.self
+            )
         } catch {
             fatalError("Failed to create ExpenseStore ModelContainer: \(error)")
         }

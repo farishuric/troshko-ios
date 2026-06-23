@@ -15,13 +15,17 @@ import Styleguide
 
 @main
 struct TroshkoApp: App {
+    @AppStorage(AppAppearance.storageKey) private var appearanceRawValue = AppAppearance.system.rawValue
+
     init() {
+        FontRegistrar.registerFonts()
         AppDependencies.registerAll()
     }
 
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
+                .preferredColorScheme(AppAppearance(rawValue: appearanceRawValue)?.colorScheme)
         }
     }
 }
@@ -33,9 +37,22 @@ struct TroshkoApp: App {
 /// container so the DI infrastructure is wired and ready.
 enum AppDependencies {
     static func registerAll() {
+        SettingsDependencyContainer.register()
         ExpensesDependencyContainer.register()
+        // Depends on Expenses' GetExpensesUseCase for saved-this-month math.
+        HomeDependencyContainer.register()
         CategoriesDependencyContainer.register()
         // Depends on Expenses' GetExpensesUseCase — register after Expenses.
         MonthlyOverviewDependencyContainer.register()
+    }
+}
+
+private extension AppAppearance {
+    var colorScheme: ColorScheme? {
+        switch self {
+        case .system: return nil
+        case .light: return .light
+        case .dark: return .dark
+        }
     }
 }

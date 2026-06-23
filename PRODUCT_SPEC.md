@@ -6,7 +6,7 @@
 > **Two-tier specs (Aisthesis pattern).** This file is the **hub/index** — product intent plus a map of where every feature lives (**§6 → Module map**). Each feature also gets a co-located **sub-spec** at `Troshko/Features/<Feature>/SPEC.md` holding the detail: entry files, behaviour, cross-module dependencies, localization, gotchas. **Working on a feature?** Read this file → find it in the Module map → open its sub-spec → touch only the files it names. Sub-specs are written **on first visit** (write-on-first-visit), not batch-authored. (Co-located `*.md` is safe — the app target excludes `*.md`; see `MIGRATION.md`.)
 > This is a **living document**: when intent changes, update it here rather than letting it drift into code-only knowledge.
 >
-> _Last updated: 2026-06-23. Reflects the CURRENT STATE at the end of the Clean-Architecture migration (Phases 0–3 done). Status flags below were inferred from a code scan — correct anything that's wrong._
+> _Last updated: 2026-06-24. Reflects the CURRENT STATE with Phase 7 implemented and pending user build validation._
 
 ---
 
@@ -27,7 +27,7 @@ You log what you spend, organise it into your own categories, and see each month
 - **Category:** Personal finance / budgeting utility — a lightweight expense tracker, **not** a bank-linked PFM (no Plaid/Open Banking), **not** accounting software.
 - **Privacy posture:** **Local-first, on-device only.** No account, no network calls, no analytics. All data lives in an on-device SwiftData store. This is a deliberate trust stance and the foundation for the on-device-AI direction (the advisor reasons over your data *without it leaving the phone*).
 - **Manual entry:** spending is **entered by hand** today. There is no receipt scan, bank import, or auto-categorisation yet (all candidate AI features — §11).
-- **Stage:** Working app, freshly re-architected. Single-user, single-currency-by-device-locale, two languages.
+- **Stage:** Working app in product-build phases. Single-user, single-currency-by-device-locale, two languages.
 
 ---
 
@@ -36,7 +36,7 @@ You log what you spend, organise it into your own categories, and see each month
 Troshko is built around **one person tracking their own money** — there is no multi-user, sharing, or role model (contrast Aisthesis, which is multi-caretaker). 
 
 - **Primary persona:** an individual who wants a frictionless, no-signup way to jot down expenses and understand monthly spending — privacy-conscious, possibly in a market where bank-linked apps are weak or untrusted.
-- **Locale:** first-class **English** and **Bosnian (`bs-BA`)**. Currency follows the **device locale** (`Locale.current.currencySymbol`) — there is no in-app currency picker.
+- **Locale:** first-class **English** and **Bosnian (`bs-BA`)**. Currency follows the **device locale** (`Locale.current.currency?.identifier`) — there is no in-app currency picker.
 
 ---
 
@@ -44,7 +44,7 @@ Troshko is built around **one person tracking their own money** — there is no 
 
 | Term | Meaning |
 |---|---|
-| **Expense** | A single logged spend. Fields: `title`, `details`, `amount` (Double), `date`, optional `category`. Domain entity `Expense` (persistence-agnostic struct). |
+| **Expense** | A single logged spend. Fields: `title`, `details`, `amount` (`Money`: integer minor units + currency code), `date`, optional `category`. Domain entity `Expense` (persistence-agnostic struct). |
 | **Category** | A user-named bucket for expenses (e.g. "Groceries"). Fields: `name`, `createdAt`. Domain entity `ExpenseCategory`. Categories are a **shared concept** across the Expenses, Categories, and Monthly Overview features (one SwiftData store). |
 | **Uncategorised** | An expense with no category. In the Monthly Overview it aggregates under `MONTHLY_OVERVIEW.UNCATEGORIZED`. |
 | **Expense group** | UI grouping of the expense list under **Today / This month / "Month Year"** headings (newest first). Computed in `ExpensesViewModel.group(_:)`. |
@@ -56,19 +56,19 @@ Troshko is built around **one person tracking their own money** — there is no 
 ## 5. End-to-end journey
 
 ```
-Launch → Splash → Main (3-tab bar)
+Launch → Splash → Main (Home · Expenses · Monthly Overview tabs + profile/settings button)
+      ├─ Home              : greeting · saved this month · savings-goal progress · static tips
+      │     ├─ + Add income → Add Income sheet (source, amount, date)
+      │     └─ set goal     → Savings Goal sheet (name, total target, monthly target)
       ├─ Expenses          : list grouped Today / This month / Month-Year
       │     ├─ + Add        → Add Expense sheet (title, details, amount, date, category)
       │     ├─ tap a row    → Edit Expense sheet (same form, prefilled)
+      │     ├─ categories   → Categories sheet (add/delete/drill-in)
       │     └─ swipe        → delete
-      ├─ Categories        : list of categories
-      │     ├─ + Add        → Add Category sheet (name)
-      │     ├─ tap a row    → Category Expenses (that category's spends)
-      │     └─ swipe        → delete (with confirmation)
       └─ Monthly Overview  : month/year picker → donut of per-category spending + legend
 ```
 
-No onboarding, no auth, no profile. The app opens straight onto the tab bar (after the splash). State is whatever is in the local SwiftData store.
+No onboarding and no auth. The app opens straight onto the tab bar (after the splash); the top-corner profile icon opens local Settings for appearance, language display, and version/about. State is whatever is in the local SwiftData store plus small local preferences in UserDefaults.
 
 ---
 
@@ -86,6 +86,8 @@ Status legend: ✅ built · 🟡 partial / in progress · ⬜ planned / not star
 | **Persistence** | On-device SwiftData store, shared across features behind Domain `Repository` protocols. | ✅ |
 | **i18n** | English + Bosnian (`bs-BA`); `SCREAMING_SNAKE` keys via `"KEY".localized`; both `.lproj` kept in sync. | ✅ |
 | **Splash** | Lottie splash on launch. | ✅ |
+| **Settings / profile menu** | Top-corner profile entry; local settings sheet with appearance preference, language display, and version/about. | ✅ |
+| **Home** | First-tab emotional hub with income, saved-this-month, savings-goal progress, and static tips. | 🟡 |
 | **Currency selection** | Today: device-locale currency symbol only. A user-chosen currency is undesigned. | ⬜ |
 | **Search / filter / budgets** | Find expenses; set per-category or monthly budgets; alerts when over. | ⬜ |
 | **Receipt scan / auto-categorise / import** | Reduce manual entry (OCR, smart category suggestion, bank/CSV import). | ⬜ (AI candidates — §11) |
@@ -101,11 +103,13 @@ Status legend: ✅ built · 🟡 partial / in progress · ⬜ planned / not star
 | Topic / feature | Module path | Sub-spec |
 |---|---|---|
 | App shell · tab bar · DI composition root | `Troshko/TroshkoApp.swift` · `Troshko/Modules/Main/MainView.swift` | architecture → `CLAUDE.md` |
-| **Expenses** — list · add/edit · delete · grouping | `Troshko/Features/Expenses/` (`Domain/ Data/ UI/ DI/`) | _TODO_ (reference feature; see `MIGRATION.md` Phase 1) |
+| **Home** — income · saved-this-month · savings goal · static tips | `Troshko/Features/Home/` | `Troshko/Features/Home/SPEC.md` |
+| **Expenses** — list · add/edit · delete · grouping | `Troshko/Features/Expenses/` (`Domain/ Data/ UI/ DI/`) | `Troshko/Features/Expenses/SPEC.md` |
 | **Categories** — list · add · delete · drill-in | `Troshko/Features/Categories/` | _TODO_ |
 | **Monthly Overview** — month picker · donut · legend | `Troshko/Features/MonthlyOverview/` | _TODO_ |
 | Shared SwiftData store · `@Model` entities | `Troshko/Features/Expenses/Data/` (`ExpenseStore`, `ExpenseEntity`) | see `MIGRATION.md` (shared-container gotcha) |
 | Splash | `Troshko/` (SplashScreenView) | _TODO_ |
+| **Settings / profile menu** — appearance · language display · version | `Troshko/Features/Settings/` | `Troshko/Features/Settings/SPEC.md` |
 
 > **Sub-spec policy — write-on-first-visit.** Rows above are `_TODO_` until the first time we touch that feature, when we author `Troshko/Features/<X>/SPEC.md` and flip the row. Adding a *new* feature includes writing its sub-spec + Module map row — a feature isn't "done" until it's findable from this index.
 
@@ -129,9 +133,9 @@ This is where Troshko is headed and the reason the stack is what it is. **Nothin
 
 ## 8. The data model
 
-- **Two entities, one store.** `Expense` (title, details, amount, date, optional category) and `ExpenseCategory` (name, createdAt), related by a SwiftData `@Relationship`. Both are exposed to the UI as persistence-agnostic Domain structs; the Data layer maps to/from SwiftData `@Model` entities (`ExpenseEntity` / `ExpenseCategoryEntity`).
-- **One shared container.** All three features read/write the same `ExpenseStore.container` behind Domain `Repository` protocols, so a category created in the Categories tab immediately appears in the Add-Expense picker and in the Monthly Overview.
-- **Amounts are `Double`** and **currency is implicit** (device locale). No multi-currency, no minor-unit/decimal-money type — a known modelling simplification (see §12).
+- **Shared entities, one store.** `Expense` (title, details, amount, date, optional category), `ExpenseCategory` (name, createdAt), `IncomeEntry` (source, amount, date), and `SavingsGoal` (name, target amount, monthly target) live in one SwiftData container. They are exposed to the UI as persistence-agnostic Domain structs; the Data layer maps to/from SwiftData `@Model` entities.
+- **One shared container.** Expenses, categories, monthly overview, and Home read/write the same `ExpenseStore.container` behind Domain `Repository` protocols, so expenses, income, and savings-goal calculations stay in sync.
+- **Amounts use exact `Money` values** backed by integer minor units plus an explicit currency code. SwiftData stores `amountMinor` and `currencyCode` scalars; formatting/parsing happens through `Troshko/Common/Money/Money.swift`.
 - **No migration history retained:** Core Data was removed cleanly in Phase 3 (no shim; user confirmed no real data to preserve).
 
 ---
@@ -219,8 +223,8 @@ Things to resolve before/while building the advisor — answer them into the sec
 
 1. **First AI feature.** Which single capability ships first (auto-categorise vs. NL entry vs. monthly insight)? What's the success bar for "useful enough to keep"?
 2. **Foundation Models reality check.** What can on-device Apple Foundation Models actually do well at this size — structured extraction? summarisation? tool/use-case calling? What's the fallback when a request is too big or the device lacks Apple Intelligence?
-3. **Currency.** Stay device-locale-only, or add an explicit currency setting (and a proper money type instead of `Double`)? Multi-currency at all?
-4. **Money representation.** Move `amount` off `Double` to a minor-unit integer / `Decimal` before AI features depend on totals?
+3. **Currency.** Stay device-locale-only, or add an explicit currency setting? Multi-currency at all?
+4. **Money representation.** Resolved in Phase 5: `amount` uses integer minor units plus currency code.
 5. **Privacy boundary.** Does "local-only" stay absolute, or do we allow opt-in iCloud backup/sync? How does that square with the trust pitch (§2)?
 6. **Budgets.** Are budgets in scope as a non-AI feature, or do they emerge from the advisor's guidance?
 7. **Guidance vs. advice.** What copy/posture keeps "pocket advisor" helpful without implying regulated financial advice?
