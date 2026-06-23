@@ -41,18 +41,19 @@ Architecture migration (Phases 0–4: Clean Architecture, SwiftData, spec + AI d
 - **Done when:** a polished settings/menu surface ships; the nav slot for future account features exists.
 - **Why here:** low-risk quick win; reserves the slot Phase 9 fills (logout, delete account, subscription).
 
-### Phase 7 — Home v1 🟡 (CURRENT)
+### Phase 7 — Home v1 ✅
 **Goal:** the emotional hub, built on the new income model.
 - ✅ New data: **income** entries · **SavingsGoal** model · month-balance calculations (pure Swift, exact).
 - ✅ **Home screen:** time-of-day greeting · this-month **saved** (income − spend) · **savings-goal progress chart** · animated banners (**curated static tips**).
-- 🟡 Pending user build validation.
+- ✅ User build validation passed on 2026-06-24.
 - **Done when:** Home is the default tab, shows real saved/goal data, and feels designed (uses Phase 5 motion language).
 - **Depends on:** Phase 5 (money) + the income model introduced here.
 
-### Phase 8 — First free on-device AI ⬜
+### Phase 8 — First free on-device AI 🟡 (CURRENT)
 **Goal:** the trend hook, no backend, $0 to serve.
-- Ship **one** of: **auto-categorise** a new expense · **natural-language entry** ("23 KM groceries yesterday") — via Apple Foundation Models behind a use-case seam.
-- Surface a monthly **insight** card on Home (on-device summary).
+- ✅ Ship **one** of: **auto-categorise** a new expense · natural-language entry ("23 KM groceries yesterday") — via Apple Foundation Models behind a use-case seam. Built: Add Expense category suggestion from title/details/amount/date + existing categories, propose-then-confirm.
+- ✅ Surface a monthly **insight** card on Home (on-device summary): generated from deterministic Home summary numbers, with a localized unavailable fallback.
+- 🟡 Pending user build validation.
 - **Done when:** a free AI feature works on-device and is genuinely useful; the use-case seam is proven for cloud later.
 - **Depends on:** Phase 7 (data to reason over).
 

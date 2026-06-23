@@ -124,6 +124,8 @@ struct AddExpenseView<VM: ViewModel>: View
 
                 dateField
 
+                categorySuggestionControl(form)
+
                 categoryField(categories: form.categories)
             }
             .padding(.horizontal, Spacing.Semantic.screenMargin)
@@ -204,6 +206,110 @@ struct AddExpenseView<VM: ViewModel>: View
                 vm.trigger(.categorySelected(categories.first { $0.id == id }))
             }
         }
+    }
+
+    private func categorySuggestionControl(_ form: AddExpenseViewState.FormState) -> some View {
+        VStack(alignment: .leading, spacing: Spacing.Semantic.componentMargin) {
+            Button {
+                clearFieldFocus()
+                vm.trigger(.suggestCategoryTapped)
+            } label: {
+                Label("ADD_EXPENSE.AI.SUGGEST_CATEGORY".localized, systemImage: "sparkles")
+                    .font(.semibold(.body))
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .tint(SemanticColor.Colors.primary.swiftUIColor)
+            .disabled(!canSuggestCategory(form))
+
+            categorySuggestionView(form.categorySuggestion)
+        }
+    }
+
+    private func canSuggestCategory(_ form: AddExpenseViewState.FormState) -> Bool {
+        guard case .loading = form.categorySuggestion else {
+            return !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+                && !form.categories.isEmpty
+        }
+        return false
+    }
+
+    @ViewBuilder
+    private func categorySuggestionView(_ state: AddExpenseViewState.CategorySuggestionState) -> some View {
+        switch state {
+        case .idle:
+            EmptyView()
+        case .loading:
+            suggestionMessage(
+                icon: "sparkles",
+                title: "ADD_EXPENSE.AI.THINKING".localized,
+                message: "ADD_EXPENSE.AI.THINKING_MESSAGE".localized
+            )
+        case .suggested(let suggestion):
+            suggestedCategoryCard(suggestion)
+        case .noSuggestion:
+            suggestionMessage(
+                icon: "questionmark.circle",
+                title: "ADD_EXPENSE.AI.NO_SUGGESTION".localized,
+                message: "ADD_EXPENSE.AI.NO_SUGGESTION_MESSAGE".localized
+            )
+        case .unavailable:
+            suggestionMessage(
+                icon: "exclamationmark.circle",
+                title: "ON_DEVICE_AI.UNAVAILABLE_TITLE".localized,
+                message: "ON_DEVICE_AI.UNAVAILABLE_MESSAGE".localized
+            )
+        }
+    }
+
+    private func suggestedCategoryCard(_ suggestion: ExpenseCategorySuggestion) -> some View {
+        HStack(alignment: .center, spacing: Spacing.Semantic.itemSpacing) {
+            Image(systemName: "sparkles")
+                .font(.semibold(.body))
+                .foregroundStyle(SemanticColor.Colors.primary.swiftUIColor)
+
+            VStack(alignment: .leading, spacing: Spacing.Semantic.groupSpacing) {
+                Text("ADD_EXPENSE.AI.SUGGESTED_CATEGORY".localized)
+                    .font(.regular(.small))
+                    .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
+                Text(suggestion.category.name)
+                    .font(.semibold(.body))
+                    .foregroundStyle(SemanticColor.Colors.textPrimary.swiftUIColor)
+            }
+
+            Spacer(minLength: Spacing.Semantic.itemSpacing)
+
+            Button("WORDING_APPLY".localized) {
+                selectedCategoryID = suggestion.category.id
+                vm.trigger(.categorySelected(suggestion.category))
+            }
+            .font(.semibold(.small))
+            .foregroundStyle(SemanticColor.Colors.primary.swiftUIColor)
+        }
+        .padding(Spacing.Semantic.componentPadding)
+        .background(SemanticColor.Colors.textFieldBG.swiftUIColor)
+        .clipShape(RoundedRectangle(cornerRadius: Spacing.Semantic.cornerRadiusLarge))
+    }
+
+    private func suggestionMessage(icon: String, title: String, message: String) -> some View {
+        HStack(alignment: .top, spacing: Spacing.Semantic.itemSpacing) {
+            Image(systemName: icon)
+                .font(.regular(.body))
+                .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
+
+            VStack(alignment: .leading, spacing: Spacing.Semantic.groupSpacing) {
+                Text(title)
+                    .font(.semibold(.small))
+                    .foregroundStyle(SemanticColor.Colors.textPrimary.swiftUIColor)
+                Text(message)
+                    .font(.regular(.small))
+                    .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(Spacing.Semantic.componentPadding)
+        .background(SemanticColor.Colors.textFieldBG.swiftUIColor)
+        .clipShape(RoundedRectangle(cornerRadius: Spacing.Semantic.cornerRadiusLarge))
     }
 
     private func errorView(_ message: String) -> some View {

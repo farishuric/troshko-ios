@@ -8,5 +8,6 @@ enum AddExpenseViewEvent: ViewEvent {
     case amountChanged(String)
     case dateChanged(Date)
     case categorySelected(ExpenseCategory?)
+    case suggestCategoryTapped
     case saveTapped
 }

@@ -69,21 +69,25 @@ struct HomeView<VM: ViewModel>: View
         case .loading:
             Color.clear
         case .loaded(let loaded):
-            loadedView(loaded.summary)
+            loadedView(loaded)
         case .error(let message):
             errorState(message)
         }
     }
 
-    private func loadedView(_ summary: HomeSummary) -> some View {
-        ScrollView {
+    private func loadedView(_ loaded: HomeLoadedState) -> some View {
+        let summary = loaded.summary
+
+        return ScrollView {
             VStack(alignment: .leading, spacing: Spacing.Semantic.sectionSpacing) {
                 greetingCard(summary)
                     .softAppear()
                 savedCard(summary)
                     .softAppear(index: 1)
-                goalCard(summary)
+                monthlyInsightCard(loaded.monthlyInsight)
                     .softAppear(index: 2)
+                goalCard(summary)
+                    .softAppear(index: 3)
                 tipBanners(summary.tips)
             }
             .padding(Spacing.Semantic.screenMargin)
@@ -190,6 +194,26 @@ struct HomeView<VM: ViewModel>: View
         }
     }
 
+    private func monthlyInsightCard(_ state: MonthlyInsightState) -> some View {
+        FloatingCard {
+            HStack(alignment: .top, spacing: Spacing.Semantic.itemSpacing) {
+                Image(systemName: "sparkles")
+                    .font(.semibold(.large))
+                    .foregroundStyle(SemanticColor.Colors.primary.swiftUIColor)
+
+                VStack(alignment: .leading, spacing: Spacing.Semantic.groupSpacing) {
+                    Text(insightTitle(state))
+                        .font(.semibold(.body))
+                        .foregroundStyle(SemanticColor.Colors.textPrimary.swiftUIColor)
+                    Text(insightMessage(state))
+                        .font(.regular(.small))
+                        .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+        }
+    }
+
     private func tipBanners(_ tips: [HomeTip]) -> some View {
         VStack(spacing: Spacing.Semantic.itemSpacing) {
             ForEach(Array(tips.enumerated()), id: \.element.id) { index, tip in
@@ -198,8 +222,30 @@ struct HomeView<VM: ViewModel>: View
                     title: tip.titleKey.localized,
                     message: tip.messageKey.localized
                 )
-                .softAppear(index: index + 3)
+                .softAppear(index: index + 4)
             }
+        }
+    }
+
+    private func insightTitle(_ state: MonthlyInsightState) -> String {
+        switch state {
+        case .loading:
+            return "HOME.AI_INSIGHT.LOADING_TITLE".localized
+        case .ready(let insight):
+            return insight.title
+        case .unavailable:
+            return "HOME.AI_INSIGHT.UNAVAILABLE_TITLE".localized
+        }
+    }
+
+    private func insightMessage(_ state: MonthlyInsightState) -> String {
+        switch state {
+        case .loading:
+            return "HOME.AI_INSIGHT.LOADING_MESSAGE".localized
+        case .ready(let insight):
+            return insight.message
+        case .unavailable:
+            return "HOME.AI_INSIGHT.UNAVAILABLE_MESSAGE".localized
         }
     }
 

@@ -6,7 +6,7 @@
 > **Two-tier specs (Aisthesis pattern).** This file is the **hub/index** — product intent plus a map of where every feature lives (**§6 → Module map**). Each feature also gets a co-located **sub-spec** at `Troshko/Features/<Feature>/SPEC.md` holding the detail: entry files, behaviour, cross-module dependencies, localization, gotchas. **Working on a feature?** Read this file → find it in the Module map → open its sub-spec → touch only the files it names. Sub-specs are written **on first visit** (write-on-first-visit), not batch-authored. (Co-located `*.md` is safe — the app target excludes `*.md`; see `MIGRATION.md`.)
 > This is a **living document**: when intent changes, update it here rather than letting it drift into code-only knowledge.
 >
-> _Last updated: 2026-06-24. Reflects the CURRENT STATE with Phase 7 implemented and pending user build validation._
+> _Last updated: 2026-06-24. Reflects the CURRENT STATE with Phase 8 implemented and pending user build validation._
 
 ---
 
@@ -87,11 +87,12 @@ Status legend: ✅ built · 🟡 partial / in progress · ⬜ planned / not star
 | **i18n** | English + Bosnian (`bs-BA`); `SCREAMING_SNAKE` keys via `"KEY".localized`; both `.lproj` kept in sync. | ✅ |
 | **Splash** | Lottie splash on launch. | ✅ |
 | **Settings / profile menu** | Top-corner profile entry; local settings sheet with appearance preference, language display, and version/about. | ✅ |
-| **Home** | First-tab emotional hub with income, saved-this-month, savings-goal progress, and static tips. | 🟡 |
+| **Home** | First-tab emotional hub with income, saved-this-month, savings-goal progress, and static tips. | ✅ |
 | **Currency selection** | Today: device-locale currency symbol only. A user-chosen currency is undesigned. | ⬜ |
 | **Search / filter / budgets** | Find expenses; set per-category or monthly budgets; alerts when over. | ⬜ |
-| **Receipt scan / auto-categorise / import** | Reduce manual entry (OCR, smart category suggestion, bank/CSV import). | ⬜ (AI candidates — §11) |
-| **AI "pocket advisor"** | On-device Apple Foundation Models reasoning over the user's spending → private, personalised insight & guidance. | ⬜ (north star — §7) |
+| **On-device AI** | Apple Foundation Models helpers: suggested category in Add Expense and a Home monthly insight card. | 🟡 |
+| **Receipt scan / import** | Reduce manual entry (OCR, smart import). | ⬜ (AI candidates — §11) |
+| **AI "pocket advisor"** | Future conversational advisor reasoning over spending with deterministic tools → private, personalised guidance. | ⬜ (north star — §7) |
 | **Multi-device / backup / export** | iCloud/SwiftData sync, export, off-device backup. | ⬜ (tension with local-only posture — §12) |
 
 ### Module map — where each feature lives
@@ -103,9 +104,10 @@ Status legend: ✅ built · 🟡 partial / in progress · ⬜ planned / not star
 | Topic / feature | Module path | Sub-spec |
 |---|---|---|
 | App shell · tab bar · DI composition root | `Troshko/TroshkoApp.swift` · `Troshko/Modules/Main/MainView.swift` | architecture → `CLAUDE.md` |
+| **On-device AI** — category suggestion · monthly insight | `Troshko/Features/OnDeviceAI/` | `Troshko/Features/OnDeviceAI/SPEC.md` |
 | **Home** — income · saved-this-month · savings goal · static tips | `Troshko/Features/Home/` | `Troshko/Features/Home/SPEC.md` |
 | **Expenses** — list · add/edit · delete · grouping | `Troshko/Features/Expenses/` (`Domain/ Data/ UI/ DI/`) | `Troshko/Features/Expenses/SPEC.md` |
-| **Categories** — list · add · delete · drill-in | `Troshko/Features/Categories/` | _TODO_ |
+| **Categories** — list · add · delete · drill-in | `Troshko/Features/Categories/` | `Troshko/Features/Categories/SPEC.md` |
 | **Monthly Overview** — month picker · donut · legend | `Troshko/Features/MonthlyOverview/` | _TODO_ |
 | Shared SwiftData store · `@Model` entities | `Troshko/Features/Expenses/Data/` (`ExpenseStore`, `ExpenseEntity`) | see `MIGRATION.md` (shared-container gotcha) |
 | Splash | `Troshko/` (SplashScreenView) | _TODO_ |
@@ -208,7 +210,7 @@ The phased build plan lives in **`docs/BUILD_ROADMAP.md`** (the living tracker �
 | 5 | **Foundations** — money `Double`→minor units · animated/floating design language |
 | 6 | **Profile menu** — settings · appearance · version (local, no auth) |
 | 7 | **Home v1** — income model · savings goals · greeting/saved/goal chart · static tip banners |
-| 8 | **Free on-device AI** — auto-categorise *or* NL entry · monthly insight |
+| 8 | **Free on-device AI** — auto-categorise in Add Expense · monthly insight |
 | 9 | **Accounts + payments** — Sign in with Apple · backend · subscription · logout/delete (the premium gate) |
 | 10 | **Premium cloud** — relay + advisor · receipt scanning · sync |
 | 11 | **Content + hygiene** — economics news (deferred) · budgets · search · export |
@@ -221,7 +223,7 @@ Locked: tabs = **Home · Expenses · Monthly Overview** + profile menu · **inco
 
 Things to resolve before/while building the advisor — answer them into the sections above as decided.
 
-1. **First AI feature.** Which single capability ships first (auto-categorise vs. NL entry vs. monthly insight)? What's the success bar for "useful enough to keep"?
+1. **First AI feature.** Resolved in Phase 8: suggested category in Add Expense, plus a Home monthly insight card. Success bar: suggestions must only choose from existing categories and remain optional/confirm-first.
 2. **Foundation Models reality check.** What can on-device Apple Foundation Models actually do well at this size — structured extraction? summarisation? tool/use-case calling? What's the fallback when a request is too big or the device lacks Apple Intelligence?
 3. **Currency.** Stay device-locale-only, or add an explicit currency setting? Multi-currency at all?
 4. **Money representation.** Resolved in Phase 5: `amount` uses integer minor units plus currency code.
