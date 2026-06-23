@@ -9,7 +9,8 @@ final class ExpenseEntity {
     @Attribute(.unique) var id: UUID
     var title: String
     var details: String
-    var amount: Double
+    var amountMinor: Int
+    var currencyCode: String
     var date: Date
     @Relationship var category: ExpenseCategoryEntity?
 
@@ -17,14 +18,16 @@ final class ExpenseEntity {
         id: UUID,
         title: String,
         details: String,
-        amount: Double,
+        amountMinor: Int,
+        currencyCode: String,
         date: Date,
         category: ExpenseCategoryEntity? = nil
     ) {
         self.id = id
         self.title = title
         self.details = details
-        self.amount = amount
+        self.amountMinor = amountMinor
+        self.currencyCode = currencyCode
         self.date = date
         self.category = category
     }
@@ -55,7 +58,7 @@ extension ExpenseEntity {
             id: id,
             title: title,
             details: details,
-            amount: amount,
+            amount: Money(amountMinor: amountMinor, currencyCode: currencyCode),
             date: date,
             category: category?.toDomain()
         )

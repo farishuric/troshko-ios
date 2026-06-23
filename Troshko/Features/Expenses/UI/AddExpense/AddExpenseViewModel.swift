@@ -16,6 +16,7 @@ final class AddExpenseViewModel: ViewModel {
     @Injected private var updateExpense: UpdateExpenseUseCase
 
     private let editing: Expense?
+    private let currencyCode: String
 
     private var title: String
     private var details: String
@@ -26,9 +27,10 @@ final class AddExpenseViewModel: ViewModel {
 
     init(editing: Expense?) {
         self.editing = editing
+        self.currencyCode = editing?.amount.currencyCode ?? Money.deviceCurrencyCode
         self.title = editing?.title ?? ""
         self.details = editing?.details ?? ""
-        self.amountText = editing.map { Self.amountString($0.amount) } ?? ""
+        self.amountText = editing?.amount.inputText() ?? ""
         self.date = editing?.date ?? Date()
         self.selectedCategory = editing?.category
         self.state = .form(.init(categories: [], canSave: false, amountError: nil, isEditMode: editing != nil))
@@ -65,12 +67,12 @@ final class AddExpenseViewModel: ViewModel {
     }
 
     private func refreshForm() {
-        let amount = Self.parseAmount(amountText)
+        let amount = Money.parse(amountText, currencyCode: currencyCode)
         let amountError: String? = amountText.isEmpty
             ? nil
             : (amount == nil ? "ADD_EXPENSE.PRICE.ERROR".localized : nil)
         let canSave = !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-            && (amount ?? 0) > 0
+            && (amount?.amountMinor ?? 0) > 0
         state = .form(.init(
             categories: categories,
             canSave: canSave,
@@ -81,7 +83,8 @@ final class AddExpenseViewModel: ViewModel {
 
     private func save() {
         guard
-            let amount = Self.parseAmount(amountText), amount > 0,
+            let amount = Money.parse(amountText, currencyCode: currencyCode),
+            amount.amountMinor > 0,
             !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         else { return }
 
@@ -107,17 +110,5 @@ final class AddExpenseViewModel: ViewModel {
                 state = .error("EXPENSES.SAVE_ERROR".localized)
             }
         }
-    }
-
-    // MARK: - Amount formatting
-
-    private static func parseAmount(_ text: String) -> Double? {
-        let normalized = text.replacingOccurrences(of: ",", with: ".")
-        guard let value = Double(normalized) else { return nil }
-        return value
-    }
-
-    private static func amountString(_ amount: Double) -> String {
-        String(format: "%.2f", amount)
     }
 }

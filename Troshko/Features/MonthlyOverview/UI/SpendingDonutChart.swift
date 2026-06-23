@@ -9,7 +9,7 @@ struct SpendingDonutChart: View {
     var body: some View {
         Chart(items) { item in
             SectorMark(
-                angle: .value("MONTHLY_OVERVIEW.NAV_TITLE".localized, item.total),
+                angle: .value("MONTHLY_OVERVIEW.NAV_TITLE".localized, Double(item.total.amountMinor)),
                 innerRadius: .ratio(0.6),
                 angularInset: 2
             )

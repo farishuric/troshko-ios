@@ -26,10 +26,11 @@ Architecture migration (Phases 0–4: Clean Architecture, SwiftData, spec + AI d
 
 ## Phases
 
-### Phase 5 — Foundations: money + motion ⬜ (NEXT)
+### Phase 5 — Foundations: money + motion 🟡 (CURRENT)
+**Spec:** `docs/PHASE_5_SPEC.md` (the work order — money minor-units migration + design language, propose-first).
 **Goal:** put the two cross-cutting foundations in before anything is built on top of them.
-- Migrate money `Double` → **integer minor units** (+ currency code) across Domain/Data/UI.
-- Establish the **animated/floating design language** in Styleguide: motion primitives, transitions, a reusable **floating card** and **banner** component.
+- ✅ **Track A — money `Double` → integer minor units** (+ currency code) across Domain/Data/UI. Canonical `Money` type (`Troshko/Common/Money/Money.swift`); one formatter/parser; integer aggregation throughout; floats only at parse/format/chart-size boundaries. Existing SwiftData store wiped (no real data) rather than migrated.
+- 🟡 **Track B — animated/floating design language** in Styleguide. Direction chosen: **Calm & fluid** (slow gentle springs, fade + 8pt rise, frosted floating cards on an ambient glow — extends the existing soft base). Built: `Motion` primitives (durations + named animations + Reduce-Motion `resolved`), `softAppear` entrance (with staggered cascade) + `AnyTransition.calm`, `FloatingCard`, `Banner`. Demo screen: Expenses list refactored (ambient background, per-row calm cascade, floating empty/error states). Pending the user's visual sign-off on build.
 - **Done when:** all amounts are exact integers end-to-end; a documented motion/floating component set exists that later screens reuse.
 - **Why first:** both are invisible but cross-cutting — retrofitting either later is far more expensive. Exact money underpins every financial number.
 

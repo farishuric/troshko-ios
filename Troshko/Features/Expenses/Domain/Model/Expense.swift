@@ -6,7 +6,7 @@ struct Expense: Identifiable, Equatable, Hashable {
     let id: UUID
     var title: String
     var details: String
-    var amount: Double
+    var amount: Money
     var date: Date
     var category: ExpenseCategory?
 
@@ -14,7 +14,7 @@ struct Expense: Identifiable, Equatable, Hashable {
         id: UUID = UUID(),
         title: String,
         details: String,
-        amount: Double,
+        amount: Money,
         date: Date,
         category: ExpenseCategory? = nil
     ) {

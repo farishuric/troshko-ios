@@ -17,13 +17,15 @@ struct AddExpenseView<VM: ViewModel>: View
     @State private var amount: String
     @State private var date: Date
     @State private var selectedCategoryID: UUID?
+    private let currencyCode: String
 
     init(vm: VM, editing: Expense?, onSaved: @escaping () -> Void) {
         _vm = StateObject(wrappedValue: vm)
         self.onSaved = onSaved
+        self.currencyCode = editing?.amount.currencyCode ?? Money.deviceCurrencyCode
         _title = State(initialValue: editing?.title ?? "")
         _details = State(initialValue: editing?.details ?? "")
-        _amount = State(initialValue: editing.map { String(format: "%.2f", $0.amount) } ?? "")
+        _amount = State(initialValue: editing?.amount.inputText() ?? "")
         _date = State(initialValue: editing?.date ?? Date())
         _selectedCategoryID = State(initialValue: editing?.category?.id)
     }
@@ -120,7 +122,7 @@ struct AddExpenseView<VM: ViewModel>: View
                 .foregroundStyle(.secondary)
 
             HStack(spacing: Spacing.Semantic.groupSpacing) {
-                Text(Locale.current.currencySymbol ?? "")
+                Text(Money.currencySymbol(for: currencyCode))
                     .font(.regular(.body))
                     .foregroundStyle(SemanticColor.Colors.textSecondary.swiftUIColor)
                 TextField("ADD_EXPENSE.PRICE.PLACEHOLDER".localized, text: $amount)

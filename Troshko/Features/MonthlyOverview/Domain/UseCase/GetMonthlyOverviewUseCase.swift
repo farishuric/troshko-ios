@@ -22,16 +22,20 @@ final class StandardGetMonthlyOverviewUseCase: GetMonthlyOverviewUseCase {
 
         let uncategorized = "MONTHLY_OVERVIEW.UNCATEGORIZED".localized
 
-        var totals: [String: Double] = [:]
+        var totals: [String: Money] = [:]
         var order: [String] = []
         for expense in expenses where expense.date >= start && expense.date < end {
             let name = expense.category?.name ?? uncategorized
-            if totals[name] == nil { order.append(name) }
-            totals[name, default: 0] += expense.amount
+            if let total = totals[name] {
+                totals[name] = total + expense.amount
+            } else {
+                order.append(name)
+                totals[name] = expense.amount
+            }
         }
 
         return order
-            .map { CategorySpending(categoryName: $0, total: totals[$0] ?? 0) }
-            .sorted { $0.total > $1.total }
+            .map { CategorySpending(categoryName: $0, total: totals[$0] ?? .zero()) }
+            .sorted { $0.total.amountMinor > $1.total.amountMinor }
     }
 }

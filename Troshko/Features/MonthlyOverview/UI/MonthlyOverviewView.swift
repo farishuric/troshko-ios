@@ -67,12 +67,12 @@ struct MonthlyOverviewView<VM: ViewModel>: View
         }
     }
 
-    private func loaded(items: [CategorySpending], total: Double) -> some View {
+    private func loaded(items: [CategorySpending], total: Money) -> some View {
         VStack {
             Spacer(minLength: 0)
             SpendingDonutChart(items: items)
             Spacer(minLength: 0)
-            Text("MONTHLY_OVERVIEW.TOTAL_EXPENSES".localized(arguments: Self.amountText(total)))
+            Text("MONTHLY_OVERVIEW.TOTAL_EXPENSES".localized(arguments: total.formatted()))
                 .font(.semibold(.large))
                 .foregroundStyle(SemanticColor.Colors.textPrimary.swiftUIColor)
                 .padding(Spacing.Semantic.screenMargin)
@@ -106,9 +106,5 @@ struct MonthlyOverviewView<VM: ViewModel>: View
                 .foregroundStyle(SemanticColor.Colors.primary.swiftUIColor)
         }
         .padding(Spacing.Semantic.screenMargin)
-    }
-
-    private static func amountText(_ amount: Double) -> String {
-        amount.formatted(.currency(code: Locale.current.currency?.identifier ?? "USD"))
     }
 }

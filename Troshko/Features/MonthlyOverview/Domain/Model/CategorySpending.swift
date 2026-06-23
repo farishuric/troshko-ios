@@ -4,5 +4,5 @@ import Foundation
 struct CategorySpending: Identifiable, Equatable, Hashable {
     var id: String { categoryName }
     let categoryName: String
-    let total: Double
+    let total: Money
 }

@@ -2,7 +2,22 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-> **Status: mid-migration.** Troshko is being re-architected from a simple SwiftUI + Core Data app onto a Clean Architecture + MVVM stack borrowed from the Aisthesis project. **Read `MIGRATION.md` first** — it holds the phased plan, what's done, what's next, and the locked-in decisions. This file describes the *target* architecture and conventions; some app code still uses the old patterns until its feature is migrated.
+> **Status: architecture migration complete — now in the product-build phase.** The Clean Architecture + SwiftData migration (Phases 0–4) is done; the whole app is SwiftData-only and on the target architecture this file describes.
+>
+> **Where the work is tracked — read in this order:**
+> 1. **`docs/BUILD_ROADMAP.md`** — the living phase tracker. Find the **current phase**, open its spec (e.g. `docs/PHASE_5_SPEC.md`), and work **only that phase** to its "done when" gate.
+> 2. **`PRODUCT_SPEC.md`** — what Troshko is & why, incl. §10 monetization/unit-economics and locked product decisions.
+> 3. **`docs/AI_AGENT_DESIGN.md`** — the AI "pocket advisor" / agent layer (tool contracts, guardrails, receipt pipeline).
+> 4. **`MIGRATION.md`** — architecture history + gotchas.
+>
+> This file (`CLAUDE.md`) describes the **architecture & conventions every phase must follow**.
+
+## Working agreements (how to operate in this repo)
+
+- **The user runs all builds & the simulator.** Do not launch builds or the simulator — make the change, then ask the user to build and report results. (The `xcodebuild` snippet below is for reference/validation only.)
+- **The user makes all git commits.** Do **not** run `git commit`. Stage or prepare changes if asked, but leave committing to the user. **Never add a `Co-Authored-By` trailer.**
+- **Phase discipline.** Work only the current phase in `docs/BUILD_ROADMAP.md`; meet its "done when" gate before moving on. **No half-features** — cut scope rather than ship broken.
+- **Design is taste-driven.** For visual/motion work, **propose 3–4 directions and let the user pick** before building — do not ship a default aesthetic.
 
 ## Overview
 
@@ -20,7 +35,7 @@ xcodebuild -project Troshko.xcodeproj -scheme Troshko-Dev \
 
 - **iOS minimum: 26.0** · Swift 5. (Bumped from 16.4 during migration to unlock SwiftData + Apple Foundation Models.)
 - The app target is an **Xcode 16 synchronized folder group** (`PBXFileSystemSynchronizedRootGroup`, root = `Troshko/`): files under `Troshko/` are auto-included — **just create the file, no `.xcodeproj` edits needed.** (See `MIGRATION.md` gotchas for the `EXCLUDED_SOURCE_FILE_NAMES = "*.md"` rule that makes co-located `SPEC.md` files safe.)
-- Third-party deps: `lottie-ios`, `DGCharts` (being replaced by Apple Swift Charts), `SwiftLintPlugins`. SwiftLint config at `Troshko/Config/.swiftlint.yml`. Note: the `SwiftLint` run-script build phase still points at the stale `${PODS_ROOT}` path — a known pre-existing cleanup item.
+- Third-party deps: `lottie-ios`, `SwiftLintPlugins` (DGCharts was removed in Phase 2 in favour of Apple Swift Charts). SwiftLint config at `Troshko/Config/.swiftlint.yml`. Note: the `SwiftLint` run-script build phase still points at the stale `${PODS_ROOT}` path — a known pre-existing cleanup item.
 
 ## Architecture (target state)
 
