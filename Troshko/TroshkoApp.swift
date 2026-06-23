@@ -15,9 +15,6 @@ import Styleguide
 
 @main
 struct TroshkoApp: App {
-    // CoreData — legacy; to be replaced by SwiftData behind a Repository in Phase 1.
-    private var coreDataManager: CoreDataManager = CoreDataManager()
-
     init() {
         AppDependencies.registerAll()
     }
@@ -37,5 +34,8 @@ struct TroshkoApp: App {
 enum AppDependencies {
     static func registerAll() {
         ExpensesDependencyContainer.register()
+        CategoriesDependencyContainer.register()
+        // Depends on Expenses' GetExpensesUseCase — register after Expenses.
+        MonthlyOverviewDependencyContainer.register()
     }
 }

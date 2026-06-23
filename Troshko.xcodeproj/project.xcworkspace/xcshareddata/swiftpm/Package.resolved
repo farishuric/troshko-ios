@@ -1,15 +1,6 @@
 {
-  "originHash" : "2d0bdb3353943f53c8b3325d4495584af4d286d5dca9f17131c11b828cbdf9ae",
+  "originHash" : "e3ece10e5251e862c174a4d3c9912d4c76b6c87d9e9a42e02f9955e36e55faf3",
   "pins" : [
-    {
-      "identity" : "charts",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/danielgindi/Charts.git",
-      "state" : {
-        "revision" : "dd9c72e3d7e751e769971092a6bd72d39198ae63",
-        "version" : "5.1.0"
-      }
-    },
     {
       "identity" : "lottie-ios",
       "kind" : "remoteSourceControl",

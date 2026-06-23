@@ -61,11 +61,16 @@
 "CATEGORIES.DESCRIPTION" = "Dodajte kategorije troškova radi bolje organizacije i praćenja. Kategorizirajte svaki trošak kako biste dobili uvid u svoje navike trošenja i unaprijedili financijsko upravljanje.";
 "CATEGORIES.INFORMATION" = "Informacije o Kategoriji";
 "CATEGORIES.NAME" = "Ime Kategorije";
+"CATEGORIES.LOAD_ERROR" = "Nije moguće učitati kategorije";
+"CATEGORIES.SAVE_ERROR" = "Nije moguće spasiti kategoriju";
+"CATEGORIES.DELETE_ERROR" = "Nije moguće izbrisati kategoriju";
 
 // MARK: - Monthly overview
 "MONTHLY_OVERVIEW.NAV_TITLE" = "Mjesečni Pregled";
 "NO_DATA" = "Nema pronađenih podataka";
 "MONTHLY_OVERVIEW.TOTAL_EXPENSES" = "Ukupni troškovi: %@";
 "MONTHLY_OVERVIEW.NO_DATA" = "Trenutno nema dostupnih podataka za ovaj mjesec.";
+"MONTHLY_OVERVIEW.LOAD_ERROR" = "Nije moguće učitati pregled";
+"MONTHLY_OVERVIEW.UNCATEGORIZED" = "Bez kategorije";
 "PICKER.SELECT_MONTH" = "Odaberite Mjesec";
 "PICKER.SELECT_YEAR" = "Odaberite Godinu";

@@ -15,12 +15,12 @@ struct MainView: View {
                 .tabItem {
                     Label("EXPENSES.TITLE".localized, systemImage: "creditcard")
                 }
-            // Categories & MonthlyOverview still on the legacy Core Data path (Phase 2).
-            CategoriesView()
+            // Migrated to Clean Architecture + SwiftData (Phase 2). Own their ViewModels via DI.
+            CategoriesView(vm: CategoriesViewModel())
                 .tabItem {
                     Label("CATEGORIES.TITLE".localized, systemImage: "archivebox.fill")
                 }
-            MonthlyOverviewView()
+            MonthlyOverviewView(vm: MonthlyOverviewViewModel())
                 .tabItem {
                     Label("MONTHLY_OVERVIEW.TITLE".localized, systemImage: "chart.pie")
                 }

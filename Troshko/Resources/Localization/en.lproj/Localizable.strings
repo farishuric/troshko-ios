@@ -63,11 +63,16 @@
 "CATEGORIES.DESCRIPTION" = "Add categories to expenses for better organization and tracking. Categorize each expense to gain insight into your spending habits and improve financial management.";
 "CATEGORIES.INFORMATION" = "Category Information";
 "CATEGORIES.NAME" = "Category Name";
+"CATEGORIES.LOAD_ERROR" = "Couldn't load categories";
+"CATEGORIES.SAVE_ERROR" = "Couldn't save the category";
+"CATEGORIES.DELETE_ERROR" = "Couldn't delete the category";
 
 // MARK: - Monthly overview
 "MONTHLY_OVERVIEW.NAV_TITLE" = "Monthly Overview";
 "NO_DATA" = "No data found";
 "MONTHLY_OVERVIEW.TOTAL_EXPENSES" = "Total expenses: %@";
 "MONTHLY_OVERVIEW.NO_DATA" = "Currently, there is no chart data available for this month.";
+"MONTHLY_OVERVIEW.LOAD_ERROR" = "Couldn't load the overview";
+"MONTHLY_OVERVIEW.UNCATEGORIZED" = "Uncategorized";
 "PICKER.SELECT_MONTH" = "Select a Month";
 "PICKER.SELECT_YEAR" = "Select a Year";

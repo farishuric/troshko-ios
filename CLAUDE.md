@@ -57,5 +57,5 @@ Each feature is a folder under the app target: `Troshko/Features/<Feature>/{Doma
 ## Conventions
 
 - **Localization is mandatory** for user-facing strings via `String.localized` (`"KEY".localized`). Locales: `en` and `bs-BA` (`Troshko/Resources/Localization/`). Keep both `.lproj` in sync.
-- Persistence target state: **SwiftData** (relational expense data) + UserDefaults (small prefs) + Keychain (sensitive) — all behind Domain `Repository` protocols. Core Data (`CoreDataManager`, `TroshkoData.xcdatamodeld`) is **legacy, removed in Phase 3**; it coexists with SwiftData during migration.
+- Persistence: **SwiftData** (relational expense data) + UserDefaults (small prefs) + Keychain (sensitive) — all behind Domain `Repository` protocols. Core Data was fully removed in Phase 3 (no `CoreDataManager` / `.xcdatamodeld` / `NSManagedObject` classes remain).
 - Project-file UUIDs minted during migration use a recognizable `C1A0DE…` prefix.
