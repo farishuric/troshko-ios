@@ -13,11 +13,15 @@ extension String {
     }
     
     var localized: String {
-        return NSLocalizedString(self, comment: "")
+        let value = AppLanguage.current.bundle.localizedString(forKey: self, value: nil, table: nil)
+        guard value != self else {
+            return AppLanguage.fallback.bundle.localizedString(forKey: self, value: self, table: nil)
+        }
+        return value
     }
     
     func localized(arguments: CVarArg...) -> String {
-        return String(format: self.localized, arguments: arguments)
+        return String(format: self.localized, locale: AppLanguage.current.locale, arguments: arguments)
     }
     
     func toFloat() -> Float {

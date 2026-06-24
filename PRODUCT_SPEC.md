@@ -6,7 +6,7 @@
 > **Two-tier specs (Aisthesis pattern).** This file is the **hub/index** — product intent plus a map of where every feature lives (**§6 → Module map**). Each feature also gets a co-located **sub-spec** at `Troshko/Features/<Feature>/SPEC.md` holding the detail: entry files, behaviour, cross-module dependencies, localization, gotchas. **Working on a feature?** Read this file → find it in the Module map → open its sub-spec → touch only the files it names. Sub-specs are written **on first visit** (write-on-first-visit), not batch-authored. (Co-located `*.md` is safe — the app target excludes `*.md`; see `MIGRATION.md`.)
 > This is a **living document**: when intent changes, update it here rather than letting it drift into code-only knowledge.
 >
-> _Last updated: 2026-06-24. Reflects the CURRENT STATE with Phase 8 implemented and pending user build validation._
+> _Last updated: 2026-06-24. Reflects the CURRENT STATE with Phase 9 in progress._
 
 ---
 
@@ -27,7 +27,7 @@ You log what you spend, organise it into your own categories, and see each month
 - **Category:** Personal finance / budgeting utility — a lightweight expense tracker, **not** a bank-linked PFM (no Plaid/Open Banking), **not** accounting software.
 - **Privacy posture:** **Local-first, on-device only.** No account, no network calls, no analytics. All data lives in an on-device SwiftData store. This is a deliberate trust stance and the foundation for the on-device-AI direction (the advisor reasons over your data *without it leaving the phone*).
 - **Manual entry:** spending is **entered by hand** today. There is no receipt scan, bank import, or auto-categorisation yet (all candidate AI features — §11).
-- **Stage:** Working app in product-build phases. Single-user, single-currency-by-device-locale, two languages.
+- **Stage:** Working app in product-build phases. Single-user, single-currency-by-device-locale, six selectable languages.
 
 ---
 
@@ -36,7 +36,7 @@ You log what you spend, organise it into your own categories, and see each month
 Troshko is built around **one person tracking their own money** — there is no multi-user, sharing, or role model (contrast Aisthesis, which is multi-caretaker). 
 
 - **Primary persona:** an individual who wants a frictionless, no-signup way to jot down expenses and understand monthly spending — privacy-conscious, possibly in a market where bank-linked apps are weak or untrusted.
-- **Locale:** first-class **English** and **Bosnian (`bs-BA`)**. Currency follows the **device locale** (`Locale.current.currency?.identifier`) — there is no in-app currency picker.
+- **Locale:** selectable **English**, **Bosnian (`bs-BA`)**, **German**, **French**, **Italian**, and **Spanish**. English + Bosnian are translated today; German/French/Italian/Spanish use English fallback strings until full translations land. Currency follows the **device locale** (`Locale.current.currency?.identifier`) — there is no in-app currency picker.
 
 ---
 
@@ -68,7 +68,7 @@ Launch → Splash → Main (Home · Expenses · Monthly Overview tabs + profile/
       └─ Monthly Overview  : month/year picker → donut of per-category spending + legend
 ```
 
-No onboarding and no auth. The app opens straight onto the tab bar (after the splash); the top-corner profile icon opens local Settings for appearance, language display, and version/about. State is whatever is in the local SwiftData store plus small local preferences in UserDefaults.
+No onboarding and no auth. The app opens straight onto the tab bar (after the splash); the top-corner profile icon opens local Settings for appearance, language selection, and version/about. State is whatever is in the local SwiftData store plus small local preferences in UserDefaults.
 
 ---
 
@@ -84,13 +84,15 @@ Status legend: ✅ built · 🟡 partial / in progress · ⬜ planned / not star
 | **Category Expenses** | Read-only list of one category's expenses (reuses the Expenses grouping + row). | ✅ |
 | **Monthly Overview** | Pick a month/year; aggregate that month's expenses into per-category totals; render an Apple Swift Charts donut (`SectorMark`) + legend; uncategorised bucket. | ✅ |
 | **Persistence** | On-device SwiftData store, shared across features behind Domain `Repository` protocols. | ✅ |
-| **i18n** | English + Bosnian (`bs-BA`); `SCREAMING_SNAKE` keys via `"KEY".localized`; both `.lproj` kept in sync. | ✅ |
+| **i18n** | English + Bosnian (`bs-BA`) translated; German/French/Italian/Spanish selectable with English fallback strings; `SCREAMING_SNAKE` keys via `"KEY".localized`. | ✅ |
 | **Splash** | Lottie splash on launch. | ✅ |
-| **Settings / profile menu** | Top-corner profile entry; local settings sheet with appearance preference, language display, and version/about. | ✅ |
+| **Settings / profile menu** | Top-corner profile entry; settings sheet with appearance, language selection, version/about, and the Phase 9 account/subscription surface. | 🟡 |
 | **Home** | First-tab emotional hub with income, saved-this-month, savings-goal progress, and static tips. | ✅ |
 | **Currency selection** | Today: device-locale currency symbol only. A user-chosen currency is undesigned. | ⬜ |
 | **Search / filter / budgets** | Find expenses; set per-category or monthly budgets; alerts when over. | ⬜ |
-| **On-device AI** | Apple Foundation Models helpers: suggested category in Add Expense and a Home monthly insight card. | 🟡 |
+| **On-device AI** | Apple Foundation Models helpers: suggested category in Add Expense and a Home monthly insight card. | ✅ |
+| **Accounts + payments** | Sign in with Apple and direct StoreKit 2 premium entitlement gate. Backend account service remains behind repository protocols. | 🟡 |
+| **Demo data** | Deterministic local sample data seeder for a configurable rolling history of income, expenses, categories, and a goal. | 🟡 |
 | **Receipt scan / import** | Reduce manual entry (OCR, smart import). | ⬜ (AI candidates — §11) |
 | **AI "pocket advisor"** | Future conversational advisor reasoning over spending with deterministic tools → private, personalised guidance. | ⬜ (north star — §7) |
 | **Multi-device / backup / export** | iCloud/SwiftData sync, export, off-device backup. | ⬜ (tension with local-only posture — §12) |
@@ -99,7 +101,7 @@ Status legend: ✅ built · 🟡 partial / in progress · ⬜ planned / not star
 
 > Routing index for token-cheap navigation. Find the topic → open its module → read its sub-spec (if present) → touch only what the sub-spec names. Paths are from the repo root.
 >
-> **Shared infra (assumed by every feature; not repeated below):** `libs/Styleguide` (all UI tokens & components: `BaseScreen`, `PrimaryButton`, `AppTextField`, `Card`, color/spacing/font tokens), `libs/MVVM` (Combine `ViewModel` protocol), `libs/DI` (`DIContainer` + `@Injected`), `libs/Networking` (unused — no backend), `libs/Extension`; app shell `Troshko/TroshkoApp.swift` (composition root → `AppDependencies.registerAll()`) + `Troshko/Modules/Main/MainView.swift` (tab bar); UI strings in `Troshko/Resources/Localization/<lang>.lproj/Localizable.strings` (en · bs-BA; `SCREAMING_SNAKE` keys).
+> **Shared infra (assumed by every feature; not repeated below):** `libs/Styleguide` (all UI tokens & components: `BaseScreen`, `PrimaryButton`, `AppTextField`, `Card`, color/spacing/font tokens), `libs/MVVM` (Combine `ViewModel` protocol), `libs/DI` (`DIContainer` + `@Injected`), `libs/Networking` (unused — no backend), `libs/Extension`; app shell `Troshko/TroshkoApp.swift` (composition root → `AppDependencies.registerAll()`) + `Troshko/Modules/Main/MainView.swift` (tab bar); UI strings in `Troshko/Resources/Localization/<lang>.lproj/Localizable.strings` (en · bs-BA translated, de/fr/it/es English fallback; `SCREAMING_SNAKE` keys).
 
 | Topic / feature | Module path | Sub-spec |
 |---|---|---|
@@ -111,7 +113,9 @@ Status legend: ✅ built · 🟡 partial / in progress · ⬜ planned / not star
 | **Monthly Overview** — month picker · donut · legend | `Troshko/Features/MonthlyOverview/` | _TODO_ |
 | Shared SwiftData store · `@Model` entities | `Troshko/Features/Expenses/Data/` (`ExpenseStore`, `ExpenseEntity`) | see `MIGRATION.md` (shared-container gotcha) |
 | Splash | `Troshko/` (SplashScreenView) | _TODO_ |
-| **Settings / profile menu** — appearance · language display · version | `Troshko/Features/Settings/` | `Troshko/Features/Settings/SPEC.md` |
+| **Settings / profile menu** — appearance · language selection · version | `Troshko/Features/Settings/` | `Troshko/Features/Settings/SPEC.md` |
+| **Account** — Sign in with Apple · StoreKit premium entitlement | `Troshko/Features/Account/` | `Troshko/Features/Account/SPEC.md` |
+| **Demo data** — explicit local sample-data seeding | `Troshko/Features/DemoData/` | `Troshko/Features/DemoData/SPEC.md` |
 
 > **Sub-spec policy — write-on-first-visit.** Rows above are `_TODO_` until the first time we touch that feature, when we author `Troshko/Features/<X>/SPEC.md` and flip the row. Adding a *new* feature includes writing its sub-spec + Module map row — a feature isn't "done" until it's findable from this index.
 
@@ -148,7 +152,7 @@ This is where Troshko is headed and the reason the stack is what it is. **Nothin
 - **Platform:** iOS **26.0+**, SwiftUI, Swift 5, SPM. Deployment target is high *on purpose* (Apple Foundation Models). No test target.
 - **Architecture:** Clean Architecture + MVVM (Combine `ViewModel` protocol), custom DI, custom Styleguide — see `CLAUDE.md`. **Design tokens are non-negotiable:** only `AppFont.Size`, `SemanticColor.Colors.*`, `Spacing.Semantic.*`; reuse `PrimaryButton`/`AppTextField`/`Card`/`BaseScreen` before building custom. No raw colors/fonts/spacing.
 - **Privacy:** local-only by default; introducing any network/sync is a deliberate posture change, not an incremental feature.
-- **i18n:** every user-facing string via `"KEY".localized`; keep `en` and `bs-BA` in sync; don't hardcode.
+- **i18n:** every user-facing string via `"KEY".localized`; keep `en` and `bs-BA` translated, keep `de`/`fr`/`it`/`es` key-complete as English fallbacks until full translations land; don't hardcode.
 - **Persistence:** SwiftData (relational) + UserDefaults (small prefs) + Keychain (sensitive) behind Domain `Repository` protocols. Core Data is gone — don't reintroduce `NSManagedObject`.
 
 **Non-goals (today)**
@@ -211,7 +215,7 @@ The phased build plan lives in **`docs/BUILD_ROADMAP.md`** (the living tracker �
 | 6 | **Profile menu** — settings · appearance · version (local, no auth) |
 | 7 | **Home v1** — income model · savings goals · greeting/saved/goal chart · static tip banners |
 | 8 | **Free on-device AI** — auto-categorise in Add Expense · monthly insight |
-| 9 | **Accounts + payments** — Sign in with Apple · backend · subscription · logout/delete (the premium gate) |
+| 9 | **Accounts + payments** — Sign in with Apple · backend seam · StoreKit 2 subscription · logout/delete (the premium gate) |
 | 10 | **Premium cloud** — relay + advisor · receipt scanning · sync |
 | 11 | **Content + hygiene** — economics news (deferred) · budgets · search · export |
 
@@ -231,4 +235,4 @@ Things to resolve before/while building the advisor — answer them into the sec
 6. **Budgets.** Are budgets in scope as a non-AI feature, or do they emerge from the advisor's guidance?
 7. **Guidance vs. advice.** What copy/posture keeps "pocket advisor" helpful without implying regulated financial advice?
 8. **Categories taxonomy.** Stay fully user-defined, or seed a default category set (helps auto-categorisation quality)?
-9. **Market & locale.** Is `bs-BA` + English the target, or is this broader? Affects currency, number formats, and example copy.
+9. **Market & locale.** Resolved for app chrome: English, Bosnian, German, French, Italian, and Spanish are selectable; German/French/Italian/Spanish currently use English fallback strings. Full translation quality and market-specific example copy remain future polish.

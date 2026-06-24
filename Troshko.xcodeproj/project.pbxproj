@@ -132,6 +132,10 @@
 				en,
 				Base,
 				"bs-BA",
+				it,
+				fr,
+				es,
+				de,
 			);
 			mainGroup = AFFECE442AB79097003FE8B9;
 			packageReferences = (

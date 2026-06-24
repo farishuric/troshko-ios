@@ -16,6 +16,7 @@ import Styleguide
 @main
 struct TroshkoApp: App {
     @AppStorage(AppAppearance.storageKey) private var appearanceRawValue = AppAppearance.system.rawValue
+    @AppStorage(AppLanguage.storageKey) private var languageRawValue = AppLanguage.fallback.rawValue
 
     init() {
         FontRegistrar.registerFonts()
@@ -26,7 +27,13 @@ struct TroshkoApp: App {
         WindowGroup {
             SplashScreenView()
                 .preferredColorScheme(AppAppearance(rawValue: appearanceRawValue)?.colorScheme)
+                .environment(\.locale, selectedLanguage.locale)
+                .id(languageRawValue)
         }
+    }
+
+    private var selectedLanguage: AppLanguage {
+        AppLanguage(rawValue: languageRawValue) ?? .fallback
     }
 }
 
@@ -37,6 +44,8 @@ struct TroshkoApp: App {
 /// container so the DI infrastructure is wired and ready.
 enum AppDependencies {
     static func registerAll() {
+        AccountDependencyContainer.register()
+        DemoDataDependencyContainer.register()
         SettingsDependencyContainer.register()
         OnDeviceAIDependencyContainer.register()
         ExpensesDependencyContainer.register()
