@@ -53,6 +53,7 @@ extension Date {
     func format(with dateFormat: DateFormat) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat.rawValue
+        formatter.locale = AppLanguage.current.locale
         return formatter.string(from: self)
     }
 

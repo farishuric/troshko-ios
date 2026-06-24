@@ -9,6 +9,11 @@ enum SettingsDependencyContainer {
             configuration: .shared
         )
         DIContainer.shared.register(
+            UserDefaultsLanguageRepository() as LanguageRepository,
+            as: LanguageRepository.self,
+            configuration: .shared
+        )
+        DIContainer.shared.register(
             StandardGetAppearanceUseCase() as GetAppearanceUseCase,
             as: GetAppearanceUseCase.self,
             configuration: .shared
@@ -16,6 +21,16 @@ enum SettingsDependencyContainer {
         DIContainer.shared.register(
             StandardSetAppearanceUseCase() as SetAppearanceUseCase,
             as: SetAppearanceUseCase.self,
+            configuration: .shared
+        )
+        DIContainer.shared.register(
+            StandardGetLanguageUseCase() as GetLanguageUseCase,
+            as: GetLanguageUseCase.self,
+            configuration: .shared
+        )
+        DIContainer.shared.register(
+            StandardSetLanguageUseCase() as SetLanguageUseCase,
+            as: SetLanguageUseCase.self,
             configuration: .shared
         )
     }

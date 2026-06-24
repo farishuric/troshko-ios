@@ -21,7 +21,9 @@ struct MonthYearPickerSheet: View {
     }
 
     private var monthSymbols: [String] {
-        DateFormatter().standaloneMonthSymbols
+        let formatter = DateFormatter()
+        formatter.locale = AppLanguage.current.locale
+        return formatter.standaloneMonthSymbols
     }
 
     var body: some View {

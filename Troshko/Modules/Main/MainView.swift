@@ -5,18 +5,41 @@
 //  Created by Faris Hurić on 17. 9. 2023..
 //
 
+import DI
 import SwiftUI
 import Styleguide
 import UIKit
 
 struct MainView: View {
     @State private var isPresentingSettings = false
+    @State private var didAttemptDemoDataSeed = false
+    @State private var isDemoDataReady = !DemoDataConfiguration.isEnabled
+
+    @Injected private var seedDemoData: SeedDemoDataUseCase
 
     init() {
         Self.configureTabBarAppearance()
     }
 
     var body: some View {
+        content
+            .task {
+                await seedDemoDataIfNeeded()
+            }
+    }
+
+    @ViewBuilder
+    private var content: some View {
+        if isDemoDataReady {
+            tabs
+        } else {
+            BaseScreen(isLoading: true, showsAmbientBackground: true) {
+                EmptyView()
+            }
+        }
+    }
+
+    private var tabs: some View {
         TabView {
             HomeView(vm: HomeViewModel())
                 .tabItem {
@@ -36,11 +59,23 @@ struct MainView: View {
         .environment(\.openSettings) {
             isPresentingSettings = true
         }
-        .sheet(isPresented: $isPresentingSettings) {
+        .fullScreenCover(isPresented: $isPresentingSettings) {
             SettingsView(vm: SettingsViewModel())
-                .presentationDetents([.medium, .large])
-                .presentationBackground(.ultraThinMaterial)
         }
+    }
+
+    @MainActor
+    private func seedDemoDataIfNeeded() async {
+        guard DemoDataConfiguration.isEnabled else {
+            isDemoDataReady = true
+            return
+        }
+        guard !didAttemptDemoDataSeed else { return }
+        didAttemptDemoDataSeed = true
+        if DIContainer.shared.isRegistered(SeedDemoDataUseCase.self) {
+            try? await seedDemoData.execute()
+        }
+        isDemoDataReady = true
     }
 
     private static func configureTabBarAppearance() {

@@ -63,6 +63,7 @@ final class ExpensesViewModel: ViewModel {
 
         let monthYearFormatter = DateFormatter()
         monthYearFormatter.dateFormat = "MMMM yyyy"
+        monthYearFormatter.locale = AppLanguage.current.locale
 
         var order: [String] = []
         var buckets: [String: ExpenseGroup] = [:]

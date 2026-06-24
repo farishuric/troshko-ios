@@ -49,17 +49,17 @@ Architecture migration (Phases 0–4: Clean Architecture, SwiftData, spec + AI d
 - **Done when:** Home is the default tab, shows real saved/goal data, and feels designed (uses Phase 5 motion language).
 - **Depends on:** Phase 5 (money) + the income model introduced here.
 
-### Phase 8 — First free on-device AI 🟡 (CURRENT)
+### Phase 8 — First free on-device AI ✅
 **Goal:** the trend hook, no backend, $0 to serve.
 - ✅ Ship **one** of: **auto-categorise** a new expense · natural-language entry ("23 KM groceries yesterday") — via Apple Foundation Models behind a use-case seam. Built: Add Expense category suggestion from title/details/amount/date + existing categories, propose-then-confirm.
 - ✅ Surface a monthly **insight** card on Home (on-device summary): generated from deterministic Home summary numbers, with a localized unavailable fallback.
-- 🟡 Pending user build validation.
+- ✅ User accepted proceeding to the next phase on 2026-06-24.
 - **Done when:** a free AI feature works on-device and is genuinely useful; the use-case seam is proven for cloud later.
 - **Depends on:** Phase 7 (data to reason over).
 
-### Phase 9 — Accounts + payments ⬜
+### Phase 9 — Accounts + payments 🟡 (CURRENT)
 **Goal:** the premium gate — the prerequisite for everything paid/cloud.
-- **Sign in with Apple** · backend · account screen (**logout, delete account**) · **subscription** (StoreKit 2 / RevenueCat) · entitlement check.
+- 🟡 **Sign in with Apple** · backend seam · account screen (**logout, delete account**) · **subscription** (direct StoreKit 2) · entitlement check.
 - **Done when:** a user can create an account, subscribe, and the app gates premium features on entitlement.
 - **Why a hard gate:** payments and cloud are impossible without it; nothing in Phase 10 starts before this lands.
 

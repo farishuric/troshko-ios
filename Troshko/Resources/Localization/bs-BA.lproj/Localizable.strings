@@ -17,6 +17,7 @@
 "WORDING_CONFIRM" = "Potvrdi";
 "WORDING_RETRY" = "Pokušaj ponovo";
 "WORDING_DONE" = "Gotovo";
+"WORDING_CLOSE" = "Zatvori";
 
 // MARK: - Calendar
 "CALENDAR_TODAY" = "Danas";
@@ -106,7 +107,39 @@
 "SETTINGS.APPEARANCE.LIGHT" = "Svijetlo";
 "SETTINGS.APPEARANCE.DARK" = "Tamno";
 "SETTINGS.LANGUAGE.TITLE" = "Jezik";
+"SETTINGS.LANGUAGE.ENGLISH" = "Engleski";
+"SETTINGS.LANGUAGE.BOSNIAN" = "Bosanski";
+"SETTINGS.LANGUAGE.GERMAN" = "Njemački";
+"SETTINGS.LANGUAGE.FRENCH" = "Francuski";
+"SETTINGS.LANGUAGE.ITALIAN" = "Italijanski";
+"SETTINGS.LANGUAGE.SPANISH" = "Španski";
 "SETTINGS.VERSION.TITLE" = "Verzija";
+"SETTINGS.ACCOUNT.TITLE" = "Račun";
+"SETTINGS.ACCOUNT.SIGNED_OUT_MESSAGE" = "Prijavite se da otključate premium cloud funkcije kada stignu. Vaši podaci o potrošnji ostaju na ovom uređaju.";
+"SETTINGS.ACCOUNT.SIGNED_IN" = "Prijavljeni ste";
+"SETTINGS.ACCOUNT.EMAIL" = "Email";
+"SETTINGS.ACCOUNT.SIGN_OUT" = "Odjava";
+"SETTINGS.ACCOUNT.DELETE_TITLE" = "Izbrisati račun?";
+"SETTINGS.ACCOUNT.DELETE_MESSAGE" = "Ovo uklanja lokalnu sesiju računa. Vaši troškovi ostaju na ovom uređaju.";
+"SETTINGS.ACCOUNT.DELETE_ACTION" = "Izbriši račun";
+"SETTINGS.ACCOUNT.ERROR_SIGN_IN" = "Nije moguće završiti prijavu putem Applea.";
+"SETTINGS.ACCOUNT.ERROR_SIGN_OUT" = "Nije moguća odjava.";
+"SETTINGS.ACCOUNT.ERROR_DELETE" = "Nije moguće izbrisati račun.";
+"SETTINGS.SUBSCRIPTION.TITLE" = "Premium";
+"SETTINGS.SUBSCRIPTION.ACTIVE" = "Aktivno";
+"SETTINGS.SUBSCRIPTION.ACTIVE_UNTIL" = "Aktivno do %@";
+"SETTINGS.SUBSCRIPTION.INACTIVE" = "Neaktivno";
+"SETTINGS.SUBSCRIPTION.SUBSCRIBE" = "Pretplati se";
+"SETTINGS.SUBSCRIPTION.RESTORE" = "Vrati kupovine";
+"SETTINGS.SUBSCRIPTION.PRODUCT_UNAVAILABLE" = "Premium čeka podešavanje u App Store Connectu.";
+"SETTINGS.SUBSCRIPTION.ERROR_PRODUCT" = "Premium proizvod još nije dostupan.";
+"SETTINGS.SUBSCRIPTION.ERROR_PURCHASE" = "Nije moguće završiti kupovinu.";
+"SETTINGS.SUBSCRIPTION.ERROR_RESTORE" = "Nije moguće vratiti kupovine.";
+"SETTINGS.DEMO_DATA.TITLE" = "Demo podaci";
+"SETTINGS.DEMO_DATA.MESSAGE" = "Dodaje bogatu višemjesečnu historiju primjera s prihodima, troškovima, kategorijama i ciljem štednje. Postojeći unosi ostaju netaknuti.";
+"SETTINGS.DEMO_DATA.ACTION" = "Dodaj demo podatke";
+"SETTINGS.DEMO_DATA.SUCCESS" = "Demo podaci su spremni. Ponovno pokretanje neće duplirati ubačene zapise.";
+"SETTINGS.DEMO_DATA.ERROR" = "Nije moguće dodati demo podatke.";
 
 // MARK: - Home
 "HOME.TITLE" = "Početna";
